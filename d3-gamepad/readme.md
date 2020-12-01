@@ -16,7 +16,7 @@ Diablo-Like的PC遊戲主要大多以滑鼠作為指向工具，配合滑鼠左�
 
 以下是我用Python編寫的 搖桿映射鍵盤程式 d3-gamepad-下載點:
 
-[https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe.zip](https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe.zip)
+[https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-000a.zip](https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-000a.zip)
 
 下載並解壓縮會得到一個 dist 資料夾，裡面有兩個檔案:
 
