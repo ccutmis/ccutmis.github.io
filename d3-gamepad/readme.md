@@ -2,7 +2,7 @@
 
 -----
 
-### 更新日期: 2020-12-01 19:40:00 ver.0003a
+### 最後更新日期: 2020-12-02 20:05:00 ver.0005a
 
 -----
 
@@ -16,7 +16,7 @@ Diablo-Like的PC遊戲主要大多以滑鼠作為指向工具，配合滑鼠左�
 
 以下是我用Python編寫的 搖桿映射鍵盤程式 d3-gamepad-下載點:
 
-[https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0003a.zip](https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0003a.zip)
+[https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0005a.zip](https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0005a.zip)
 
 下載並解壓縮會得到一個 dist 資料夾，裡面有兩個檔案:
 
@@ -76,7 +76,7 @@ BTN_DICT={0:"BTN_A", 1:"BTN_B",2:"BTN_X", 3:"BTN_Y",4:"BTN_L",5:"BTN_R",6:"BTN_B
 # 系統需求:
 
 1. Windows7以上作業系統
-2. 目前只用usb介面的xbox相容搖桿測試(羅技)測試OK，沒有無線搖桿也沒經費購買故無法測試(如果有人要提供設備讓我測試的話可以私訊給我)。
+2. 目前只用usb介面的xbox相容搖桿測試(羅技)測試OK，沒有無線搖桿也沒經費購買故無法測試(如果有人要提供設備讓我測試的話可以私訊給我^^)。
 
 -----
 
@@ -89,6 +89,14 @@ BTN_DICT={0:"BTN_A", 1:"BTN_B",2:"BTN_X", 3:"BTN_Y",4:"BTN_L",5:"BTN_R",6:"BTN_B
 -----
 
 # 更新日誌:
+
+### 更新日期: 2020-12-02 20:05:00 ver.0005a
+修改內容:
+1. 為了判斷滑鼠按鍵狀態需用到win32api模組(已匯入使用)
+2. 滑鼠左右鍵按住效果
+3. Ltrigger跟Rtrigger按鍵讓它有作用
+4. 在 main_config.ini 裡加入了左小搖桿控制滑鼠移動後是否立刻按一下左鍵的設定
+5. 重寫左右小搖桿控制滑鼠移動的部份(還有小bug後續再作微調)
 
 ### 更新日期: 2020-12-01 19:40:00 ver.0003a
 修正了滑鼠右鍵無法復歸的問題，同時將左右小搖桿控制滑鼠移動的代碼作了一些優化。
