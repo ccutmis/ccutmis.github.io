@@ -1,4 +1,4 @@
-# 關於 Gamepad-Mapper 程式
+# 關於 D3-Gamepad-Mapping 程式
 
 -----
 
@@ -14,7 +14,7 @@ Diablo-Like的PC遊戲主要大多以滑鼠作為指向工具，配合滑鼠左�
 
 # 下載點:
 
-以下是我用Python編寫的 搖桿映射鍵盤程式 d3-gamepad-下載點:
+以下是我用Python編寫的 搖桿映射鍵盤程式 D3-Gamepad-Mapping 下載點:
 
 [https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0005a.zip](https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0005a.zip)
 
