@@ -37,8 +37,8 @@ KEY_CONFIG={
     "BTN_Y":"4",
     "BTN_L":"LM", #滑鼠左鍵
     "BTN_R":"RM", #滑鼠右鍵
-    "BTN_START":"Q", #喝水
-    "BTN_BACK":"T", #回村
+    "BTN_START":"q", #喝水
+    "BTN_BACK":"t", #回村
     "TRIG_L":"i", #左邊Trigger
     "TRIG_R":"s" #右邊Trigger
 }
