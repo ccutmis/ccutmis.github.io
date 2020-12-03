@@ -2,7 +2,7 @@
 
 -----
 
-### 最後更新日期: 2020-12-03 00:05:00 ver.0006a
+### 最後更新日期: 2020-12-03 09:00:00 ver.0007a
 
 -----
 
@@ -16,7 +16,7 @@ Diablo-Like的PC遊戲主要大多以滑鼠作為指向工具，配合滑鼠左�
 
 以下是我用Python編寫的 搖桿映射鍵盤程式 D3-Gamepad-Mapping 下載點:
 
-[https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0006a.zip](https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0006a.zip)
+[https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0007a.zip](https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0007a.zip)
 
 下載並解壓縮會得到一個 dist 資料夾，裡面有兩個檔案:
 
@@ -90,8 +90,14 @@ BTN_DICT={0:"BTN_A", 1:"BTN_B",2:"BTN_X", 3:"BTN_Y",4:"BTN_L",5:"BTN_R",6:"BTN_B
 
 # 更新日誌:
 
-### 最後更新日期: 2020-12-03 00:05:00 ver.0006a
-修改內容: 用 pynput 模組改善按鍵效果，目前按住abxy左右鍵可持續施放技能，不會再有卡卡的現象了
+### 更新日期: 2020-12-03 09:00:00 ver.0007a:
+修改內容:
+* 重寫左右小搖桿的運作規則，#左右小搖桿同一時間只能有一個有作用(避免互相干擾)，右小搖桿沒動作的話左邊搖桿才會work
+* TRIG_L跟TRIG_R的按鍵修復
+
+### 更新日期: 2020-12-03 00:05:00 ver.0006a
+修改內容:
+* 用 pynput 模組改善按鍵效果，目前按住abxy左右鍵可持續施放技能，不會再有卡卡的現象了
 
 ### 更新日期: 2020-12-02 20:05:00 ver.0005a
 修改內容:
