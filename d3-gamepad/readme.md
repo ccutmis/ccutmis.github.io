@@ -2,7 +2,7 @@
 
 -----
 
-### 最後更新日期: 2020-12-03 09:00:00 ver.0007a
+### 更新日期: 2020-12-04 18:30:00 ver.0008a
 
 -----
 
@@ -16,7 +16,7 @@ Diablo-Like的PC遊戲主要大多以滑鼠作為指向工具，配合滑鼠左�
 
 以下是我用Python編寫的 搖桿映射鍵盤程式 D3-Gamepad-Mapping 下載點:
 
-[https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0007a.zip](https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0007a.zip)
+[https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0008a.zip](https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0008a.zip)
 
 下載並解壓縮會得到一個 dist 資料夾，裡面有兩個檔案:
 
@@ -29,6 +29,10 @@ Diablo-Like的PC遊戲主要大多以滑鼠作為指向工具，配合滑鼠左�
 
 ```
 #這是一行註解
+
+#設定要啟用搖桿對應的程式標題文字，防止在切換不同視窗程式時可能造成的誤操作
+ACTIVE_WIN_TITLE="暗黑破壞神III"
+
 #key_config字典用來定義按鍵值
 KEY_CONFIG={
     "BTN_A":"1",
@@ -39,8 +43,8 @@ KEY_CONFIG={
     "BTN_R":"RM", #滑鼠右鍵
     "BTN_START":"q", #喝水
     "BTN_BACK":"t", #回村
-    "TRIG_L":"i", #左邊Trigger
-    "TRIG_R":"s" #右邊Trigger
+    "TRIG_L":"esc", #左邊Trigger
+    "TRIG_R":"tab" #右邊Trigger
 }
 
 #設定左小搖桿在控制滑鼠移動後是否按一下滑鼠左鍵
@@ -55,6 +59,7 @@ DELAY_SECOND=0.1
 
 #勿動BTN_DICT
 BTN_DICT={0:"BTN_A", 1:"BTN_B",2:"BTN_X", 3:"BTN_Y",4:"BTN_L",5:"BTN_R",6:"BTN_BACK",7:"BTN_START",8:"TRIG_L",9:"TRIG_R"}
+
 ```
 
 ![controller-mapping.png](https://ccutmis.github.io/d3-gamepad/controller-mapping.png)
@@ -89,6 +94,11 @@ BTN_DICT={0:"BTN_A", 1:"BTN_B",2:"BTN_X", 3:"BTN_Y",4:"BTN_L",5:"BTN_R",6:"BTN_B
 -----
 
 # 更新日誌:
+
+### 更新日期: 2020-12-04 18:30:00 ver.0008a
+修改內容:
+* 讓左小搖桿操作上更接近家機版的十字搖桿 例如按左人物就會轉向左並移動一小段距離
+* 在設定檔裡加入一個變數 ACTIVE_WIN_TITLE="暗黑破壞神III"，用來限制程式只能在視窗標題名符合的時候才會有作用
 
 ### 更新日期: 2020-12-03 09:00:00 ver.0007a:
 修改內容:
