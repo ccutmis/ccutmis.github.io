@@ -2,7 +2,7 @@
 
 # D3-Gamepad-Mapper Introduction
 
-### 更新日期: 2020-12-10 00:30:00 ver.0008b
+### 更新日期: 2020-12-12 17:00:00 ver.0001c
 
 -----
 
@@ -30,7 +30,7 @@
 
 D3-Gamepad-Mapper下載點:
 
-[https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0008b.zip](https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0008b.zip)
+[https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0001c.zip](https://ccutmis.github.io/d3-gamepad/d3-gamepad-exe-0001c.zip)
 
 下載並解壓縮會得到一個 dist 資料夾，裡面有四個檔案:
 
@@ -190,6 +190,10 @@ LEFT_CONTROLLER_CLICK_VAL = "LM"
 ## 6. 更新日誌 | Log
 
 -----
+
+### 更新日期: 2020-12-12 17:00:00 ver.0001c
+修改內容:
+* 重寫為支援XInput手把 設定檔重新整理 目前測試過支援XBOX360 XBOXONE 羅技F310手把 基本上只要是在windows裡可用XInput驅動的手把應該都能正常運作了 但手邊沒有其它手把能測試
 
 ### 更新日期: 2020-12-10 00:30:00 ver.0008b
 修改內容:
