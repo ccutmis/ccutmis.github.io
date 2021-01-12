@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-tw">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -11,28 +11,49 @@
     <title>如何讓Notepad++直接執行Python或Go的程式</title>
   <style>
       *,html{background:#333;}
+      hr {margin: 1rem;border: 0;border-top: 1px solid rgba(255, 255, 255, 0.5);}
   </style>
   </head>
   <body>
-    <h1 class="text-info fs-1 mb-0 p-2">如何在Notepad++中直接執行Python或Go的程式</h1>
-	<h3 class="text-info fs-2 mb-0 p-2">step1. 點主選單"外掛"→"外掛模組管理"</h3>
-    <div class="mb-0 p-2"><img src="images/nppExec-01.png" alt=""/></div>
-    <h3 class="text-info fs-2 mb-0 p-2">step2. 搜尋 "NppExec" 然後將它勾選 再按 [安裝] </h3>
-    <div class="mb-0 p-2"><img src="images/nppExec-02.png" alt=""/></div>
-    <h3 class="text-info fs-2 mb-0 p-2">step3. 按 [是] </h3>
-    <div class="mb-0 p-2"><img src="images/nppExec-03.png" alt=""/></div>
-    <h3 class="text-info fs-2 mb-0 p-2">step4. 重啟Notepad++ 按 [F6] 開啟 Execute... 視窗 在裡面輸入 python "$(FULL_CURRENT_PATH) 然後按 [Save...] </h3>
-    <div class="p-2"><img src="images/nppExec-04.png" alt=""/></div>
-    <h3 class="text-info fs-2 mb-0 p-2">step5. 在Script name:裡輸入 Python 然後按 [Save] </h3>
-    <div class="mb-0 p-2"><img src="images/nppExec-05.png" alt=""/></div>
-    <h3 class="text-info fs-2 mb-0 p-2">step6. 在Notepad++裡面編輯好python文件存檔 按 [F6] 確定Script name是 Python 然後點 [ok] 就會在編輯區下方看到cmd執行結果</h3>
-    <div class="mb-0 p-2"><img src="images/nppExec-06.png" alt=""/></div>
-    <h3 class="text-info fs-2 mb-0 p-2">step7. 用同樣的方式可以設定Go語言的執行如下圖</h3>
-    <div class="mb-0 p-2"><img src="images/nppExec-07.png" alt=""/></div>
-    <h3 class="text-info fs-2 mb-0 p-2">step8. 在Notepad++裡面編輯好go文件存檔 按 [F6] 確定Script name是 Go 然後點 [ok] 就會在編輯區下方看到cmd執行結果</h3>
-    <div class="mb-0 p-2"><img src="images/nppExec-08.png" alt=""/></div>
-    <!-- Optional JavaScript; choose one of the two! -->
+    <div class="container-fluid">
+        <h1 class="text-info fs-1 mb-0 p-2">如何在Notepad++中直接執行Python或Go的程式</h1>
+        <p class="text-white">在這之前請先確定你有成功安裝好Python及Go</p>
+        <p class="text-white">Python安裝路徑建議在C:\Python加版本號( 如:C:\Python37 )</p>
+        <p class="text-white">Go的路徑按照安裝程式預設的就好( 會安裝在 C:\Go )</p>
+        <p class="text-white">當然還有這篇文章的主角 Notepad++</p>
+        <hr/>
+        <h3 class="text-white fs-2 mb-0 p-2">step1. 點主選單"<span class="text-warning">外掛</span>"→"<span class="text-warning">外掛模組管理</span>"</h3>
+        <div class="mb-0 p-2 text-center""><img src="images/nppExec-01.png" alt=""/></div>
+        <hr/>
+        <h3 class="text-white fs-2 mb-0 p-2">step2. 搜尋 "<span class="text-warning">NppExec</span>" 然後將它<span class="text-warning">勾選</span> 再按 [<span class="text-warning">安裝</span>] </h3>
+        <div class="mb-0 p-2 text-center"><img src="images/nppExec-02.png" alt=""/></div>
+        <hr/>
+        <h3 class="text-white fs-2 mb-0 p-2">step3. 按 [<span class="text-warning">是</span>] </h3>
+        <div class="mb-0 p-2 text-center"><img src="images/nppExec-03.png" alt=""/></div>
+        <hr/>
+        <h3 class="text-white fs-2 mb-0 p-2">step4. 重啟Notepad++ 按 [<span class="text-warning">F6</span>] 開啟 Execute... 視窗 在裡面輸入 <span class="text-warning">python "$(FULL_CURRENT_PATH)"</span> 然後按 [<span class="text-warning">Save...</span>] </h3>
+        <div class="mb-0 p-2 text-center"><img src="images/nppExec-04.png" alt=""/></div>
+        <hr/>
+        <h3 class="text-white fs-2 mb-0 p-2">step5. 在Script name:裡輸入 <span class="text-warning">Python</span> 然後按 [<span class="text-warning">Save</span>] </h3>
+        <div class="mb-0 p-2 text-center"><img src="images/nppExec-05.png" alt=""/></div>
+        <hr/>
+        <h3 class="text-white fs-2 mb-0 p-2">step6. 在Notepad++裡面<span class="text-warning">編輯好python文件存檔</span> 按 [<span class="text-warning">F6</span>] 確定Script name是 <span class="text-warning">Python</span> 然後點 [<span class="text-warning">ok</span>] 就會在編輯區下方看到cmd執行結果</h3>
+        <div class="mb-0 p-2 text-center"><img src="images/nppExec-06.png" alt=""/></div>
+        <hr/>
+        <h3 class="text-white fs-2 mb-0 p-2">step7. 用同樣的方式可以設定Go語言的執行如下圖</h3>
+        <div class="mb-0 p-2 text-center"><img src="images/nppExec-07.png" alt=""/></div>
+        <hr/>
+        <h3 class="text-white fs-2 mb-0 p-2">step8. 在Notepad++裡面編輯好go文件存檔 按 [F6] 確定Script name是 Go 然後點 [ok] 就會在編輯區下方看到cmd執行結果</h3>
+        <div class="mb-0 p-2 text-center"><img src="images/nppExec-08.png" alt=""/></div>
+        <hr/>
+        <div class="p-2 pb-4 text-center">
+            <button type="button" class="btn btn-primary" onclick="window.scrollTo(0,0);">回到上方</button>
+            <button type="button" class="btn btn-info">回上一頁</button>
+        </div>
+    </div>
 
+
+    <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
