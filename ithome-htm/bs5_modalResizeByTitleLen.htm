@@ -102,7 +102,6 @@ for (i = 0; i < element.length; i++) {
         let tmp_index=this.getAttribute('data-array-index');
         const word_width=23;
         let tmp_width=DATA_DICT[tmp_index][0].length*word_width;
-        
         document.querySelector("#exampleModalLabel").innerHTML=DATA_DICT[tmp_index][0];
         document.querySelector(".modal-body").innerHTML=DATA_DICT[tmp_index][1];
         console.log(document.querySelector(".modal-body").offsetHeight);
