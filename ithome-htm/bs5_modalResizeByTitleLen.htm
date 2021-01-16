@@ -100,12 +100,13 @@ for (i = 0; i < element.length; i++) {
         let bodyHeight=(window.innerHeight)?window.innerHeight:document.body.clientHeight;
         console.log(bodyWidth,bodyHeight);
         let tmp_index=this.getAttribute('data-array-index');
-        let tmp_len=DATA_DICT[tmp_index][0].length;
+        const word_width=23;
+        let tmp_width=DATA_DICT[tmp_index][0].length*word_width;
         
         document.querySelector("#exampleModalLabel").innerHTML=DATA_DICT[tmp_index][0];
         document.querySelector(".modal-body").innerHTML=DATA_DICT[tmp_index][1];
-        
-        let tmp_width=(tmp_len*23<500?500:tmp_len*23);
+        console.log(document.querySelector(".modal-body").offsetHeight);
+        tmp_width=(tmp_width<500)?500:tmp_width>bodyWidth?bodyWidth:tmp_width;
         document.querySelector(".modal-dialog").style.marginLeft=(bodyWidth-tmp_width)/2+"px";
         document.querySelector(".modal-content").style.width=tmp_width+"px";
         let myModal = new bootstrap.Modal(document.querySelector("#exampleModal"), {});
