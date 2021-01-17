@@ -1,0 +1,10 @@
+__pycache__/*
+build/*
+dist/*
+foxModules/*.pyc
+foxModules/__pycache__/*
+Lib/*
+Scripts/*
+*.spec
+*.pyc
+.DS_Store
