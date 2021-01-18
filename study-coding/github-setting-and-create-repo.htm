@@ -26,26 +26,11 @@
 	<script>
 		const WEB_TITLE="[ 教學 ] 在 Github 創建新帳號並新增 Reposite(儲存庫)";
 		const MD_URL="github-setting-and-create-repo.md";
+        const LAST_URL="git-index.htm";
 	</script>
   </head>
   <body class="text-secondary">
   <div id="md_content"></div>
-<script>
-	$("title").text(WEB_TITLE);
-	$.ajax({
-            url : MD_URL,
-            dataType: "text",
-            success : function (data) {
-                //$(".text").html(data);
-				//console.log(marked(data));
-				$("#md_content").html(marked(data));
-                $("img").addClass("lazy img-fluid d-inline-block m-2").lazyload();
-                $("#md_content h1").addClass("text-info mb-0 p-2 text-center");
-                $("#md_content h3").addClass("text-warning mb-0 p-2");
-                $("#md_content p,#md_content ol li,#md_content ol li").addClass("text-white p-2");
-                
-            }
-        });
-</script>
+  <script src="js/page-ext.js"></script>
   </body>
 </html>
