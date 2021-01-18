@@ -30,25 +30,6 @@
   </head>
   <body class="text-secondary">
   <div id="md_content"></div>
-<script>
-	$("title").text(WEB_TITLE);
-	$.ajax({
-            url : MD_URL,
-            dataType: "text",
-            success : function (data) {
-                //$(".text").html(data);
-				//console.log(marked(data));
-				$("#md_content").html(marked(data));
-                //$("#md_content").append("<div class='pb-5 text-center'><button type='button' class='btn btn-secondary' onclick='window.scrollTo(0,0);'>回到上方</button> <button type='button' class='btn btn-primary' onclick='window.history.back();'>回上一頁</button></div>");
-                //$("img").addClass("lazy img-fluid d-block m-2 mx-auto").lazyload();
-                $("#md_content h1").addClass("text-info mb-0 p-2 text-center");
-                //.append("<button type='button' class='btn btn-primary' onclick='window.history.back();'>回上一頁</button>");
-                $("#md_content h3").addClass("text-warning mb-0 p-2");
-                $("#md_content h3 a").addClass("btn btn-primary");
-                $("#md_content p,#md_content ol li,#md_content ol li").addClass("text-info p-3");
-                
-            }
-        });
-</script>
+  <script src="js/index-ext.js"></script>
   </body>
 </html>

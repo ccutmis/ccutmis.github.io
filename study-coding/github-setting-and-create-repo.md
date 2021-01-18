@@ -3,6 +3,7 @@
 -----
 
 ### 教程大綱 :
+
 1. 在 Github 創建新帳號
 2. 在 Github 設定 Repo 的主分支名稱
 3. 在 Github 新增一個 Repo 預定用來作個人網頁空間
@@ -10,28 +11,18 @@
 -----
 
 ### 在 Github 創建新帳號 :
+
 1. 開啟瀏覽器 在網址列輸入 https://github.com 進到 github網站 然後按右上角的 "Sign up"
-
 ![](images/github-sign/github-sign-001.png)
-
 2. 輸入自訂的帳號密碼、可以收信的email信箱、完成裡面的驗證後按 "Create Account" (創建帳號)
-
 ![](images/github-sign/github-sign-002-003.png)
-
 ![](images/github-sign/github-sign-004.png)
-
 3. 按下 Create Account 後，頁面會轉到 Welcome Github，點選頁面的選項(這邊可依自己興趣點選) 然後按最下方的 "Complete setup" (完成設定)
-
 ![](images/github-sign/github-sign-006-007-008.png)
-
 4. 網頁訊息提示我們該去驗證email，接著開啟申請時填寫的email信箱，會看到裡面有一封github寄來的信，將它開啟點裡面的 "Verify email address" 就完成email驗證程序，現在你已經有一個github帳號可以使用了!
-
 ![](images/github-sign/github-sign-009.png)
-
 ![](images/github-sign/github-sign-010.png)
-
 ![](images/github-sign/github-sign-011.png)
-
 ![](images/github-sign/github-sign-012.png)
 
 -----
