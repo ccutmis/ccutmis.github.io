@@ -20,13 +20,9 @@
 
 -----
 
-### 5. 編輯 Repo 儲存庫內的檔案 以首頁 index&#046;htm 為例 [Go](git-edit-html-win10.htm "編輯本機電腦(Repo)儲存庫內的檔案(以windows10為例)")
+### 5. 編輯 Repo 儲存庫內的檔案 以首頁 index&#046;htm 為例 [Go](git-edit-html-win10.htm "編輯並推送(git push)本機電腦(Repo)儲存庫內的檔案到github(以windows10為例)")
 > 說明：編輯 本機電腦(Repo)儲存庫內的檔案 以首頁 index&#046;htm 為例
-
------
-
-### 6. 執行 git push 命令推送俢改內容到 github [Go](git-push-win10.htm "執行 git push 推送俢改內容到 github (以windows10為例)")
-> 說明：用 Notepad++ 編輯 批次檔(.bat) 並直接執行 git push 命令推送俢改內容到 github
+> 再用 Notepad++ 編輯 批次檔(.bat) 並直接執行 git push 命令推送俢改內容到 github
 
 -----
 

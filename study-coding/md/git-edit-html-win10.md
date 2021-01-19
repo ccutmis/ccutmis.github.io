@@ -1,4 +1,4 @@
-# 編輯 Repo 儲存庫內的檔案 以首頁 index&#046;htm 為例
+# 編輯並推送(git push)本機電腦(Repo)儲存庫內的檔案到github
 
 -----
 
