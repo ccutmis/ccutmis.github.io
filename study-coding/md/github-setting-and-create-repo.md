@@ -34,7 +34,7 @@
 2. 點一下左側的Reposities 再將 Repository defalut branch 欄位內容 main 更改為 master 完成按下 Update
 ![](images/github-setting/github-setting-002.png)
 ![](images/github-setting/github-setting-003.png)
-
+![](images/github-setting/github-setting-004.png)
 -----
 
 ### 在 Github 新增一個 Repo 預定用來作個人網頁空間 :

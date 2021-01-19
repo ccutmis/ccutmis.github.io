@@ -3,9 +3,17 @@ $.ajax({
             url : MD_URL,
             dataType: "text",
             success : function (data) {
-                $("#md_content").html(marked(data));
-                $("#md_content").append("<div class='pb-5 text-center'><button type='button' class='btn btn-secondary' onclick='window.scrollTo(0,0);'>回到上方</button> <button type='button' class='btn btn-primary' onclick='window.location.href=\""+LAST_URL+"\";'>回上一層</button></div>");
-                $("img").addClass("lazy img-fluid d-block m-2 mx-auto").lazyload();
+                let md_content=marked(data);
+                md_content=md_content.replaceAll('src', 'data-original');
+                $("#md_content").append(md_content).append("<div class='pb-5 text-center'><button type='button' class='btn btn-secondary' onclick='window.scrollTo(0,0);'>回到上方</button> <button type='button' class='btn btn-primary' onclick='window.location.href=\""+LAST_URL+"\";'>回上一層</button></div>");
+                if(IMG_WH.length>0){
+                    let i=0;
+                    $( "img" ).each(function() {
+                        $( this ).attr("width",IMG_WH[i][0]).attr("height",IMG_WH[i][1]);
+                        i++;
+                    });
+                    $("img").addClass("lazy img-fluid d-block m-2 mx-auto").lazyload();
+                }
                 $("#md_content h1").addClass("text-info mb-0 p-2 text-center").append("<button type='button' class='btn btn-primary' onclick='window.location.href=\""+LAST_URL+"\";'>回上一層</button>");
                 $("#md_content h3").addClass("text-warning mb-0 p-2");
                 $("#md_content h3 a").addClass("btn btn-primary");
