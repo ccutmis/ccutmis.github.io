@@ -22,7 +22,7 @@
 ![](images/git-install/git-install-006.png)
 4. 按 [Next]
 ![](images/git-install/git-install-007.png)
-5. 將選單項目設為 Use Notepad++ as Git's default editor 再按 [Next]
+5. 按 [Next]
 ![](images/git-install/git-install-008.png)
 6. 點選 Override the default branch name for new repositories 並將文字框內容改成 master 然後再按 [Next]
 ![](images/git-install/git-install-009.png)
