@@ -11,5 +11,7 @@ $.ajax({
                 $("#md_content h3").addClass("text-warning mb-0 p-2");
                 $("#md_content p,#md_content ol li,#md_content ol li").addClass("text-info p-3");
                 $("blockquote p").removeClass("text-info").addClass("bg-dark text-white-50 mx-3 rounded");
+                $("pre").addClass("bg-dark p-2 rounded");
+                $("pre code").addClass("bg-dark text-white-50");
             }
 });

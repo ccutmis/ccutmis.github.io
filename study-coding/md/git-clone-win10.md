@@ -11,6 +11,13 @@
 4. 點[↓ Code]按鈕，然後複制裡面的字串
 ![](images/git-clone/git-clone-004.png)
 5. 開啟 Notepad++ 依照下圖編輯 'test.bat' 第四行的內容貼上剛才在 github 網站複制的字串 編輯完成記得按[ctrl]+[s]存檔
+```
+cd /
+mkdir github
+cd github
+git clone https://github.com/你的github帳號/你的github帳號.github.io.git
+dir /w
+```
 ![](images/git-clone/git-clone-005.png)
 6. 按 [F6] 開啟執行視窗 確定目前選項是 [CMD] 按下 OK 執行
 ![](images/git-clone/git-clone-006.png)
