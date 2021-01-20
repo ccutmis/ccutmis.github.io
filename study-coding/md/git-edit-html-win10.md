@@ -24,6 +24,7 @@ git push -u origin master
 ![](images/git-edit-htm/git-edit-htm-005.png)
 6. [ Sign in with your browser ]點了之後會跳到這個網頁，直接按下綠色按鈕 [ Authorize GitCredentialManage ] 然後等他跑一下 或是直接把這個網頁縮到最小不用理它了
 ![](images/git-edit-htm/git-edit-htm-006.png)
+![](images/git-edit-htm/git-edit-htm-006-success.png)
 7. 回到 Notepad++ 重新按一下 [F6] 再執行一次CMD 這時看到 Console 最底下寫'Everything up-to-date' 這表示我們剛才的修改已經推送到github的repo了
 ![](images/git-edit-htm/git-edit-htm-007.png)
 8. 開啟 github 進到 你的 repo (儲存庫) 會看到剛才我們在本機修改的內容已經在 github 更新了
