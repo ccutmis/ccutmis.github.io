@@ -235,15 +235,20 @@ const (
     c   = unsafe.Sizeof(b)
 )
 ```
-* 如果常量类型⾜足以存储初始化值，那么不会引发溢出错误。
+
+如果常量类型⾜足以存储初始化值，那么不会引发溢出错误。
+
 ```
 const (
     a   byte = 100       // int to byte
     b   int  = 1e20      // float64 to int, overflows
 )
 ```
-* 枚举
-* 关键字 iota 定义常量组中从 0 开始按⾏行计数的⾃自增枚举值。
+
+枚举
+
+关键字 iota 定义常量组中从 0 开始按⾏行计数的⾃自增枚举值。
+
 ```
 const (
     Sunday = iota     // 0
@@ -254,7 +259,6 @@ const (
     Friday            // 5
     Saturday          // 6
 )
-
 const (
     _         = iota                  // iota = 0
     KB  int64 = 1 << (10 * iota)      // iota = 1
@@ -263,7 +267,9 @@ const (
     TB
 )
 ```
-* 在同⼀一常量组中，可以提供多个 iota，它们各⾃自增⻓长。
+
+* 在同⼀一常量组中，可以提供多个 iota，它们各⾃自增⻓AAA。
+
 ```
 const (
     A, B = iota, iota << 10   // 0, 0 << 10
