@@ -11,7 +11,7 @@ $.ajax({
         if(LAST_URL!=''){$("#md_content h1").append("<button type='button' class='btn btn-primary' onclick='window.location.href=\""+LAST_URL+"\";'>回上一層</button>");}
         $("#md_content h2").addClass("text-warning mb-0 p-2");
         $("#md_content h3").addClass("text-warning mb-0 p-2");
-        $("#md_content a").addClass("text-reset btn btn-dark");
+        $("#md_content a").addClass("text-reset btn btn-danger");
         $("#md_content table").addClass("w-75 mx-auto text-white-50");
         $("#md_content table tr td").addClass("p-2 border text-info");
         $("#md_content p,#md_content ol li,#md_content ol li").addClass("text-info p-3");
