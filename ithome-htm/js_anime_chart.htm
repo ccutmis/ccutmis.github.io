@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
+<style>
+*{margin:0;padding:0;}
+body{background:#eee;}
+.animals{
+	height:100px;
+	display: -webkit-flex;
+	-webkit-align-items: center; 
+	display: flex;
+	align-items: center; 
+	margin:auto;
+}
+#animal0,#animal1,#animal2{	
+	text-align:center;
+	-webkit-flex: 1;
+	flex: 1;
+	color:#333;font-family:Arial;
+}
+.animalColor span{display:inline-block;width:8px;height:8px;}
+.animalColor:before{
+	content:'[ ';
+}
+.animalColor:after{
+	content:' ]';
+}
+.strokeLineJoin{stroke-linejoin: round;}
+</style>
+</head>
+<body>
+<div class="animals">
+	<div id="animal0">
+		<h1 class="animalName"></h1>
+		<p class="animalColor"></p>
+	</div>
+	<div id="animal1">
+		<h1 class="animalName"></h1>
+		<p class="animalColor"></p>
+	</div>
+	<div id="animal2">
+		<h1 class="animalName"></h1>
+		<p class="animalColor"></p>
+	</div>
+</div>
+<div class="line-drawing-demo"></div>
+<script>
+let animals=['Duck','Rabbit','Panda'];
+let color_arr=['#FF0000','#FF9600','#FFE500','#3AFF00','#00ABFF','#0054FF','#0028AB','#D000FF','#FF00FD','#FB90EE'];
+let color_meaning_arr=['AAA','BBB','CCC','DDD','EEE','FFF','GGG','HHH','III','JJJ'];
+let relationship=[
+[1,1,0],
+[1,0,1],
+[1,1,0],
+[1,1,1],
+[1,1,1],
+[1,0,1],
+[1,1,0],
+[1,1,1],
+[1,0,0],
+[1,0,1]
+];
+console.log(relationship);
+
+let animalColorStr=['','',''];
+let svgStr='';
+for(i=0;i<relationship.length;i++){
+	svgStr+=
+	`<svg viewBox="0 0 500 200" style="position:absolute;left:0px;top:100px;">
+		<g fill="none" fill-rule="evenodd" stroke="${color_arr[i]}" stroke-width="${(color_arr.length*4)-(i*4)}" class="lines${i} strokeLineJoin">`;
+	if(relationship[i][0]==1){
+		svgStr+=`<path d="
+M83 0 
+L83 75 
+L166 75 
+L166 150
+L250 150 
+L250 200
+" />`;
+		animalColorStr[0]+=`<span style="background-color:${color_arr[i]};"></span>`;
+	}
+	if(relationship[i][1]==1){
+		svgStr+=`<path d="
+M250 0 
+L250 75 
+L166 75 
+L166 150 
+L250 150 
+L250 200
+" />`;
+		animalColorStr[1]+=`<span style="background-color:${color_arr[i]};"></span>`;
+	}
+	if(relationship[i][2]==1){
+		svgStr+=`<path d="
+M417 0 
+L417 150
+L250 150 
+L250 200
+" />`;
+		animalColorStr[2]+=`<span style="background-color:${color_arr[i]};"></span>`;
+	}
+	svgStr+=`</g></svg>`;
+}
+
+for(i=0;i<animals.length;i++){
+	document.querySelector('#animal'+i+' .animalName').innerHTML=animals[i];
+	document.querySelector('#animal'+i+' .animalColor').innerHTML=animalColorStr[i];
+}
+
+//console.log(svgStr);
+document.querySelector('.line-drawing-demo').innerHTML=svgStr;
+
+for(ii=0;ii<relationship.length;ii++){
+	anime({
+	  targets: '.line-drawing-demo .lines'+(ii)+' path',
+	  strokeDashoffset: [anime.setDashoffset, 0],
+	  easing: 'easeInOutSine',
+	  duration: 1500,
+	  delay: ii*600,
+	  direction: 'alternate',
+	  loop: false
+	});
+}
+</script>
+</body>
+</html>

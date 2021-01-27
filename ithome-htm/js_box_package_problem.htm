@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+<title>裝箱收納空間的程式DEMO</title>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Noto+Sans+HK&display=swap" rel="stylesheet">
+<script src="../JS_20190919/anime.min.js"></script>
+<meta charset="utf-8"/>
+<style>
+*{
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body,button,pre{background:#eee;font-family:'Nanum Gothic Coding','ZCOOL XiaoWei';line-height:2em;}
+
+h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+p{padding:1rem;}
+button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+.ML5px{margin-left:5px;}.ML20px{margin-left:20px;}div{width:80vw;margin:auto;padding:2em;font-size:1.2em;}#boxSize{background:#000;color:#ddd;}#items{background:#333;color:#eee;}#results{border-radius:0px 0px 30px 30px;background:#000;color:#efefef;}
+#demo_container{width:100%;}
+#boxSize,#items,#results{opacity:0;}
+.itemsTxt,.packBtn{font-size:1.5rem;font-family:'Nanum Gothic Coding','ZCOOL XiaoWei';vertical-align:middle;padding:0.1rem;}
+</style>
+
+</head>
+<body>
+<h1>裝箱收納空間的程式DEMO <button onclick="switchContentMode('demo_container')">切換HTML</button></h1>
+<div id="demo_container">
+<!-- 內容開始 -->
+
+<div id="boxSize"></div>
+<div id="items" >
+<span style="display:inline-block;width:100%;">items:</span>
+<input type="text" name="items" class="itemsTxt" value="7,7,3,3,3,3,3,5,5,5,5"  style="display:inline-block;width:80%;padding:0.8rem;" />
+<button class="packBtn" onclick="boxPacking()" >開始打包</button>
+</div>
+<div id="results"></div>
+<script>
+class BoxObject {
+  constructor(vol) {
+    this.vol = vol; /*最大容量 */
+	this.contain=[]; /*裝載物*/
+  }
+  /* getter 取得目前剩餘容量 返回0代表箱子已滿 */
+  calcArea() {
+	return this.vol-this.contain.reduce((a, b) => (a) + (b), 0);
+  }
+  /* setter 把box放進contain[]中 */
+  doPushItem(box){
+	this.contain.push(box);
+	return this.contain;
+  }
+  showContent(){
+	console.log('Box Volume: '+this.vol+'\nContain: '+this.contain);
+	return '使用箱子格數: '+setItemNumColor(this.vol)
+			+'<span class="ML20px">組合:</span> [ '
+			+setItemNumColor(this.contain)+' ] <span class="ML20px">剩餘:</span> '
+			+setItemNumColor(this.calcArea())+'<br/>';
+  }
+}
+
+function setItemNumColor(str){
+	let outStr='';
+	const color_dict={
+		'8':'#F0FF4A','10':'#FFAC4A','12':'#F06623',
+		'3':'#9FFC5B','5':'#5BFCE0','7':'#EF5BFC'
+	};
+	const str_arr=str.toString().split(',');
+	str_arr.forEach(function(el) {
+		if(color_dict[el]!=undefined){
+			outStr+=`<span class=\"ML5px\" style=\"color:${color_dict[el]};\">${el}</span>`;
+		}else{
+			outStr+=`<span class=\"ML5px\" style=\"color:#ccc;\">${el}</span>`;
+		}
+	});
+	return outStr;
+}
+
+const boxSize=[8,10,12];
+console.log(boxSize);
+
+function boxPacking(){
+	const itemsTxt=document.querySelector('.itemsTxt').value;
+	console.log(itemsTxt);
+	let items=itemsTxt.split(',');
+	//用字串切割的陣容元素為字元，需轉為整數方便後續運算
+	items=items.map(function (x) { return parseInt(x, 10); });
+	let itemsTotal=items.reduce((a, b) => (a) + (b), 0);
+	console.log(itemsTotal);
+	items.sort();
+	items.reverse();
+
+	console.log('items:'+items+'\n--------------');
+	let packages=[];
+	let usefulArr=[];
+	do {
+		if(packages.length==0){
+			let currItem=items.shift();
+			if(currItem!=7&&currItem!=5&&currItem!=3){
+				/*物品不為7,5,3則丟入無用陣列 usefulArr 並跳出進行下一輪*/
+				itemsTotal-=currItem;
+				usefulArr.push(currItem);continue;
+			}
+			if(currItem==7){
+				if(checkNumInArray(items,5)){packages.push(new BoxObject(12));
+				}else if(checkNumInArray(items,3)){packages.push(new BoxObject(10));
+				}else{packages.push(new BoxObject(8));}
+			}else if(currItem==5){
+				if(checkNumInArray(items,3)){packages.push(new BoxObject(8));
+				}else if(checkNumInArray(items,5)){packages.push(new BoxObject(10));
+				}else{packages.push(new BoxObject(8));}
+			}else{
+				const tmpTotal=items.reduce((a, b) => (a) + (b), 0)+currItem;
+				if(currItem>11){packages.push(new BoxObject(12));}
+				else if(currItem==9){packages.push(new BoxObject(10));}
+				else{packages.push(new BoxObject(8));}
+			}
+			packages[packages.length-1].doPushItem(currItem);
+		}else{
+			let isPushed=false;
+			let currItem=items.shift();
+			if(currItem!=7&&currItem!=5&&currItem!=3){
+				/*物品不為7,5,3則丟入無用陣列 usefulArr 並跳出進行下一輪*/
+				itemsTotal-=currItem;
+				usefulArr.push(currItem);continue;
+			}
+			const packageFlag=checkPackSpace(packages,currItem);
+			if(packageFlag!=-1){
+				packages[packageFlag].doPushItem(currItem);
+				isPushed=true;
+			}
+			
+			if(isPushed==false){
+			
+				if(currItem==7){
+					if(checkNumInArray(items,5)){packages.push(new BoxObject(12));
+					}else if(checkNumInArray(items,3)){packages.push(new BoxObject(10));
+					}else{packages.push(new BoxObject(8));}
+				}else if(currItem==5){
+					if(checkNumInArray(items,3)){packages.push(new BoxObject(8));
+					}else if(checkNumInArray(items,5)){packages.push(new BoxObject(10));
+					}else{packages.push(new BoxObject(8));}
+				}else{
+					const tmpTotal=items.reduce((a, b) => (a) + (b), 0)+currItem;
+					console.log('333333 tmpTotal:'+tmpTotal);
+					if(tmpTotal>11){packages.push(new BoxObject(12));}
+					else if(tmpTotal==9){packages.push(new BoxObject(10));}
+					else{packages.push(new BoxObject(8));}
+				}
+				packages[packages.length-1].doPushItem(currItem);
+			}
+		}
+	}while (items.length>0);
+
+	/*將資訊顯示在console*/
+	let packagesStr='';
+	let boxSum=0;
+	packages.forEach(function(el) {
+	  packagesStr+=el.showContent();
+	  boxSum+=el.vol;
+	  console.log('---------------');
+	});
+
+	/*將資訊顯示在網頁上*/
+	//document.querySelector('#items').innerHTML='全部物件: '+setItemNumColor(itemsPack)+'';
+	console.log('itemsTotal:'+itemsTotal)
+	console.log('usefulArr:'+usefulArr)
+	packagesStr+='箱子總格數: '+setItemNumColor(boxSum)+' <span class="ML20px">剩餘: '+setItemNumColor(boxSum-itemsTotal)+'</span>'+'<br/><span class="">被過濾掉的物件: '+usefulArr+'</span>';
+	document.querySelector('#results').innerHTML=packagesStr;
+	document.querySelector('#results').style.opacity='0';
+	anime({
+	  targets: '#results',
+	  opacity:'1',
+	  easing: 'easeInOutQuad',
+	   duration: 1000
+	});
+
+};
+
+
+function checkNumInArray(arr,num){
+	let ck=0;
+	for(let i=0;i<arr.length;i++){
+		if(arr[i]==num){ck=1;break;}
+	}
+	return ck;
+}
+function checkPackSpace(arr,num){
+	let flag=-1;
+	for(let i=0;i<arr.length;i++){
+		let spaceLeft=arr[i].calcArea();
+		if(num<=spaceLeft){
+			flag=i;break;
+		}		
+	}
+	return flag;
+}
+
+document.querySelector('#boxSize').innerHTML='箱子格數分類: '+setItemNumColor(boxSize)+'';
+const div_name=['#boxSize','#items','#results'];
+for(let i=0;i<div_name.length;i++){
+	anime({
+	  targets: div_name[i],
+	  opacity:'1',
+	  easing: 'easeInOutQuad',
+	   duration: 500+(i*500)
+	});
+}
+</script>
+
+<!-- 內容結束 -->
+</div>
+
+<script>
+let switchContentMode=(targetDiv)=>{
+	let currDivStr=document.querySelector('#'+targetDiv).innerHTML;
+		if(currDivStr.indexOf('<pre>')==-1){
+			currDivStr=currDivStr.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML='<pre>'+currDivStr+'</pre>';
+		}else{
+			currDivStr=currDivStr.replace('<pre>','').replace('</pre>','').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML=currDivStr;
+		}
+}
+</script>
+</body>
+</html>

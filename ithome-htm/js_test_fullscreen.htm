@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script>
+/* Get the element you want displayed in fullscreen */ 
+/* Function to open fullscreen mode */
+function openFullscreen(targetId) {
+  var elem = document.getElementById(targetId);
+  if (elem.requestFullscreen) {
+  elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+  elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+  elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+  elem.msRequestFullscreen();
+  }
+}
+</script>
+</head>
+<body>
+<button onclick="openFullscreen('subMenuDiv')">[ FULL::SCREEN ]</button>
+<div id="subMenuDiv" name="subMenuDiv" style=""></div>
+<script>
+$("#subMenuDiv").html('<iframe width="100%" height="100%" src="js_test_fullscreen_sub.htm" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+</script>
+<p>Note: Internet Explorer 10 and earlier does not support fullscreen mode.</p>
+</body>
+</html>
+

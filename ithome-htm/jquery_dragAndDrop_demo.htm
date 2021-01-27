@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<title>jquery-ui draggable demo</title>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<style>
+*{
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body,button,pre{background:#eee;font-family:'Nanum Gothic Coding','ZCOOL XiaoWei';line-height:1.2em;}
+h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+p{padding:1rem;}
+button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+</style>
+</head>
+<body>
+<h1>jquery-ui draggable demo <button onclick="switchContentMode('demo_container')">切換HTML</button></h1>
+<div id="demo_container">
+<!-- 內容開始 -->
+<style>
+body{background:#999;}
+#doll:hover {
+	animation: dollZoomIn .3s linear forwards;
+}
+@keyframes dollZoomIn{
+	transform-origin: center center;
+	  0%{ transform: scale(1); -webkit-filter: blur(0px);filter: blur(0px);}
+	 50%{ transform: scale(1.1); -webkit-filter: blur(5px);filter: blur(5px);}
+	100%{ transform: scale(1.1); -webkit-filter: blur(0px);filter: blur(0px);}
+}
+</style>
+
+<div id="doll" class="itemhover mobilestyle" style="position: fixed; left: 0px; bottom: 5px; z-index: 2; top: 0px;"><img alt="Q版黄金史莱喵.png" src="http://p8.qhimg.com/dr/378__/t01903d549d93936da6.png" width="378" height="378" data-file-name="Q版黄金史莱喵.png" data-file-width="378" data-file-height="378">
+<div class="qchartext iteminfo" style="position: absolute; min-width: 150px; left: 70%; bottom: 70%; max-width: 550px; width: fit-content; min-height: 30px; height: fit-content; z-index: 3; background-color: rgb(234, 236, 240); border: 1px solid rgb(204, 204, 204); border-radius: 10px; padding: 10px; display: none;"></div></div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+const os=[
+'哟，我是黄金史莱喵，请多关照啦！','如你所见，我也不是很擅长战斗哦。',
+'总之，战斗之外的事情就交给我吧！','天气不错呢，要去走走吗？',
+'不要把我当成小孩子来对待啦！','出去冒险的话，我可以给您当向导哦～',
+'这就是所谓的“身体接触”吗？不讨厌这种感觉就是了。','我已经决定了，此生可以托付全部的，只有一个人啊。',
+'以前虽然没有……不过现在有了需要变强的理由了哦～','我回来啦，不会再让你一个人啦~',
+'能够和您相遇是我的荣幸。'
+];
+$(function() {
+	$('.iteminfo').text(os[0]);
+	getXY('doll');
+	$("#doll" ).draggable({cursor:'move',stop: function( event, ui ){getXY(this.id);}});
+	
+	$('#doll').on('click', function(e) {
+		const osNum=Math.floor(Math.random() * os.length);
+		$('.iteminfo').text(os[osNum]).css('display','block');
+	});
+	$('#doll').on('mouseover', function(e) {
+		$('.iteminfo').css('display','block');
+	});
+	$('#doll').on('mouseout', function(e) {
+		$('.iteminfo').css('display','none');
+	});
+});
+
+function getXY(idName){
+	var position = $('#'+idName).position();
+	$('#x').text(Math.floor(position.left)+'px');
+	$('#y').text(Math.floor(position.top)+'px');
+	console.log('getXY');
+}
+</script>
+<div id="x"></div>
+<div id="y"></div>
+<!-- 內容結束 -->
+</div>
+
+<script>
+let switchContentMode=(targetDiv)=>{
+	let currDivStr=document.querySelector('#'+targetDiv).innerHTML;
+		if(currDivStr.indexOf('<pre>')==-1){
+			currDivStr=currDivStr.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML='<pre>'+currDivStr+'</pre>';
+		}else{
+			location.reload(true);
+			//currDivStr=currDivStr.replace('<pre>','').replace('</pre>','').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+			//console.log(currDivStr);
+			//document.querySelector('#'+targetDiv).innerHTML=currDivStr;
+		}
+}
+</script>
+</body>
+</html>

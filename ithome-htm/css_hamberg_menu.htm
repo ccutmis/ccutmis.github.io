@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<title>純CSS漢堡排選單demo</title>
+<meta name="viewport" content="width=device-width">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<style>
+*{
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body,button,pre{background:#eee;font-family:'Nanum Gothic Coding','ZCOOL XiaoWei';line-height:1.2em;}
+h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+p{padding:1rem;}
+button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+</style>
+</head>
+<body>
+<h1>純CSS漢堡排選單demo <button onclick="switchContentMode('demo_container')">切換HTML</button></h1>
+<div id="demo_container">
+<!-- 內容開始 -->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<style>
+.hamburger {
+  display:none;
+  position: fixed;
+  width: 60px;
+  height: 55px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 5;
+  background:#000;
+  padding:5px;
+  border-radius: 20%;
+}
+.hamburger div {
+  position: relative;
+  width: 50px;
+  height: 5px;
+  border-radius: 3px;
+  background-color: #f00;
+  margin-top: 7px;
+  transition: all 0.3s ease-in-out;
+}
+
+#toggle {
+  display: none;
+}
+
+#toggle:checked + .hamburger .top {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  margin-top: 22.5px;
+}
+#toggle:checked + .hamburger .meat {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin-top: -5px;
+}
+#toggle:checked + .hamburger .bottom {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+#toggle:checked + .hamburger + .nav {
+  top: 0;
+}
+.nav {
+	  font-size: 2rem;}
+
+@media(max-width: 768px){
+	.hamburger {display:block;}
+	.nav {
+	  font-size: 1.8rem;
+	  position: fixed;
+	  opacity:0.7;
+	  width: 100%;
+	  height: 100%;
+	  background-color: #000;
+	  top: -100%;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  overflow: hidden;
+	  transition: all 0.3s ease-in-out;
+	}
+	.nav .nav-wrapper {
+	  position: relative;
+	  overflow-y: auto;
+	  height: 100%;
+	}
+
+	nav {
+	  height: 100vh;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	}
+	nav a {
+	  margin-top: 0.5em;
+	  color: #eee;
+	  opacity: 0;
+	  text-decoration: none;
+	  letter-spacing: 3px;
+	  transition: all 0.1s ease;
+	}
+	nav a:first-child {
+	  margin-top: 0;
+	}
+
+	#toggle:checked + .hamburger + .nav .nav-wrapper nav a {
+	  opacity: 0.9;
+	  -webkit-transform: scale(1);
+			  transform: scale(1);
+	}
+	#toggle:checked + .hamburger + .nav .nav-wrapper nav a:hover {
+	  opacity: 1;
+	  color: white;
+	  -webkit-transform: scale(1.2);
+			  transform: scale(1.2);
+	}
+
+}
+</style>
+
+<input id="toggle" type="checkbox"/>
+<label class="hamburger" for="toggle">
+  <div class="top"></div>
+  <div class="meat"></div>
+  <div class="bottom"></div>
+</label>
+<div class="nav">
+  <div class="nav-wrapper">
+    <nav>
+	<a   title="深色版" class="FR">深色版<i class="fas fa-image"></i></a>
+	<a   title="淡色版" class="FR">淡色版<i class="far fa-image"></i></a>
+	<a   title="縮小字體" class="FR">縮小字體<i class="fas fa-search-minus"></i></a>
+	<a   title="放大字體" class="FR">放大字體<i class="fas fa-search-plus"></i></a>
+	<a   title="上一頁" class="FR">上一頁
+		<i class="far fa-arrow-alt-circle-left"></i></a>
+	<a   title="下一頁" class="FR">下一頁
+		<i class="far fa-arrow-alt-circle-right"></i></a>
+	<a   title="書本目錄" class="FR">書本目錄<i class="fas fa-grip-horizontal"></i></a>
+	</nav>
+  </div>
+</div>
+<p>頁面寬度小於768px時會出現漢堡排，若大於768px則顯示一般選單</p>
+<!-- 內容結束 -->
+</div>
+
+<script>
+let switchContentMode=(targetDiv)=>{
+	let currDivStr=document.querySelector('#'+targetDiv).innerHTML;
+		if(currDivStr.indexOf('<pre>')==-1){
+			currDivStr=currDivStr.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML='<pre>'+currDivStr+'</pre>';
+		}else{
+			currDivStr=currDivStr.replace('<pre>','').replace('</pre>','').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML=currDivStr;
+		}
+}
+</script>
+</body>
+</html>

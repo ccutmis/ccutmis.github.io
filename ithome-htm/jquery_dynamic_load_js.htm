@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<title>jquery dynamic load js demo</title>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<style>
+*{
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body,button,pre{background:#eee;font-family:'Nanum Gothic Coding','ZCOOL XiaoWei';line-height:1.2em;}
+h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+p{padding:1rem;}
+button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+</style>
+</head>
+<body>
+<h1> jquery dynamic load js demo <button onclick="switchContentMode('demo_container')">切換HTML</button></h1>
+<div id="demo_container">
+<!-- 內容開始 -->
+
+<style>
+*{
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+select{padding:10px;width:150px;}
+hr{margin:20px;}
+div{padding:20px;}
+</style>
+
+<div>
+測試動態載入js檔
+<select name="js_file_name" class="js_file_name">
+  <option value="">請選擇</option>
+  <option value="test001.js">test001.js</option>
+  <option value="test002.js">test002.js</option>
+  <option value="test003.js">test003.js</option>
+</select>
+</div>
+
+<hr />
+<div class="loadedJsContent2Txt">沒有選擇內容...</div>
+<p>
+在選單中可被動態載入的js檔有三個:<br/>
+<a href="http://www.web3d.url.tw/ITHELP/JQUERY_20191023/test001.js" 
+target="_blank">
+test001.js
+</a><br/>
+<a href="http://www.web3d.url.tw/ITHELP/JQUERY_20191023/test002.js" 
+target="_blank">
+test002.js
+</a><br/>
+<a href="http://www.web3d.url.tw/ITHELP/JQUERY_20191023/test003.js" 
+target="_blank">
+test003.js
+</a><br/>
+在chrome按F12切到console可以觀察到js檔被載入後是否有正確print出變數內容。
+</p>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+$('.js_file_name').on('change',function(){
+  const selectedJsName = this.value;
+  if(selectedJsName){
+    /* selected option的值不為空白時才執行 */
+    $.getScript( this.value +'?time='+Math.random() )
+    /* this.value 後面帶?time=加隨機數字 是常規避免讀取js檔cache問題的簡單作法 */
+    .done(function( script, textStatus ) {
+      console.log( '(from htm)'+selectedJsName+' loaded '+textStatus ); /* 若js檔有載入成功會在console顯示'success' */
+      $('.loadedJsContent2Txt').html(selectedJsName+'載入內容為:<br/>'+script.replace(/\n/gi,"<br/>"));
+    })
+    .fail(function( jqxhr, settings, exception ) {
+      console.log( "Triggered ajaxError handler." );
+    });
+  }else{
+    $('.loadedJsContent2Txt').html("沒有選擇內容...");
+  }
+});
+
+</script>
+
+
+<!-- 內容結束 -->
+</div>
+
+<script>
+let switchContentMode=(targetDiv)=>{
+	let currDivStr=document.querySelector('#'+targetDiv).innerHTML;
+		if(currDivStr.indexOf('<pre>')==-1){
+			currDivStr=currDivStr.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML='<pre>'+currDivStr+'</pre>';
+		}else{
+			location.reload(true);
+			//currDivStr=currDivStr.replace('<pre>','').replace('</pre>','').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+			//console.log(currDivStr);
+			//document.querySelector('#'+targetDiv).innerHTML=currDivStr;
+		}
+}
+</script>
+</body>
+</html>

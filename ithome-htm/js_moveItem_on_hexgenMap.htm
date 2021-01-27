@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+/* css variables */
+:root{ 
+--bg-color: #aaa;
+--bg-color-cat: #dedede;
+--topLR: 52px;
+--border-TB: 30px;
+--cat-W: 104px;
+--cat-H: 60px;
+}
+
+
+body{background:#333;font-family:Arial;}
+.box-top,.cat-top{
+width: 0;
+border-bottom: var(--border-TB) solid var(--bg-color);
+border-left: var(--topLR) solid transparent;
+border-right: var(--topLR) solid transparent;
+}
+.box-body,.cat-body{
+width: var(--cat-W);
+height: var(--cat-H);
+background-color:var(--bg-color);
+}
+.box-bottom,.cat-bottom{
+width: 0;
+border-top: var(--border-TB) solid var(--bg-color);
+border-left: var(--topLR) solid transparent;
+border-right: var(--topLR) solid transparent;
+}
+
+.cat-top{border-bottom: var(--border-TB) solid var(--bg-color-cat);}
+.cat-body{
+background-color: var(--bg-color-cat);
+background-image:url('../ithome-images/cat.png');
+background-position:center center;
+background-repeat: no-repeat;
+background-size:50%;
+}
+.cat-bottom{
+border-top: var(--border-TB) solid var(--bg-color-cat);
+}
+</style>
+</head>
+<body>
+<div id="container"></div>
+<script>
+let tiles=[
+[0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,1,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0,0]
+];
+console.log(tiles);
+let cat_xy=[0,0];
+//drawTiles
+function drawTiles(){
+	let tmpStr='';
+	for(let i=0;i<tiles.length;i++){
+		let ty=i*92;
+		let x_left=(i%2==0)?0:53;
+		for(let j=0;j<tiles[i].length;j++){
+			let objName='';
+			let tx=(j*106)+x_left;
+			if(tiles[i][j]==0){
+				objName='box';
+			}else{
+				objName='cat';
+				cat_xy[0]=i;cat_xy[1]=j;
+			}
+			tmpStr+=
+			`<div style="float: left;position:absolute;top:${ty}px;left:${tx}px;">
+				<div class="${objName}-top"></div>
+				<div class="${objName}-body">[${i},${j}]</div>
+				<div class="${objName}-bottom"></div>
+			</div>`;
+		}
+	}
+	document.querySelector('#container').innerHTML=tmpStr;
+}
+drawTiles();
+
+function catMove(moveNum){
+	let cat_xy_last=cat_xy;
+	tiles[cat_xy_last[0]][cat_xy_last[1]]=0;
+	console.log('cat_xy_last[0]:'+cat_xy_last[0]+' moveNum:'+moveNum);
+	if(moveNum>4||moveNum<3){ 
+		if(moveNum>4){
+			cat_xy[0]=cat_xy_last[0]+1;
+		}else{
+			cat_xy[0]=cat_xy_last[0]-1;
+		}
+		if(cat_xy_last[0]%2==0){
+			cat_xy[1]=(moveNum%2==0)?cat_xy_last[1]+1:cat_xy_last[1];
+		}else{
+			cat_xy[1]=(moveNum%2==0)?cat_xy_last[1]:cat_xy_last[1]-1;
+		}
+	
+	}else{
+		cat_xy[0]=cat_xy_last[0];
+		cat_xy[1]=(moveNum%2==0)?cat_xy_last[1]+1:cat_xy_last[1]-1;
+	}
+	tiles[cat_xy[0]][cat_xy[1]]=1;
+	drawTiles();
+}
+
+window.addEventListener('keypress', (e) => {
+  const keyNum=e.charCode-48;
+  console.log("keypressed " + keyNum);
+  if(keyNum>0&&keyNum<7) catMove(keyNum);
+})
+</script>
+
+<div style="position:absolute;bottom:10px;left:50px;height:20px;padding:3vw;color:#ccc;font-size:1.5em;">
+<button onclick="catMove(Math.floor(Math.random() * 6) + 1)" style="border-radius:10px;padding:5px;"> 貓隨機移動一格 </button>
+按 ① ② ③ ④ ⑤ ⑥ 可以移動貓</div>
+</body>
+</html>

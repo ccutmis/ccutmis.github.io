@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<title>jQuery.noConflict demo</title>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<style>
+*{
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body,button,pre{background:#eee;font-family:'Nanum Gothic Coding','ZCOOL XiaoWei';line-height:1.2em;}
+h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+p{padding:1rem;}
+button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+</style>
+</head>
+<body>
+<h1> jQuery.noConflict demo <button onclick="switchContentMode('demo_container')">切換HTML</button></h1>
+<div id="demo_container">
+<!-- 內容開始 -->
+<div id="wrap">
+<h1 class="testJQueryNoConflict">Oops! jQuery.noConflict() is not working.</h1>
+<div id="demoDiv">THIS IS A DIV</div>
+<button id="testBtn">prependToDiv</button>
+</div>
+<style>
+#wrap{width:90vw;margin:0 auto;}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+let i=0;
+let optionStr='<option value="1">1</option><option value="2">2</option>';
+let templateStr=(i,optionStr)=>{
+	return `<div class="form-group col-sm-6 clearfix">
+		<label class="col-lg-4 control-label">(i:${i})選擇</label>
+		<div class="col-lg-8">
+			<div class="fg-line">
+				<div class="select">
+					<select class="form-control volNo${i}" name="No${i}">
+						<option value="">-請選擇-</option>
+						${optionStr}
+					</select> <span class='field' ></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-3">
+		<button id="btnPut" type="button" class="btn waves-effect">新增</button>
+	</div>
+	</div>
+	`;
+};
+var jq = $.noConflict();
+jq(".testJQueryNoConflict").text("Great! jQuery.noConflict works!");
+jq("#testBtn").click(function() {
+	jq("#demoDiv").prepend( templateStr(i,optionStr) );
+	i++;
+});
+</script>
+<!-- 內容結束 -->
+</div>
+
+<script>
+let switchContentMode=(targetDiv)=>{
+	let currDivStr=document.querySelector('#'+targetDiv).innerHTML;
+		if(currDivStr.indexOf('<pre>')==-1){
+			currDivStr=currDivStr.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML='<pre>'+currDivStr+'</pre>';
+		}else{
+			currDivStr=currDivStr.replace('<pre>','').replace('</pre>','').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML=currDivStr;
+		}
+}
+</script>
+</body>
+</html>

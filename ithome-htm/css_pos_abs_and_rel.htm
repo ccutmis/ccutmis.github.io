@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<title>說明主題</title>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<style>
+*{
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body,button,pre{background:#eee;font-family:'Nanum Gothic Coding','ZCOOL XiaoWei';line-height:1.2em;}
+h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+p{padding:1rem;}
+button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+</style>
+</head>
+<body>
+<h1>CSS position absolute 與 relative 差異 <button onclick="switchContentMode('demo_container')">切換HTML</button></h1>
+<div id="demo_container">
+<!-- 內容開始 -->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<style>
+.descDiv{border:solid 5px #333;background:#ccc;}
+.posAbsolute{border-color:#00F;width:400px;height:101px;position:absolute;background:lightblue;}
+.posAbsSnapToRightBottom{
+	right:0px;bottom:0px;
+}
+.posRelative{border-color:#F00;height:200px;background:pink;position:relative;}
+</style>
+
+
+<div class="descDiv posAbsolute posAbsSnapToRightBottom">
+	<span></span>
+</div>
+
+<div class="descDiv posRelative">
+	<span></span>
+</div>
+
+<div class="descDiv posRelative">
+	<span></span>
+	<div class="descDiv posAbsolute">
+		<span></span>
+	</div>
+</div>
+
+
+<script>
+	$(".descDiv").each(function() {
+		const tmpStr='上層物件: '+$(this).parent().css('position')+'<br/>當前物件: '+$(this).css('position')+($(this).css('position')=='absolute'?'<br/>top: '+$(this).css('top')+' left:'+$(this).css('left')+'':'');
+		$(this).children().first().html(tmpStr);
+	});
+</script>
+
+<!-- 內容結束 -->
+</div>
+
+<script>
+let switchContentMode=(targetDiv)=>{
+	let currDivStr=document.querySelector('#'+targetDiv).innerHTML;
+		if(currDivStr.indexOf('<pre>')==-1){
+			currDivStr=currDivStr.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML='<pre>'+currDivStr+'</pre>';
+		}else{
+			currDivStr=currDivStr.replace('<pre>','').replace('</pre>','').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML=currDivStr;
+		}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<title>Map in Javascript</title>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<style>
+*{
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body,button,pre{background:#dedede;font-family:'Nanum Gothic Coding','ZCOOL XiaoWei';line-height:1.2em;}
+h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+p{padding:1rem;}
+button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+</style>
+</head>
+<body>
+<h1>Performance between appendChild() and innerHTML <button onclick="switchContentMode('demo_container')">切換HTML</button></h1>
+<div id="demo_container">
+<!-- 內容開始 -->
+
+<style>
+ul{max-height:150px;overflow:scroll; autoScrollEnabled:ture}
+ul li{float:left;margin:2px 5px;}p{clear:left;}
+</style>
+<h1>Use appendChild()</h1>
+<ul class="list1"></ul>
+<p id="list1-time"></p>
+<button onclick="test('list1','append')">ADD 50 LIs</button>
+<hr />
+<h1>Use innerHTML</h1>
+<ul class="list2"></ul>
+<p id="list2-time"></p>
+<button onclick="test('list2','innerHTML')">ADD 50 LIs</button>
+
+<script>
+function test(ulname,addType){
+  const start = window.performance.now();
+  const list = document.querySelector('.'+ulname);
+  const listLen = list.childNodes.length;
+  let content = list.innerHTML;
+  for (let i = listLen+1; i <= listLen+50; i++) {
+    if(addType=='append'){
+        const li = document.createElement('LI');
+        li.textContent = `這是第${i}個 LI 元素`;
+        list.appendChild(li);
+    }else{
+		const domString = `<li>這是第${i}個 LI 元素</li>`;
+        content += domString;
+    }
+  }
+  if(addType=='innerHTML') list.innerHTML = content;
+  const end = window.performance.now();
+  const time= end - start;
+  document.getElementById(ulname+'-time').innerHTML=`目前有${listLen+50}個LI元素，花費時間:${time}`;
+}
+</script>
+
+<!-- 內容結束 -->
+</div>
+
+<script>
+let switchContentMode=(targetDiv)=>{
+	let currDivStr=document.querySelector('#'+targetDiv).innerHTML;
+		if(currDivStr.indexOf('<pre>')==-1){
+			currDivStr=currDivStr.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML='<pre>'+currDivStr+'</pre>';
+		}else{
+			currDivStr=currDivStr.replace('<pre>','').replace('</pre>','').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML=currDivStr;
+		}
+}
+</script>
+</body>
+</html>

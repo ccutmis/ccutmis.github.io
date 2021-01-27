@@ -1,0 +1,92 @@
+<html>
+<head><meta charset="utf-8"/>
+<style>
+* {
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+list-style:none;
+}
+a{
+  display:inline-block;width:150px;height:50px;
+  text-decoration: none;line-height:50px;font-size:1rem;
+}
+ol {}
+ol li{
+  text-align:center;
+  position:relative;
+  float:left;
+  width:150px;
+  background:#ccc;
+  font-size:1rem;line-height:2em;
+  margin-left:1px;
+}
+ul {
+  position:absolute;
+  top:50px;left:0;
+  width:150px;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+ul li{width:100%;line-height:50px;border-bottom:solid 1px #FFF;}
+ul li:hover{background:lightgreen;}
+
+.senser {
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  top: 0px; right: 0px;
+  z-index: 1000;
+  opacity:0;
+  background:#f00;cursor:pointer;
+}
+
+#toggle {
+  /*display: none;*/
+  width:50px;height:50px;
+  position:absolute;top:0px;left:152px;
+  z-index:10;
+}
+
+#toggle:checked + li {
+  background:#C6FFAA;
+}
+
+#toggle:checked + li ul.mymenu {
+  animation: slide-down 1s linear both;
+}
+
+@keyframes slide-down {
+  0% {
+    visibility: hidden; height: 0;
+  }
+  90% {
+    visibility: visible; height: 300;
+  }
+  100% {
+    visibility: visible; height: auto;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="menu">
+  <ol>
+    <input id="toggle" type="checkbox">
+    <li><a class="btn" href="#">下拉式選單</a>
+      <label class="senser" for="toggle">
+          <span><!--感應區--></span>
+      </label>
+      <ul class="mymenu">
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+      </ul>
+    </li>
+  </ol>
+</div>
+</body>
+</html>

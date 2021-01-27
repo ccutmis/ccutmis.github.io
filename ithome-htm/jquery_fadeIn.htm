@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<title>jQuery FadeIn Demo</title>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Noto+Serif+TC&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<style>
+*{
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body,button,pre{background:#eee;font-family:'Nanum Gothic Coding','Noto Serif TC';line-height:2em;font-size:1.5em;}
+h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+p{padding:1rem;}
+button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+</style>
+</head>
+<body>
+<h1>jQuery FadeIn Demo <button onclick="switchContentMode('demo_container')">切換HTML</button></h1>
+<div id="demo_container">
+<!-- 內容開始 -->
+
+<style>
+  p.fadeInDemo {
+    padding:2rem;
+	background:#ccc;
+	font-size:2rem;
+  }
+  div.fadeInDemo {
+	width:100%;
+	position:absolute;top:8rem;left:0;
+	padding:4rem;
+    text-align: center;
+    color: yellow;
+    background: red;
+    display: none;
+  }
+  span.fadeInDemo {
+    display: none;
+	font-size:6rem;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+ 
+<p class="fadeInDemo">
+  我說道：「爸爸，你走吧。」他往車外看了看說：「我買幾個橘子去。你就在此地，不要走動。」
+  我看那邊月台的柵欄外有幾個賣東西的等著顧客。
+  走到那邊月台，須穿過鐵道，須跳下去又爬上去。
+  過一會兒說：「我走了，到那邊來信！」我望著他走出去。他走了幾步，回過頭看見我，說：「進去吧，裡邊沒人。」等他的背影混入來來往往的人里，再找不著了，我便進來坐下，我的眼淚又來了。
+  ... (<a href="#" class="fadeInDemo">點我看朱自清內心話!</a>)
+</p>
+<div class="fadeInDemo"><span class="fadeInDemo">所以那個橘子呢?!</span></div> 
+<script>
+$( "a.fadeInDemo" ).click(function() {
+  $("p.fadeInDemo").fadeOut(500);
+  $( "div.fadeInDemo" ).fadeIn( 1000, function() {
+    $( "span.fadeInDemo" ).fadeIn( 1500 );
+  });
+  return false;
+});
+</script>
+
+<!-- 內容結束 -->
+</div>
+
+<script>
+const initContent=document.querySelector('#demo_container').innerHTML;
+
+let switchContentMode=(targetDiv)=>{
+	let currDivStr=document.querySelector('#'+targetDiv).innerHTML;
+		if(currDivStr.indexOf('<pre>')==-1){
+			currDivStr=initContent.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML='<pre>'+currDivStr+'</pre>';
+		}else{
+			location.reload(true);
+			//currDivStr=initContent;
+			//console.log(currDivStr);
+			//document.querySelector('#'+targetDiv).innerHTML=currDivStr;
+		}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<title>Map in Javascript</title>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<style>
+*{
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body,button,pre{background:#dedede;font-family:'Nanum Gothic Coding','ZCOOL XiaoWei';line-height:1.2em;}
+h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+p{padding:1rem;}
+button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+</style>
+</head>
+<body>
+<h1>Map in Javascript <button onclick="switchContentMode('demo_container')">切換HTML</button></h1>
+<div id="demo_container">
+<!-- 內容開始 -->
+
+<style>
+.warp{ max-width: 500px; margin: 0 auto; }
+.square { margin-top: 15px; }
+.box-primary, .box-danger, .box-secondary, .box-info, .box-light {
+  width: 100px; height: 100px; float: left;
+}
+</style>
+<div class="warp"> 
+	<div class="square">
+	    <div class="box-primary"></div>
+	    <div class="box-danger"></div>
+	    <div class="box-secondary"></div>
+	    <div class="box-info"></div>
+	    <div class="box-light"></div>
+	</div>
+</div>
+<hr />
+<div class="warp"> 
+	<div class="square">
+	    <div class="box-danger"></div>
+	    <div class="box-primary"></div>
+	    <div class="box-info"></div>
+	    <div class="box-light"></div>
+	    <div class="box-secondary"></div>
+	</div>
+</div>
+<p class="warp square" style="clear:both;">
+	參考:<br/> <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Map">https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Map</a>
+</p>
+<script>
+var myMap = new Map([
+  ['primary','blue'],
+  ['danger','red'],
+  ['secondary','purple'],
+  ['info','orange'],
+  ['light','grey']
+]);
+
+myMap.forEach(function(value, key) {
+	let tmpItem=document.querySelectorAll('.box-'+key)
+	for(let i=0;i<tmpItem.length;i++){
+		tmpItem[i].style.backgroundColor=value; 
+	}
+});
+</script>
+
+<!-- 內容結束 -->
+</div>
+
+<script>
+let switchContentMode=(targetDiv)=>{
+	let currDivStr=document.querySelector('#'+targetDiv).innerHTML;
+		if(currDivStr.indexOf('<pre>')==-1){
+			currDivStr=currDivStr.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML='<pre>'+currDivStr+'</pre>';
+		}else{
+			currDivStr=currDivStr.replace('<pre>','').replace('</pre>','').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML=currDivStr;
+		}
+}
+</script>
+</body>
+</html>

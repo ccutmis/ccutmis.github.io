@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<title>用SVG畫CSS背景圖</title>
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Mansalva|Noto+Sans+TC:500&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+	<style>
+	*{
+		margin:0;padding:0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	body{background:#fff;}
+	h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+	pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+	p{padding:1rem;}
+	button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+
+	.div_table{display:table;width:100%;border-collapse:collapse;}
+	.div_tr{display:table-row;}
+	.div_td{display:table-cell;border:solid 1px #0AB;height:100px;vertical-align:top;word-wrap: break-word;padding:1rem;font-family:'Abril Fatface','Noto Sans TC';font-size:1.2rem;}
+	.div_td.vertAlignMid{vertical-align:middle;}
+	.textAlignCenter{text-align:center;}
+	.w10pct{width:10%;}.w20pct{width:20%;}.w50pct{width:50%;}
+	</style>
+</head>
+<body>
+<h1>用SVG畫CSS背景圖 <button onclick="switchContentMode('css_svgLingBg_container')">切換HTML</button></h1>
+<div id="css_svgLingBg_container">
+
+	<style>
+	*{
+		margin:0;padding:0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	body{background:#fff;}
+	h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+	p{padding:1rem;}
+	button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+	pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+	.div_table{display:table;width:100%;border-collapse:collapse;}
+	.div_tr{display:table-row;}
+	.div_td{display:table-cell;border:solid 1px #0AB;height:100px;vertical-align:top;word-wrap: break-word;padding:1rem;}
+	.div_td.vertAlignMid{vertical-align:middle;}
+	.textAlignCenter{text-align:center;}
+	.w10pct{width:10%;}.w20pct{width:20%;}.w50pct{width:50%;}
+	</style>
+
+	<style>
+	.whiteBg{background:#FFF;padding:0.3rem;}
+
+	/* 這是重點把它獨立出來 用svg畫一條寬4000的虛線 */
+	.svg_LineBg{
+	  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 100% 100%' version='1.1' xmlns='http://www.w3.org/2000/svg'><line x1='0' x2='4000' y1='10' y2='10' stroke='%23F00' stroke-width='6' stroke-dasharray='0 12' stroke-linecap='round' fill='transparent'/></svg>");
+	  background-size: 100% 100%;
+	  background-position:1rem 1rem;
+	  background-repeat: no-repeat;
+	  background-clip: content-box;
+	}
+	</style>
+	<div class="div_table">
+		<div class="div_tr">
+			<div class="div_td w10pct textAlignCenter vertAlignMid">
+			背影
+			</div>
+			<div class="div_td svg_LineBg"><span class="whiteBg">說好的橘子呢!?</span></div>
+			<div class="div_td w20pct textAlignCenter vertAlignMid">
+			朱自清 
+			</div>
+		</div>
+	</div>
+	<div class="div_table">
+		<div class="div_tr">
+			<div class="div_td w10pct">
+				<p>我說道：「爸爸，你走吧。」他往車外看了看，說：「我買幾個橘子去。你就在此地，不要走動。」我看那邊月台的柵欄外有幾個賣東西的等著顧客。走到那邊月台，須穿過鐵道，須跳下去又爬上去。父親是一個胖子，走過去自然要費事些。我本來要去的，他不肯，只好讓他去。</p>
+			</div>
+			<div class="div_td w50pct svg_LineBg"><span class="whiteBg">TITLE</span></div>
+			<div class="div_td w20pct">
+				<p>我與父親不相見已有二年餘了，我最不能忘記的是他的背影。</p>
+				<p>那年冬天，祖母死了，父親的差使也交卸了，正是禍不單行的日子，我從北京到徐州，打算跟著父親奔喪回家。到徐州見著父親，看見滿院狼籍的東西，又想起祖母，不禁簌簌地流下眼淚。父親說，「事已如此，不必難過，好在天無絕人之路！」</p>
+				<p>回家變賣典質，父親還了虧空﹔又借錢辦了喪事。這些日子，家中光景很是慘淡，一半為了喪事，一半為了父親賦閒。喪事完畢，父親要到南京謀事，我也要回到北京念書，我們便同行。</p>
+			</div>
+			<div class="div_td w20pct svg_LineBg"><span class="whiteBg">NOTICE</span></div>
+		</div>
+	</div>
+
+</div>
+
+<script>
+let switchContentMode=(targetDiv)=>{
+	let currDivStr=document.querySelector('#'+targetDiv).innerHTML;
+		if(currDivStr.indexOf('<pre>')==-1){
+			currDivStr=currDivStr.replace(/</g,'&lt;');
+			currDivStr=currDivStr.replace(/>/g,'&gt;');
+			console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML='<pre>'+currDivStr+'</pre>';
+		}else{
+			currDivStr=currDivStr.replace('<pre>','').replace('</pre>','');
+			currDivStr=currDivStr.replace(/&lt;/g,'<');
+			currDivStr=currDivStr.replace(/&gt;/g,'>');
+			console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML=currDivStr;
+		}
+}
+</script>
+</body></html>

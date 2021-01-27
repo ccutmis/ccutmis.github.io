@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+	<style>
+		/*CSS樣式寫在這裡面*/
+		* {margin: 0;padding: 0;}
+
+		.h800div {height: 800px;}
+
+		nav{position: fixed;top:10px;left:10px;border: solid 5px #000;background:white;padding:10px;}
+		nav a{display: block;padding:5px;background: #ccc;}
+		.sectionDiv{height:600px;background: #ccc;font-size: 5em;text-align: center;}
+		.sectionDivHigher{height:1000px;}
+		.active{background:chartreuse;}
+		.activeByClick{background:#ffa;}
+
+		div.pagetop {
+			width: 50px;
+			position: fixed;
+			bottom: 10px;
+			left: calc(50% + 435px);
+			display: none;
+			padding: 2px;
+		}
+
+		div.pagetop a {
+			display: inline-block;
+			background: url(https://img.icons8.com/ios-glyphs/50/ffffff/circled-up-2.png) no-repeat;
+			background-position: 2px 2px;
+		}
+
+
+	</style>
+</head>
+<body>
+<nav>
+    <a class="section-btn" data-idname="#section-1">SECTION-1</a>
+    <a class="section-btn" data-idname="#section-2">SECTION-2</a>
+    <a class="section-btn" data-idname="#section-3">SECTION-3</a>
+    <a class="section-btn" data-idname="#section-4">SECTION-4</a>
+    <a class="section-btn" data-idname="#section-5">SECTION-5</a>
+    <a class="section-btn" data-idname="#section-6">SECTION-6</a>
+</nav>
+<div class="h800div"></div>
+<div id="section-1" class="sectionDiv ">SECTION-1</div>
+<div class="h800div"></div>
+<div id="section-2" class="sectionDiv sectionDivHigher">SECTION-2</div>
+<div class="h800div"></div>
+<div id="section-3" class="sectionDiv">SECTION-3</div>
+<div class="h800div"></div>
+<div id="section-4" class="sectionDiv sectionDivHigher">SECTION-4</div>
+<div class="h800div"></div>
+<div id="section-5" class="sectionDiv">SECTION-5</div>
+<div class="h800div"></div>
+<div id="section-6" class="sectionDiv sectionDivHigher">SECTION-6</div>
+
+
+<div class="pagetop">
+    <a href="#top"><img src="https://img.icons8.com/ios-glyphs/50/ff3333/circled-up-2.png"></a>
+</div>
+
+
+<script>
+    $('.section-btn').on('click', function() {
+        $(this).addClass('activeByClick');
+        $("html, body").animate({ scrollTop: $($(this).attr('data-idname')).offset().top+20  },1500);
+    });
+let sectionPosArr=[];
+$('.sectionDiv').each(function( index ) {
+  sectionPosArr.push({'from':$( this ).position().top,'to':($( this ).position().top+$( this ).height())});
+});
+//console.log(sectionPosArr);
+$(window ).scroll(function() {
+    const cScrollTop=parseInt(($(window).height()/2) + $(this).scrollTop());
+    $.each(sectionPosArr, function(index) { 
+       if( cScrollTop>this.from && cScrollTop<this.to ){
+            //console.log('match-index:'+index+' from:'+this.from+' to:'+this.to); 
+            $('.section-btn:eq('+index+'),.sectionDiv:eq('+index+')').removeClass('activeByClick').addClass('active');
+        }
+        else{
+            $('.section-btn:eq('+index+'),.sectionDiv:eq('+index+')').removeClass('active');
+        }
+    });
+});
+</script>
+
+</body>
+</html>

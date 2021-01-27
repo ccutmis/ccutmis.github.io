@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3D-TESTER</title>
+</head>
+
+<body>
+
+
+    <style>
+        /*CSS樣式寫在這裡面*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #333;
+            overflow: hidden;
+        }
+
+        .camera {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 200px;
+            height: 200px;
+            perspective-origin: center center;
+            -moz-perspective-origin: center center;
+            -webkit-perspective-origin: center center;
+            perspective: 500px;
+            -moz-perspective: 500px;
+            -webkit-perspective: 500px;
+        }
+
+        .space {
+            background-image: linear-gradient(rgba(29, 153, 255, .5) 1px, transparent 1px), linear-gradient(90deg, rgba(29, 153, 255, .5) 1px, transparent 1px);
+            background-size: 10px 10px;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform-origin: center center;
+            -webkit-transform-style: preserve-3d;
+            -webkit-transform-origin: center center;
+            /*-webkit-animation:s 4s linear infinite;*/
+        }
+
+        .space::before {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            content: 'XY Plane';
+            color: rgba(29, 153, 255, .7);
+            font-size: 12px;
+        }
+
+        @-webkit-keyframes s {
+            0% {
+                -webkit-transform: rotateY(0);
+            }
+
+            100% {
+                -webkit-transform: rotateY(-359.9deg);
+            }
+        }
+
+        .space div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            font-size: 70px;
+            text-align: center;
+            line-height: 100px;
+            border: solid 1px #FF0;
+            color: rgba(255, 255, 255, 0.8);
+            transform-origin: center center;
+        }
+
+
+        .controller {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 300px;
+            font-size: 1rem;
+            line-height: 2rem;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .controller .controllerItems {
+            opacity: 0;
+            height: 0px;
+        }
+
+        #controllerSwitch {
+            position: fixed;
+            top: -10000px;
+            left: -10000px;
+        }
+
+        #controllerSwitch:checked+.controller .controllerItems {
+            opacity: 1;
+            height: auto;
+        }
+
+        #wheel_target {
+            border-left: brown 5px solid;
+        }
+
+        .controller input,
+        .controller button {
+            width: 100px;
+        }
+    </style>
+    <!--HTML標籤寫在這裡-->
+    <div class="camera">
+        <div class="space"></div>
+    </div>
+    <input type="checkbox" id="controllerSwitch" value="1" checked="checked" />
+    <div class="controller">
+        <label for="controllerSwitch">CAMERA控制 開關</label>
+        <div class="controllerItems">
+            <p>說明:<br /> 按QWE ASD切換功能<br />再按方向鍵調整</p>
+            <select id="wheel_target">
+                <option label="PleaseChoose" value="" />
+                <option label="rotateX" value="rotateX" />
+                <option label="rotateY" value="rotateY" />
+                <option label="rotateZ" value="rotateZ" />
+                <option label="translateX" value="translateX" />
+                <option label="translateY" value="translateY" />
+                <option label="translateZ" value="translateZ" />
+            </select>
+            <br />
+            rX:<span id="rxVal"></span>
+            <input type="range" id="rotateX" class="cameraController" value="50" min="-360" max="360" step="10" />
+            <br />
+            rY:<span id="ryVal"></span>
+            <input type="range" id="rotateY" class="cameraController" value="0" min="-360" max="360" step="10" />
+            <br />
+            rZ:<span id="rzVal"></span>
+            <input type="range" id="rotateZ" class="cameraController" value="50" min="-360" max="360" step="10" />
+            <br />
+            tX:<span id="txVal"></span>
+            <input type="range" id="translateX" class="cameraController" value="0" min="-2000" max="2000" step="10" />
+            <br />
+            tY:<span id="tyVal"></span>
+            <input type="range" id="translateY" class="cameraController" value="0" min="-2000" max="2000" step="10" />
+            <br />
+            tZ:<span id="tzVal"></span>
+            <input type="range" id="translateZ" class="cameraController" value="0" min="-2000" max="2000" step="10" />
+        </div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
+    <script>
+        let cTarget = '.space';
+
+        let cssSheet = document.createElement('style');
+        cssSheet.type = "text/css";
+
+        let modelArr = {};
+        modelArr['cube'] = [
+            'background: rgba(255, 0, 0, .5); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 50, 50, 50, 1);',
+            'background: rgba(255, 255, 0, .5); transform: matrix3d(6.12323e-17, 0, -1, 0, 0, 1, 0, 0, 1, 0, 6.12323e-17, 0, 100, 50, 0, 1);',
+            'background: rgba(0, 255, 0, .5); transform: matrix3d(-1, 1.22465e-16, 0, 0, -1.22465e-16, -1, 0, 0, 0, 0, 1, 0, 50, 50, -50, 1);',
+            'background: rgba(0, 0, 255, .5); transform: matrix3d(6.12323e-17, 0, 1, 0, 0, 1, 0, 0, -1, 0, 6.12323e-17, 0, 0, 50, 0, 1);',
+            'background: rgba(0, 255, 255, .5); transform: matrix3d(1, 0, 0, 0, 0, 6.12323e-17, 1, 0, 0, -1, 6.12323e-17, 0, 50, 0, 0, 1);',
+            'background: rgba(255, 0, 255, .5); transform: matrix3d(1, 0, 0, 0, 0, 6.12323e-17, -1, 0, 0, 1, 6.12323e-17, 0, 50, 100, 0, 1);'
+        ];
+
+        //let tmpTransInfo = [0,0,0,0,0,0];
+    </script>
+
+    <script>
+        let initSpaceContent = () => {
+            const space = document.querySelector('.space');
+            for (let i = 0; i < modelArr['cube'].length; i++) {
+                space.innerHTML += '<div class="box' + (i + 1) + '" onclick="assignTransValueToController(\'.box' + (i + 1) + '\')">' +
+                    (i + 1) + '</div>';
+                //alert('test');
+                cssSheet.innerHTML += '.box' + (i + 1) + ' {' + modelArr['cube'][i] + '}\n';
+                document.body.appendChild(cssSheet);
+            }
+        };
+        initSpaceContent();
+
+        let setControllerValue = (trx,ttry,trz,ttx,tty,ttz) =>{
+            $('#rotateX,#rxVal').val(parseInt(trx));
+            $('#rotateY,#ryVal').val(parseInt(ttry));
+            $('#rotateZ,#rzVal').val(parseInt(trz));
+            $('#translateX,#txVal').val(parseInt(ttx));
+            $('#translateY,#tyVal').val(parseInt(tty));
+            $('#translateZ,#tzVal').val(parseInt(ttz));
+        };
+
+        let matrix3d_to_tValue = ( el ) =>{
+            let rx = 0;
+            let ry = 0;
+            let rz = 0;
+            let tx = 0;
+            let ty = 0;
+            let tz = 0;
+            const element = document.querySelector(el);
+                let st = window.getComputedStyle(element, null);
+                let myTransform = st.getPropertyValue("transform");
+                console.log(myTransform);
+                if (myTransform.includes('matrix3d')) {
+                    /* martix3d */
+                    let values = myTransform.split('(')[1].split(')')[0].split(','),
+                        pi = Math.PI,
+                        sinB = parseFloat(values[8]),
+                        b = Math.round(Math.asin(sinB) * 180 / pi),
+                        cosB = Math.cos(b * pi / 180),
+                        matrixVal10 = parseFloat(values[9]),
+                        a = Math.round(Math.asin(-matrixVal10 / cosB) * 180 / pi),
+                        matrixVal1 = parseFloat(values[0]),
+                        c = Math.round(Math.acos(matrixVal1 / cosB) * 180 / pi);
+
+                    rx = a;
+                    ry = b;
+                    rz = c;
+
+                    tx = parseInt(values[12]);
+                    ty = parseInt(values[13]);
+                    tz = parseInt(values[14]);
+
+                } else {
+                    /* martix */
+                    myTransform = myTransform.replace('matrix(', '');
+                    myTransform = myTransform.replace(')', '');
+                    //console.log(myTransform);
+                    myTransform1 = myTransform.split(',');
+                    //console.log(myTransform1);
+                    tx = myTransform1[4];
+                    ty = myTransform1[5];
+                }
+            return [rx,ry,rz,tx,ty,tz];
+        }
+
+        let tValue_to_matrix3d = ( el ) =>{
+            const element = document.querySelector(el);
+                let st = window.getComputedStyle(element, null);
+                let myTransform = st.getPropertyValue("transform");
+                console.log(myTransform);
+                if (myTransform.includes('matrix3d')) {
+                    /* martix3d */
+                    let values = myTransform.split('(')[1].split(')')[0].split(','),
+                        pi = Math.PI,
+                        sinB = parseFloat(values[8]),
+                        b = Math.round(Math.asin(sinB) * 180 / pi),
+                        cosB = Math.cos(b * pi / 180),
+                        matrixVal10 = parseFloat(values[9]),
+                        a = Math.round(Math.asin(-matrixVal10 / cosB) * 180 / pi),
+                        matrixVal1 = parseFloat(values[0]),
+                        c = Math.round(Math.acos(matrixVal1 / cosB) * 180 / pi);
+
+                    rx = a;
+                    ry = b;
+                    rz = c;
+
+                    tx = parseInt(values[12]);
+                    ty = parseInt(values[13]);
+                    tz = parseInt(values[14]);
+
+                } else {
+                    /* martix */
+                    myTransform = myTransform.replace('matrix(', '');
+                    myTransform = myTransform.replace(')', '');
+                    //console.log(myTransform);
+                    myTransform1 = myTransform.split(',');
+                    //console.log(myTransform1);
+                    tx = myTransform1[4];
+                    ty = myTransform1[5];
+                }
+            return [rx,ry,rz,tx,ty,tz]; 
+        }
+
+        let assignTransValueToController = (el) => {
+            if(el !== 'same'){
+                cTarget = el;
+            }
+            let rx = 0;
+            let ry = 0;
+            let rz = 0;
+            let tx = 0;
+            let ty = 0;
+            let tz = 0;
+
+            if (cTarget === '.space') {
+                rx = 50;
+                ry = 0;
+                rz = 50;
+                tx = 0;
+                ty = 0;
+                tz = 0;
+            } else {
+                const tmpArr = matrix3d_to_tValue(el);
+                rx = tmpArr[0];
+                ry = tmpArr[1];
+                rz = tmpArr[2];
+                tx = tmpArr[3];
+                ty = tmpArr[4];
+                tz = tmpArr[5];
+            }
+
+            setControllerValue(rx,ry,rz,tx,ty,tz);
+
+        };
+
+
+
+        let cameraAct = () => {
+            const rx = document.getElementById('rotateX').value;
+            const ry = document.getElementById('rotateY').value;
+            const rz = document.getElementById('rotateZ').value;
+            const tx = document.getElementById('translateX').value;
+            const ty = document.getElementById('translateY').value;
+            const tz = document.getElementById('translateZ').value;
+            document.getElementById('rxVal').innerText = rx;
+            document.getElementById('ryVal').innerText = ry;
+            document.getElementById('rzVal').innerText = rz;
+            document.getElementById('txVal').innerText = tx;
+            document.getElementById('tyVal').innerText = ty;
+            document.getElementById('tzVal').innerText = tz;
+            //document.querySelector(cTarget).style.transformOrigin = 'center center';
+
+            //document.querySelector(cTarget).style.transform =
+             //       'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) rotateZ(' + rz + 'deg)' +
+             //       ' translate3d(' + tx + 'px,' + ty + 'px,' + tz + 'px)';
+                    //' translateX(' + tx +'px) translateY('+ ty+ 'px) translateZ' + tz +'px)';
+            $(cTarget).css({
+    /*"-webkit-transform": "rotateX(180deg)",
+    "-moz-transform": "rotateX(180deg)",*/
+    "transform": 'rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) rotateZ(' + rz + 'deg)' +
+    ' translate3d(' + tx + 'px,' + ty + 'px,' + tz + 'px)' /* For modern browsers(CSS3)  */
+});
+        };
+
+        cameraAct();
+
+
+
+        document.getElementById("rotateX").addEventListener("change", function(){cameraAct('same')}, false);
+        document.getElementById("rotateY").addEventListener("change", function(){cameraAct('same')}, false);
+        document.getElementById("rotateZ").addEventListener("change", function(){cameraAct('same')}, false);
+
+
+        document.getElementById("translateX").addEventListener("change", cameraAct, false);
+        document.getElementById("translateY").addEventListener("change", cameraAct, false);
+        document.getElementById("translateZ").addEventListener("change", cameraAct, false);
+
+        const keyArr = {
+            67: '.space',
+            81: 'rotateX',
+            87: 'rotateY',
+            69: 'rotateZ',
+            65: 'translateX',
+            83: 'translateY',
+            68: 'translateZ'
+        };
+        window.addEventListener('keydown', (e) => {
+            const keyNum = e.keyCode;
+
+            if (keyArr[keyNum] != undefined) {
+                //console.log("keypressed " + keyArr[keyNum]);
+                if (keyNum == 67) {
+                    cTarget = keyArr[keyNum];
+                    assignTransValueToController(cTarget);
+                } else {
+                    document.getElementById("wheel_target").value = keyArr[keyNum];
+                    document.getElementById(keyArr[keyNum]).focus();
+                }
+            }
+
+        });
+    </script>
+
+    <script>
+    /* useless function */
+    </script>
+</body>
+
+</html>
+

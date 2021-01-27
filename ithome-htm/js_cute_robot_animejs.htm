@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+	<meta charset="UTF-8">
+	<title>animejs demo</title>
+</head>
+<style>
+body{background: #aaa;overflow:hidden;}
+#robot,.head,.body,.Lhand,.Rhand,.Lfoot,.Rfoot{
+position: absolute;zindex:10;}
+#robot{top:200px;left:100px;z-index:50;}
+.head{z-index:30;top:-140px;left:-13px;}
+.body{z-index:20;top:0px;left:0px;}
+.Lhand{top:37px;left:-43px;transform-origin: top right;}
+.Rhand{top:-29px;left:88px;transform-origin: bottom left;}
+.Lfoot{top:90px;left:10px;transform-origin: top center;}
+.Rfoot{top:90px;left:60px;transform-origin: top center;}
+.readme{position:absolute;top:0px;left:0px;zindex:1;background:#333;width:100%;padding:10px;color:#FFA;}
+</style>
+<body>
+<div id="robot">
+	<img class="head" src="../ithome-images/bot_head.png" alt="">
+	<img class="body" src="../ithome-images/bot_body.png" alt="">
+	<img class="Lhand" src="../ithome-images/bot_Lhand.png" alt="">
+	<img class="Rhand" src="../ithome-images/bot_Rhand.png" alt="">
+	<img class="Lfoot" src="../ithome-images/bot_Lfoot.png" alt="">
+	<img class="Rfoot" src="../ithome-images/bot_Rfoot.png" alt="">
+</div>
+<div class="readme">
+	按鍵盤
+	<i class="fas fa-arrow-circle-up"></i> <i class="fas fa-arrow-circle-down"></i> 
+	<i class="fas fa-arrow-circle-left"></i> <i class="fas fa-arrow-circle-right"></i>
+	可以移動機器人
+</div>
+
+<script src="https://kit.fontawesome.com/c44654b9b9.js" crossorigin="anonymous"></script>
+<script src="https://animejs.com/lib/anime.min.js" crossorigin="anonymous"></script>
+<script>
+let botHead=anime({
+  targets: '.head',
+  keyframes: [
+    {left: '+=10'},
+	{left: '-=10'}
+	],
+  duration: 1000,
+  easing: 'spring',
+  loop: true
+});
+
+let botBody=anime({
+  targets: '.body',
+  keyframes: [
+    {top: '+=2'},
+	{top: '-=2'}
+  ],
+  duration: 1000,
+  easing: 'spring',
+  loop: true
+});
+
+let robotHandL=anime({
+  targets: '.Lhand',
+  keyframes: [
+    {rotate: '+=5'},
+	{rotate: '-=5'}
+  ],
+  duration: 1000,
+  easing: 'spring',
+  loop: true
+});
+
+let robotHandR=anime({
+  targets: '.Rhand',
+  keyframes: [
+    {rotate: '+=5'},
+	{rotate: '-=5'}
+  ],
+  duration: 1000,
+  easing: 'spring',
+  loop: true
+});
+
+let robotWalkL=anime({
+  targets: '.Lfoot',
+  keyframes: [
+    {top: '+=10'},
+	{top: '-=18'}
+  ],
+  duration: 1000,
+  easing: 'spring',
+  loop: true
+});
+
+let robotWalkR=anime({
+  targets: '.Rfoot',
+  keyframes: [
+    {top: '-=10'},
+	{top: '+=10'}
+  ],
+  duration: 1000,
+  easing: 'spring',
+  loop: true
+});
+
+function loop(t) {
+  botHead.tick(t);
+  botBody.tick(t);
+  robotHandR.tick(t)
+  robotHandL.tick(t)
+  robotWalkL.tick(t);
+  robotWalkR.tick(t);
+  customRAF = requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+window.addEventListener('keydown', (e) => {
+  const keyNum=e.keyCode;
+  console.log("keypressed " + keyNum);
+  if(keyNum>36&&keyNum<41) robotMove(keyNum);
+});
+
+function robotMove(arrow){
+	anime({
+	  targets: '#robot',
+	  translateX: '+=240',
+	  delay: 100,
+	  easing: 'spring',
+	});
+  if(arrow==37){
+	anime({
+	  targets: '#robot',
+	  translateX: '-=200',
+	  delay: 100,
+	  easing: 'spring',
+	});
+  }else if(arrow==39){
+	anime({
+	  targets: '#robot',
+	  translateX: '+=200',
+	  delay: 100,
+	  easing: 'spring',
+	});
+  }else if(arrow==38){
+	anime({
+	  targets: '#robot',
+	  translateY: '-=200',
+	  delay: 100,
+	  easing: 'spring',
+	});
+  }else{
+	anime({
+	  targets: '#robot',
+	  translateY: '+=200',
+	  delay: 100,
+	  easing: 'spring',
+	});
+  }
+}
+
+</script>
+</body>
+</html>

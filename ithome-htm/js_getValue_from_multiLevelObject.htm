@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<title>JS物件多層陣列取值demo</title>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<style>
+*{
+margin:0;padding:0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body,button,pre{background:#eee;font-family:'Nanum Gothic Coding','ZCOOL XiaoWei';line-height:1.2em;}
+h1{background:#666;color:#FFA;margin:1rem 0;padding:1rem;}
+pre{background:#333;color:#0E9;padding:1rem;font-size:1.2rem;white-space: pre-wrap;word-wrap: break-word;}
+p{padding:1rem;}
+button{font-size:1.2rem;vertical-align:middle;border-radius:0.5rem;padding:0.5em;}
+</style>
+</head>
+<body>
+<h1> JS物件多層陣列取值demo <button onclick="switchContentMode('demo_container')">切換HTML</button></h1>
+<div id="demo_container">
+<!-- 內容開始 -->
+
+<div id="myDataDiv"></div>
+<script>
+const nestData={
+	"id": 718,
+	"name": "第一層",
+	"items": [
+		{
+			"id": 733,
+			"name": "Layer2_1",
+			"items": [
+				{
+					"id": 734,
+					"name": "L3_A",
+					"items": [
+						{
+							"id": 758,
+							"name": "Apple",
+							"items": null
+						},
+						{
+							"id": 760,
+							"name": "Banana",
+							"items": null
+						},
+						{
+							"id": 761,
+							"name": "Apple",
+							"items": null
+						}
+					]
+				},
+				{
+					"id": 764,
+					"name": "L3_AA",
+					"items": [
+						{
+							"id": 765,
+							"name": "Hamburger",
+							"items": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": 759,
+			"name": "Layer2_2",
+			"items": [
+				{
+					"id": 762,
+					"name": "L3_B",
+					"items": [
+						{
+							"id": 763,
+							"name": "Apple",
+							"items": null
+						}
+					]
+				}
+			]
+		}
+	]
+};
+//console.log(myData);
+
+
+let counter=0,lastCount=0,isUndefined=0,lastID=-1;
+let final={};
+let path=[];
+let cid='',cname,citems;
+let travelNestData=(nestObj,lastNode)=>{
+	for (var property in nestObj) {
+		if (nestObj.hasOwnProperty(property)) {
+			if (typeof nestObj[property] == "object") {
+				travelNestData(nestObj[property],cid);
+				if(nestObj.id===undefined){
+					isUndefined=1;
+					counter++;
+					console.log(lastID);
+					path=[];
+				}else{
+					isUndefined=0;
+				}
+			}else{
+				if(property=='id'){
+					//counter++;
+					cid=nestObj[property];
+					if(counter-lastCount==1) console.log("@@!!!");
+					path.push(cid);
+					
+					lastID=nestObj[property];
+					//console.log(property + "    " + nestObj[property]);
+					console.log(path);
+					console.log('LAST:'+lastCount+' CONT:'+counter);
+					final[cid]=path.toString();
+				}
+				
+			}
+			
+		}
+	}
+};
+travelNestData(nestData,'');
+console.log(path);
+document.querySelector('#myDataDiv').innerHTML=final;
+console.log(final);
+</script>
+<script>
+
+</script>
+
+TESTing...TESTing...TESTing...TESTing...TESTing...TESTing...TESTing...TESTing...
+
+<!-- 內容結束 -->
+</div>
+
+<script>
+let switchContentMode=(targetDiv)=>{
+	let currDivStr=document.querySelector('#'+targetDiv).innerHTML;
+		if(currDivStr.indexOf('<pre>')==-1){
+			currDivStr=currDivStr.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML='<pre>'+currDivStr+'</pre>';
+		}else{
+			currDivStr=currDivStr.replace('<pre>','').replace('</pre>','').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+			//console.log(currDivStr);
+			document.querySelector('#'+targetDiv).innerHTML=currDivStr;
+		}
+}
+</script>
+</body>
+</html>
