@@ -211,142 +211,280 @@ Tip 除了 b 或 B 我們也能使用 ( 或 { 。
 `U` - 轉換成大寫
 
 ## 暫存區
-:reg[isters] - 顯示暫存區內容
-"xy - 複製到暫存區 x
-"xp - 貼上暫存區 x 的內容
-"+y - 複製到剪貼簿暫存區
-"+p - 貼上剪貼簿暫存區的內容
+
+`:reg[isters]` - 顯示暫存區內容
+
+`"xy` - 複製到暫存區 x
+
+`"xp` - 貼上暫存區 x 的內容
+
+`"+y` - 複製到剪貼簿暫存區
+
+`"+p` - 貼上剪貼簿暫存區的內容
+
 Tip 暫存區儲存在 ~/.viminfo，且會在 Vim 下次啟動時重新載入。
-Tip 特殊暫存區
- 0 - 最近複製暫存區
- " - 未命名暫存區, 保存上次的刪除或複製
- % - 現在的檔名
- # - 備用檔名
- * - 剪貼簿內容(X11 primary)
- + - 剪貼簿內容(X11 clipboard)
- / - 最後的搜尋表達式
- : - 最後的指令
- . - 最後的插入文字
- - - 最後的(未滿一行的)刪除
- = - expression register
- _ - 黑洞暫存區
-標記
-:marks - 顯示標記清單
-ma - 將目前的位置設為標記 a
-`a - 跳至標記 a
-y`a - 複製游標目前位置到標記 a 位置的字元
-`0 - 回到上次離開Vim時的位置
-`" - 回到上次編輯該檔案的位置
-`. - 回到上次修改該檔案的位置
-`` - 回到上次跳離的位置
-:ju[mps] - 列出跳轉紀錄
-Ctrl + i - go to newer position in jump list
-Ctrl + o - go to older position in jump list
-:changes - list of changes
-g, - go to newer position in change list
-g; - go to older position in change list
-Ctrl + ] - jump to the tag under cursor
+
+## Tip 特殊暫存區
+
+`0` - 最近複製暫存區
+
+`"` - 未命名暫存區, 保存上次的刪除或複製
+
+`%` - 現在的檔名
+
+`#` - 備用檔名
+
+`*` - 剪貼簿內容(X11 primary)
+
+`+` - 剪貼簿內容(X11 clipboard)
+
+`/` - 最後的搜尋表達式
+
+`:` - 最後的指令
+
+`.` - 最後的插入文字
+
+`-` - 最後的(未滿一行的)刪除
+
+`=` - expression register
+
+`_` - 黑洞暫存區
+
+## 標記
+
+`:marks` - 顯示標記清單
+
+`ma` - 將目前的位置設為標記 a
+
+`&#096;a` - 跳至標記 a
+
+`y&#096;a` - 複製游標目前位置到標記 a 位置的字元
+
+`&#096;0` - 回到上次離開Vim時的位置
+
+`&#096;"` - 回到上次編輯該檔案的位置
+
+`&#096;.` - 回到上次修改該檔案的位置
+
+`&#096;&#096;` - 回到上次跳離的位置
+
+`:ju[mps]` - 列出跳轉紀錄
+
+`Ctrl + i` - go to newer position in jump list
+
+`Ctrl + o` - go to older position in jump list
+
+`:changes` - list of changes
+
+`g,` - go to newer position in change list
+
+`g;` - go to older position in change list
+
+`Ctrl + ]` - jump to the tag under cursor
+
 Tip To jump to a mark you can either use a backtick (`) or an apostrophe ('). Using an apostrophe jumps to the beginning (first non-black) of the line holding the mark.
-巨集
-qa - 錄製巨集 a
-q - 停止錄製巨集
-@a - 執行巨集 a
-@@ - 執行上一次執行的巨集
-剪下、複製、貼上
-yy - 複製該行
-2yy - 複製 2 行
-yw - 複製游標位置到下個單字前的字元
-y$ - 複製游標位置到行尾的區塊
-p - 在游標後貼上
-P - 在游標前貼上
-dd - 剪下 (刪除) 該行
-2dd - 剪下 (刪除) 2 行
-dw - 剪下 (刪除) 游標位置到下個單字前的字元
-D - 剪下 (刪除) 游標位置到行尾的區塊
-d$ - 剪下 (刪除) 游標位置到行尾的區塊 (同 D)
-x - 剪下 (刪除) 字元
-文字縮排
->> - 向右縮排一個shiftwidth寬度
-<< - 向左縮排一個shiftwidth寬度
->% - 向右縮排 () 或 {} 內的區塊 (游標需置於括號上)
->ib - 向右縮排 () 內的區塊
->at - 向右縮排 <> tags 內的區塊
-3== - 自動縮排下3行
-=% - 自動縮排 () 或 {} 內的區塊 (游標需置於括號上)
-=iB - 自動縮排 {} 內的區塊
-gg=G - 自動縮排整個緩衝區
-]p - 貼上並自動縮排至該行
-退出
-:w - 儲存
-:w !sudo tee % - 以 sudo 儲存目前的檔案
-:wq or :x or ZZ - 儲存並退出
-:q - 退出 (修改未儲存時警告)
-:q! or ZQ - 強制退出 (不儲存)
-:wqa - 儲存所有分頁並全部退出
-尋找、取代
-/pattern - 尋找 pattern
-?pattern - 向上尋找 pattern
-\vpattern - pattern 中的非英數字元皆視為正規表示式的特殊字元 (不需跳脫字元)
-n - 尋找下一個
-N - 尋找上一個
-:%s/old/new/g - 全部取代
-:%s/old/new/gc - 逐項取代
-:noh[lsearch] - 移除搜尋結果的標示
-多檔案搜尋
-:vim[grep] /pattern/ {`{file}`} - 在多個檔案中搜尋 pattern
+
+## 巨集
+
+`qa` - 錄製巨集 a
+
+`q` - 停止錄製巨集
+
+`@a` - 執行巨集 a
+
+`@@` - 執行上一次執行的巨集
+
+## 剪下、複製、貼上
+
+`yy` - 複製該行
+
+`2yy` - 複製 2 行
+
+`yw` - 複製游標位置到下個單字前的字元
+
+`y$` - 複製游標位置到行尾的區塊
+
+`p` - 在游標後貼上
+
+`P` - 在游標前貼上
+
+`dd` - 剪下 (刪除) 該行
+
+`2dd` - 剪下 (刪除) 2 行
+
+`dw` - 剪下 (刪除) 游標位置到下個單字前的字元
+
+`D` - 剪下 (刪除) 游標位置到行尾的區塊
+
+`d$` - 剪下 (刪除) 游標位置到行尾的區塊 (同 D)
+
+`x` - 剪下 (刪除) 字元
+
+## 文字縮排
+
+`>>` - 向右縮排一個shiftwidth寬度
+
+`<<` - 向左縮排一個shiftwidth寬度
+
+`>%` - 向右縮排 () 或 {} 內的區塊 (游標需置於括號上)
+
+`>ib` - 向右縮排 () 內的區塊
+
+`>at` - 向右縮排 <> tags 內的區塊
+
+`3==` - 自動縮排下3行
+
+`=%` - 自動縮排 () 或 {} 內的區塊 (游標需置於括號上)
+
+`=iB` - 自動縮排 {} 內的區塊
+
+`gg=G` - 自動縮排整個緩衝區
+
+`]p` - 貼上並自動縮排至該行
+
+## 退出
+
+`:w` - 儲存
+
+`:w !sudo tee %` - 以 sudo 儲存目前的檔案
+
+`:wq or :x or ZZ` - 儲存並退出
+
+`:q` - 退出 (修改未儲存時警告)
+
+`:q! or ZQ` - 強制退出 (不儲存)
+
+`:wqa` - 儲存所有分頁並全部退出
+
+## 尋找、取代
+
+`/pattern` - 尋找 pattern
+
+`?pattern` - 向上尋找 pattern
+
+`\vpattern` - pattern 中的非英數字元皆視為正規表示式的特殊字元 (不需跳脫字元)
+
+`n` - 尋找下一個
+
+`N` - 尋找上一個
+
+`:%s/old/new/g` - 全部取代
+
+`:%s/old/new/gc` - 逐項取代
+
+`:noh[lsearch]` - 移除搜尋結果的標示
+
+## 多檔案搜尋
+
+`:vim[grep] /pattern/ {&#096;{file}&#096;}` - 在多個檔案中搜尋 pattern
+
 e.g. :vim[grep] /foo/ **/*
-:cn[ext] - 跳至下一個
-:cp[revious] - 跳至上一個
-:cope[n] - 開啟搜尋結果列表視窗
-:ccl[ose] - close the quickfix window
-分頁
-:tabnew or :tabnew {page.words.file} - 在新分頁開啟檔案名稱
-Ctrl + wT - 以新分頁開啟視窗
-gt or :tabn[ext] - 切換到下個分頁
-gT or :tabp[revious] - 切換到上個分頁
-#gt - 切換到第 # 個分頁
-:tabm[ove] # - 將分頁移到第 # 位 (從 0 算起)
-:tabc[lose] - 關閉該分頁及其中所有視窗
-:tabo[nly] - 關閉所有其他分頁
-:tabdo command - 對所有分頁執行命令 (例如 :tabdo q 會關閉所有分頁)
-多檔案編輯
-:e[dit] 檔案名稱 - 在新緩衝區開啟檔案名稱
-:bn[ext] - 切換到下個緩衝區
-:bp[revious] - 切換到上個緩衝區
-:bd[elete] - 刪除緩衝區 (關閉檔案)
-:b[uffer]# - go to a buffer by #
-:b[uffer] file - go to a buffer by file
-:ls or :buffers - 列出所有開啟的緩衝區
-:sp[lit] 檔案名稱 - 在新緩衝區開啟檔案名稱並水平分割視窗
-:vs[plit] 檔案名稱 - 在新緩衝區開啟檔案名稱並垂直分割視窗
-:vert[ical] ba[ll] - edit all buffers as vertical windows
-:tab ba[ll] - edit all buffers as tabs
-Ctrl + ws - 水平分割視窗
-Ctrl + wv - 垂直分割視窗
-Ctrl + ww - 切換視窗
-Ctrl + wq - 關閉視窗
-Ctrl + wx - exchange current window with next one
-Ctrl + w= - make all windows equal height & width
-Ctrl + wh - 游標跳至左視窗 (垂直分割)
-Ctrl + wl - 游標跳至右視窗 (垂直分割)
-Ctrl + wj - 游標跳至下視窗 (水平分割)
-Ctrl + wk - 游標跳至上視窗 (水平分割)
-Diff
-zf - manually define a fold up to motion
-zd - delete fold under the cursor
-za - toggle fold under the cursor
-zo - open fold under the cursor
-zc - close fold under the cursor
-zr - reduce (open) all folds by one level
-zm - fold more (close) all folds by one level
-zi - toggle folding functionality
-]c - jump to start of next change
-[c - jump to start of previous change
-do or :diffg[et] - obtain (get) difference (from other buffer)
-dp or :diffpu[t] - put difference (to other buffer)
-:diffthis - make current window part of diff
-:dif[fupdate] - update differences
-:diffo[ff] - switch off diff mode for current window
+
+`:cn[ext]` - 跳至下一個
+
+`:cp[revious]` - 跳至上一個
+
+`:cope[n]` - 開啟搜尋結果列表視窗
+
+`:ccl[ose]` - close the quickfix window
+
+## 分頁
+
+`:tabnew` or `:tabnew {page.words.file}` - 在新分頁開啟檔案名稱
+
+`Ctrl + wT` - 以新分頁開啟視窗
+
+`gt` or `:tabn[ext]` - 切換到下個分頁
+
+`gT` or `:tabp[revious]` - 切換到上個分頁
+
+`#gt` - 切換到第 # 個分頁
+
+`:tabm[ove]` # - 將分頁移到第 # 位 (從 0 算起)
+
+`:tabc[lose]` - 關閉該分頁及其中所有視窗
+
+`:tabo[nly]` - 關閉所有其他分頁
+
+`:tabdo` command - 對所有分頁執行命令 (例如 :tabdo q 會關閉所有分頁)
+
+## 多檔案編輯
+
+`:e[dit]` 檔案名稱 - 在新緩衝區開啟檔案名稱
+
+`:bn[ext]` - 切換到下個緩衝區
+
+`:bp[revious]` - 切換到上個緩衝區
+
+`:bd[elete]` - 刪除緩衝區 (關閉檔案)
+
+`:b[uffer]#` - go to a buffer by #
+
+`:b[uffer]` file - go to a buffer by file
+
+`:ls` or `:buffers` - 列出所有開啟的緩衝區
+
+`:sp[lit]` 檔案名稱 - 在新緩衝區開啟檔案名稱並水平分割視窗
+
+`:vs[plit]` 檔案名稱 - 在新緩衝區開啟檔案名稱並垂直分割視窗
+
+`:vert[ical] ba[ll]` - edit all buffers as vertical windows
+
+`:tab ba[ll]` - edit all buffers as tabs
+
+`Ctrl + ws` - 水平分割視窗
+
+`Ctrl + wv` - 垂直分割視窗
+
+`Ctrl + ww` - 切換視窗
+
+`Ctrl + wq` - 關閉視窗
+
+`Ctrl + wx` - exchange current window with next one
+
+`Ctrl + w=` - make all windows equal height & width
+
+`Ctrl + wh` - 游標跳至左視窗 (垂直分割)
+
+`Ctrl + wl` - 游標跳至右視窗 (垂直分割)
+
+`Ctrl + wj` - 游標跳至下視窗 (水平分割)
+
+`Ctrl + wk` - 游標跳至上視窗 (水平分割)
+
+`Diff`
+
+`zf` - manually define a fold up to motion
+
+`zd` - delete fold under the cursor
+
+`za` - toggle fold under the cursor
+
+`zo` - open fold under the cursor
+
+`zc` - close fold under the cursor
+
+`zr` - reduce (open) all folds by one level
+
+`zm` - fold more (close) all folds by one level
+
+`zi` - toggle folding functionality
+
+`]c` - jump to start of next change
+
+`[c` - jump to start of previous change
+
+`do` or `:diffg[et]` - obtain (get) difference (from other buffer)
+
+`dp` or `:diffpu[t]` - put difference (to other buffer)
+
+`:diffthis` - make current window part of diff
+
+`:dif[fupdate]` - update differences
+
+`:diffo[ff]` - switch off diff mode for current window
+
 Tip The commands for folding (e.g. za) operate on one level. To operate on all levels, use uppercase letters (e.g. zA).
+
 Tip To view the differences of files, one can directly start Vim in diff mode by running vimdiff in a terminal. One can even set this as git difftool.
 
