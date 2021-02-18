@@ -1,0 +1,127 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive tables test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="An awesome solution for responsive tables with complex data.">
+
+    <!-- Font Awesome -->
+    <link async href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <!-- Responsive Tables -->
+        <link rel="stylesheet" href="http://gergeo.se/RWD-Table-Patterns/css/rwd-table.min.css?v=5.3.1">
+        <link rel="stylesheet" href="http://gergeo.se/RWD-Table-Patterns/css/docs.min.css?v=5.3.1">
+
+</head>
+<body>
+<h2>SHOW ALL COLUMNS</h2>
+<div class="table-responsive" data-pattern="priority-columns">
+<table cellspacing="0" id="tech-companies-1" class="table table-small-font table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th data-priority="">Last Trade</th>
+            <th data-priority="">Trade Time</th>
+            <th data-priority="">Change</th>
+            <th data-priority="">Prev Close</th>
+            <th data-priority="">Open</th>
+            <th data-priority="">Bid</th>
+            <th data-priority="">Ask</th>
+            <th data-priority="">1y Target Est</th>
+            <th data-priority="">Lorem</th>
+            <th data-priority="">Ipsum</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>GOOG <span class="co-name">Google Inc.</span></th>
+            <td>597.74</td>
+            <td>12:12PM</td>
+            <td>14.81 (2.54%)</td>
+            <td>582.93</td>
+            <td>597.95</td>
+            <td>597.73 x 100</td>
+            <td>597.91 x 300</td>
+            <td>731.10</td>
+            <td colspan="2">Spanning cell</td>
+        </tr>
+        <tr>
+            <th>AAPL <span class="co-name">Apple Inc.</span></th>
+            <td>378.94</td>
+            <td>12:22PM</td>
+            <td>5.74 (1.54%)</td>
+            <td>373.20</td>
+            <td>381.02</td>
+            <td>378.92 x 300</td>
+            <td>378.99 x 100</td>
+            <td>505.94</td>
+            <td colspan="2">Spanning cell</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<h2>HIDE SOME COLUMNS</h2>
+<div class="table-responsive" data-pattern="priority-columns">
+<table cellspacing="0" id="tech-companies-1" class="table table-small-font table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th data-priority="-1">Last Trade</th>
+            <th data-priority="0">Trade Time</th>
+            <th data-priority="">Change</th>
+            <th data-priority="1">Prev Close</th>
+            <th data-priority="2">Open</th>
+            <th data-priority="3">Bid</th>
+            <th data-priority="4">Ask</th>
+            <th data-priority="5">1y Target Est</th>
+            <th data-priority="6">Lorem</th>
+            <th data-priority="">Ipsum</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>GOOG <span class="co-name">Google Inc.</span></th>
+            <td>597.74</td>
+            <td>12:12PM</td>
+            <td>14.81 (2.54%)</td>
+            <td>582.93</td>
+            <td>597.95</td>
+            <td>597.73 x 100</td>
+            <td>597.91 x 300</td>
+            <td>731.10</td>
+            <td colspan="2">Spanning cell</td>
+        </tr>
+        <tr>
+            <th>AAPL <span class="co-name">Apple Inc.</span></th>
+            <td>378.94</td>
+            <td>12:22PM</td>
+            <td>5.74 (1.54%)</td>
+            <td>373.20</td>
+            <td>381.02</td>
+            <td>378.92 x 300</td>
+            <td>378.99 x 100</td>
+            <td>505.94</td>
+            <td colspan="2">Spanning cell</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<p>
+    resource: http://gergeo.se/RWD-Table-Patterns/#features
+</p>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<!-- Latest compiled and minified Bootstrap JavaScript -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script src="http://gergeo.se/RWD-Table-Patterns/js/rwd-table.js?v=5.3.1"></script>
+<script>
+    $(function() {
+        $('.table-responsive').responsiveTable({});
+    });
+</script>
+</body>
+</html>
