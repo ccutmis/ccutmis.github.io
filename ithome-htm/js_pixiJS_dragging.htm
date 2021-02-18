@@ -23,7 +23,7 @@ const docW=$( document ).width(),docH=$( document ).height();
 window.onload = function(){const app = new PIXI.Application({width:docW,height:docH, backgroundColor: 0x666666 });
 $("body").append(app.view);
 // create a texture from an image path
-const texture = PIXI.Texture.from('coin.png');
+const texture = PIXI.Texture.from('../ithome-images/coin.png');
 
 // Scale mode for pixelation
 texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
