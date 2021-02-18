@@ -20,13 +20,18 @@
 <script src="https://d157l7jdn8e5sf.cloudfront.net/dev/pixi-legacy.js"></script>
 <script>
 const docW=$( document ).width(),docH=$( document ).height();
-window.onload = function(){const app = new PIXI.Application({width:docW,height:docH, backgroundColor: 0x666666 });
+window.onload = function(){
+const app = new PIXI.Application({width:docW,height:docH, backgroundColor: 0x666666 });
 $("body").append(app.view);
 // create a texture from an image path
 const texture = PIXI.Texture.from('../ithome-images/coin.png');
 
 // Scale mode for pixelation
 texture.baseTexture.scaleMode = PIXI.SCALE_MODES.NEAREST;
+
+// Sprite drag offset
+let spriteMouseLocationOffsetX = 0;
+let spriteMouseLocationOffsetY = 0;
 
 for (let i = 0; i < 10; i++) {
     createBunny(
@@ -86,6 +91,11 @@ function onDragStart(event) {
     this.data = event.data;
     this.alpha = 0.5;
     this.dragging = true;
+    // get the mouse coursor location within the window
+    const appCursorLocation = this.data.getLocalPosition(this.parent);
+    // calculate the offset with the app cursor location - sprite location
+    spriteMouseLocationOffsetX = appCursorLocation.x - this.x 
+    spriteMouseLocationOffsetY = appCursorLocation.y - this.y 
 }
 
 function onDragEnd() {
@@ -93,13 +103,16 @@ function onDragEnd() {
     this.dragging = false;
     // set the interaction data to null
     this.data = null;
+    spriteMouseLocationOffsetX = 0;
+    spriteMouseLocationOffsetY = 0;
 }
 
 function onDragMove() {
     if (this.dragging) {
         const newPosition = this.data.getLocalPosition(this.parent);
-        this.x = newPosition.x;
-        this.y = newPosition.y;
+        // adjust the sprite prosition using the offset
+        this.x = newPosition.x - spriteMouseLocationOffsetX;
+        this.y = newPosition.y - spriteMouseLocationOffsetY;
     }
 }
 }</script>
