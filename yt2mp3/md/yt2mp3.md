@@ -4,6 +4,10 @@
 
 -----
 
+## [點我觀看Youtube影片教學](https://www.youtube.com/watch?v=wCyNdk2dDUI)
+
+-----
+
 ## [點我下載 YT2MP3.exe 可執行檔](https://ccutmis.github.io/yt2mp3/YT2MP3.zip)
 下載完成解壓縮到電腦裡面好找的位置即可，例如"我的文件"
 
