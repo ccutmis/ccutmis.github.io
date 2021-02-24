@@ -4,7 +4,7 @@
 
 -----
 
-## [點我觀看Youtube影片教學](https://www.youtube.com/watch?v=wCyNdk2dDUI)
+[點我觀看Youtube影片教學](https://www.youtube.com/watch?v=wCyNdk2dDUI)
 
 -----
 
