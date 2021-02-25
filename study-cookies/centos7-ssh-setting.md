@@ -1,4 +1,4 @@
-# CentOS7安裝SSH教學
+# CentOS7 安裝SSH教學
 
 reference url : [https://dotblogs.com.tw/michaelchen/2015/01/06/centos_install_ssh](https://dotblogs.com.tw/michaelchen/2015/01/06/centos_install_ssh)
 
