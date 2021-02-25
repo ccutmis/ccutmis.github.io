@@ -4,8 +4,9 @@
 1. 本網頁所載的所有資料、商標、標誌、圖像、短片、聲音檔案、連結及其他資料等（以下簡稱「資料」），只供學習參考之用 ，本站有可能會隨時更改資料，並不作另行通知。
 2. 本程式主要作為Python學習之用，程式碼於github開源，相關與智財的資料下載請在學習下載24小時內刪除並勿用於商業用途以免觸法，大家一起做個守法好公民。
 
-* [編程同好可點此連結在 github 檢視 python源碼 ](https://github.com/ccutmis/yt2mp3/)
-* [點我觀看Youtube影片教學](https://www.youtube.com/watch?v=wCyNdk2dDUI)
+> [編程同好可點此連結在 github 檢視 python源碼 ](https://github.com/ccutmis/yt2mp3/)
+
+> [點我觀看Youtube影片教學](https://www.youtube.com/watch?v=wCyNdk2dDUI)
 
 -----
 
