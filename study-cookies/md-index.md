@@ -1,3 +1,4 @@
+* [test][test.md]
 * [CentOS7 常用文件操作與壓縮命令](centos7-useful-zip-commands.md)
 * [CentOS7 中文支持設定](centos7-locale-setting.md)
 * [CentOS7 系統時區設定](centos7-timezones-setting.md)
