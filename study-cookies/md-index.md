@@ -1,3 +1,5 @@
+* [CentOS7 常用文件操作與壓縮命令](centos7-useful-zip-commands.md)
+* [CentOS7 中文支持設定](centos7-locale-setting.md)
 * [CentOS7 系統時區設定](centos7-timezones-setting.md)
 * [CentOS7 解決 xxx is not in the sudoers file](centos7-fix-is-not-in-the-sudoers-file.md)
 * [CentOS7 設定NTP校正時間](centos7-ntp-setting.md)
