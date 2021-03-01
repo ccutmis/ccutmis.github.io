@@ -398,3 +398,91 @@ PRI(new) = PRI(old) + NI
 以人類社團的社辦來說，當你在童軍社的社辦公室撰寫出一份活動草案時，這份活動草案的著作者應該是屬於你的，但是草案的擁有群組應該是『童軍社』， 而不是『屬於你的原生家庭』吧？這就是 SGID 的主要功能。在前一堂課中，管理員曾經建立一個共享目錄 /srv/project1/， 當時的權限設定為 770 是有問題的，因為每個用戶在該目錄下產生的新檔案所屬群組並非共享群組。因此，共享目錄底下新建的資料應屬於共享群組才對， 所以應該加上 SGID 的權限旗標設定才對。
 
 
+* SBIT 的功能與觀察
+
+前幾堂課談過 /tmp 是所有帳號均可寫入的一個暫存目錄，因此 /tmp 理論上應該是 777 的權限才行。但是如果是 777 的權限， 代表任何人所建立的任何資料，都可能被隨意的刪除，這就有問題。因此 /tmp 會加上一個 Sticky bit 的特殊權限旗標，該旗標的功能為：
+
+* 當使用者對於此目錄具有 w, x 權限，亦即具有寫入的權限時；
+* 當使用者在該目錄下建立檔案或目錄時，僅有自己與 root 才有權力刪除該檔案
+
+
+例題：
+
+1. 觀察 /tmp 的權限，看其他人的權限當中的 x 變成什麼？
+2. 以 root 登入系統，並且進入 /tmp 當中；
+3. 將 /etc/hosts 複製成為 /tmp/myhosts ，並且更改 /tmp/myhosts 權限成為 777 ；
+4. 以 student 登入，並進入 /tmp；
+5. student 能不能使用 vim 編輯這個檔案？為什麼？
+6. student 能不能刪除這個檔案？為什麼？
+
+### SUID/SGID/SBIT 權限的設定
+
+SUID/SGID/SBIT 的權限旗標是在 Linux 的傳統三個身份三個權限之外的，因此會有第四個權限分數產生。而這個權限分數的計算方式為：
+
+* 4 為 SUID
+* 2 為 SGID
+* 1 為 SBIT
+
+因此，觀察底下的 CentOS7 的檔案權限分數：
+
+```
+[student@localhost ~]$ ll -d /usr/bin/passwd /usr/bin/locate /tmp
+drwxrwxrwt. 9 root root      280  7月  7 06:35 /tmp
+-rwx--s--x. 1 root slocate 40496  6月 10  2014 /usr/bin/locate
+-rwsr-xr-x. 1 root root    27832  6月 10  2014 /usr/bin/passwd
+```
+
+若有小寫 s 或 t 存在時，該欄位需要加入 x 的權限，因此 /tmp 的傳統權限為『 drwxrwxrwx (777) 』外加一個 SBIT，因此分數為『 1777 』。 而 /usr/bin/locate 傳統權限會成為『 -rwx--x--x (711) 』外加一個 SGID，因此分數會成為『 2711 』。 至於 /usr/bin/passwd 的傳統權限是『 -rwxr-xr-x (755) 』，外加一個 SUID，因此分數成為『 4755 』。
+
+除了數字法之外，符號法的使用上，可以使用類似底下的方式分別給予 SUID/SGID/SBIT：
+
+* SUID: chmod u+s filename
+* SGID: chmod g+s filename
+* SBIT: chmod o+t filename
+
+例題：
+
+1. 一般使用者執行 /usr/local/bin/mycat2 時，可以產生與 /usr/bin/cat 相同的結果。但是一般用戶在執行 mycat2 的時候，可以在運作的過程當中取得 root 的權限， 因此一般使用者執行 mycat2 /etc/shadow 會順利執行成功。
+2. 承襲前一堂課的實做成果，請到 /srv/ 目錄下，觀察 project1 這個目錄的權限，若要讓『所有在該目錄底下建立的新檔案，新檔案的所屬群組要跟 project1 相同， 亦即群組預設要成為 progroup 才行。
+
+
+## 課後練習操作
+
+前置動作：請使用 unit05 的硬碟進入作業環境，並請先以 root 身分執行 vbird_book_setup_ip 指令設定好你的學號與 IP 之後，再開始底下的作業練習。
+
+請使用 root 的身份進行如下實做的任務。直接在系統上面操作，操作成功即可，上傳結果的程式會主動找到你的實做結果。
+
+1. 觀察系統上面相關的檔案資訊後，嘗試回答下列問題，並將答案寫入 /root/ans05.txt 當中：
+	a. 系統上面有個名為 /opt/checking.txt 的檔案，student 能否讀, 寫該檔案？為甚麼？(說明是哪種權限的影響)
+	b. 承上，student 能不能將這個檔案複製到 /tmp 去？為甚麼？(說明是哪種權限的影響)
+	c. student 能不能刪除 /opt/checking.txt 這個檔案？為甚麼？(說明是哪種權限的影響)
+	d. student 能不能用 ls 去查看 /opt/checkdir/ 這個目錄內的檔名資料？為甚麼？(說明是哪種權限的影響)
+	e. student 能不能讀取 /opt/checkdir/myfile.txt 檔案？為甚麼？(說明是哪種權限的影響)
+	f. student 能不能刪除他家目錄底下，一個名為 fromme.txt 的檔案？為什麼？(說明是哪種權限的影響)
+
+2. 基礎帳號管理，請建立如下的群組與帳號資料：
+	a. 群組名稱為： mygroup, nogroup
+	b. 帳號名稱為： myuser1, myuser2, myuser3 ，通通加入 mygroup，且密碼為 MyPassWord
+	c. 帳號名稱為： nouser1, nouser2, nouser3 ，通通加入 nogroup，且密碼為 MyPassWord
+
+3. 管理群組共用資料的權限設計：
+	a. 建立一個名為 /srv/myproject 的目錄，這個目錄可以讓 mygroup 群組內的使用者完整使用，且【新建的檔案擁有群組】為 mygroup 。不過其他人不能有任何權限
+	b. 暫時切換成為 myuser1 的身分，並前往 /srv/myproject 目錄，嘗試建立一個名為 myuser1.data 的檔案，之後登出 myuser1。
+	c. 雖然 nogroup 群組內的用戶對於 /srv/myproject 應該沒有任何權限，但當 nogroup 內的用戶執行 /usr/local/bin/myls 時，可以產生與 ls 相同的資訊，且暫時擁有 mygroup 群組的權限，因此可以查詢到 /srv/myproject 目錄內的檔名資訊。 也就是說，當你使用 nouser1 的身分執行【myls /srv/myproject】時，應該是能夠查閱到該目錄內的檔名資訊。
+	d. 讓一般用戶執行 /usr/local/bin/myless 產生與 less 相同的結果。此外，只有 mygroup 的群組內用戶可以執行，其他人不能執行，同時 myuser1 等人執行 myless 時，執行過程中會暫時擁有 root 的權限。
+	e. 建立一個名為 /srv/nogroup 的空白檔案，這個檔案可以讓 nouser1, nouser2, nouser3 讀、寫，但全部的人都不能執行。而 myuser1, myuser2, myuser3 只能讀不能寫入。
+
+4. 程序的觀察與簡易管理
+	a. 使用程序觀察的指令，搭配 grep 的關鍵字查詢功能，將找到的 rsyslog 相關的程序的 PID, PRI, NI, COMMAND 等資訊轉存到 /root/process_syslog.txt 檔案中；
+	b. 使用任何你知道的程序觀察指令，找到名為 sleep 的程序，找出他的 NI 值是多少？然後寫入 /root/process_sleep.txt 的檔案中
+	c. 承上，請將該 NI 值改成 -10 。
+	d. 以 myuser1 登入 tty3 終端機，然後執行『 sleep 5d 』這個指令，請注意，這個指令必須要在『背景以下運作』才行；
+	e. 承上，在上 tty3 的 myuser1 持續同時運作 vim ~/.bashrc 這個指令在前景運作。保留此環境，然會回到你原本的 tty 中。
+	f. 使用 root 執行『 sleep 4d 』這個指令，且這個指令的 NI 值必須要設定為 -5
+
+5. 使用 find 找出 /usr/bin 及 /usr/sbin 兩個目錄中，含有 SUID 或/及 SGID 的特殊檔案檔名， 並使用 ls -l 去列出找到的檔案的相關權限後，將螢幕資料轉存到 /root/findsuidsgid.txt 檔案中。
+
+作業結果傳輸：請以 root 的身分執行 vbird_book_check_unit 指令上傳作業結果。 正常執行完畢的結果應會出現【XXXXXX;aa:bb:cc:dd:ee:ff;unitNN】字樣。若需要查閱自己上傳資料的時間， 請在作業系統上面使用： http://192.168.251.250 檢查相對應的課程檔案。
+
+
+
