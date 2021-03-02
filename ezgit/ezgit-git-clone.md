@@ -1,1 +1,1 @@
-# ezgit-git-clone.mdbalabala[回目錄](ezgit-index.md)
+# 將新建的儲存庫克隆到本機(git clone ur first repo)balabala[回目錄](ezgit-index.md)

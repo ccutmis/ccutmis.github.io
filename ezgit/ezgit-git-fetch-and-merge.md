@@ -1,1 +1,1 @@
-# ezgit-git-fetch-and-merge.mdbalabala[回目錄](ezgit-index.md)
+# 從Github下載更新本地儲存庫(Download from Github: git fetch & merge)balabala[回目錄](ezgit-index.md)

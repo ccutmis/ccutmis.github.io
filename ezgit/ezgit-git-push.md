@@ -1,1 +1,1 @@
-# ezgit-git-push.mdbalabala[回目錄](ezgit-index.md)
+# 把本地儲存庫推送到Github更新(Update to Github: git push -u)balabala[回目錄](ezgit-index.md)

@@ -1,1 +1,1 @@
-# ezgit-git-add-and-commit.mdbalabala[回目錄](ezgit-index.md)
+# 把日常編輯結果加到儲存庫(Daily Useage: git add and commit)balabala[回目錄](ezgit-index.md)
