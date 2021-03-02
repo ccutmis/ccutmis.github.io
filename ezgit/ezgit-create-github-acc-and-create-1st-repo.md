@@ -1,0 +1,1 @@
+# 申請Github帳號並新建第一個儲存庫(Create Github account and Create first Repository)balabala[回目錄](ezgit-index.md)
