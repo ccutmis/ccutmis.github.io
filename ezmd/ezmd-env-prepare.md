@@ -1,0 +1,1 @@
+# 前置準備(enviroment prepare)學習 markdown 其實不需要什麼特別的環境，只要記事本就能開始編寫 markdown 文件，不過記事本編寫 markdown 文件無法即時預覽編輯結果，因此我們要先在電腦安裝 Notepad++ 並在 Notepad++ 裡面安裝 Markdown Panel 外掛。[回目錄](ezmd-index.md)
