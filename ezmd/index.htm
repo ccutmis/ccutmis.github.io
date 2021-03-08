@@ -65,22 +65,21 @@ $.get("./ezmarkdown.md",{rand: new Date()}, function(data) {
 let md2htm = (mdtxt) =>{
     const htmtxt=(marked(mdtxt));
     $("body").prepend(htmtxt);
-    buildMainMenu();
+    render();
 };
 
-let buildMainMenu = () =>{
+let render = () =>{
     const page_title=$("h1").text();
     const logo=$("h1+p img").attr("src");
-    console.log(logo)
+    //console.log(logo)
     $("title").text(page_title);
-    console.log(page_title);
+    //console.log(page_title);
     $("#mainmenu+ul li").addClass("nav-item");
     $("#mainmenu+ul li a").addClass("nav-link");
     let tmp_htm=$("#mainmenu+ul").html();
     tmp_htm=tmp_htm.replace(/\([^\)]+\)/gi,"");
     // remove original mainmenu ul li
     $("h1+p img,h1,#mainmenu+ul,#mainmenu").remove();
-    // append new main menu
 let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
     <img src="${logo}" width="60" height="30" class="d-inline-block align-top" alt="">
@@ -95,8 +94,7 @@ let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
     </nav>
 `;
     $("body").prepend(htm_tmplate);
-    console.log(tmp_htm);
-    //console.log("haha");
+    //console.log(tmp_htm);
 };
 </script>
 </body>
