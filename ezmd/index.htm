@@ -95,6 +95,13 @@ let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
 `;
 	$("body").prepend(htm_tmplate);
 	//console.log(tmp_htm);
+	$('a').each(function () {
+		if ($(this).text() == 'anchor') {
+			$(this).css('color', 'red');
+			$(this).attr('name',$(this).attr('href'));
+			$(this).attr('href','');
+		}
+	});
 };
 </script>
 </body>
