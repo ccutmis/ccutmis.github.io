@@ -1,1 +1,0 @@
-# 為何學Markdown?(Why Markdown?)bala bala[回目錄](ezmd-index.md)
