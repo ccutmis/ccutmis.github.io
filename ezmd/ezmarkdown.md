@@ -12,7 +12,7 @@ Markdown是一種輕量級標記式語言，創始人為約翰·格魯伯。它�
 
 由於Markdown的輕量化、易讀易寫特性，並且對於圖片，圖表、數學式都有支援，目前許多網站都廣泛使用Markdown來撰寫說明文件或是用於論壇上發表訊息。如GitHub、Reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge、簡書等，甚至還能被用來撰寫電子書。
 
------
+---
 
 ### 準備學習環境 ( Study Enviroment Prepare ) :
 
@@ -20,5 +20,8 @@ Markdown是一種輕量級標記式語言，創始人為約翰·格魯伯。它�
 
 由於Markdown的輕量化、易讀易寫特性，並且對於圖片，圖表、數學式都有支援，目前許多網站都廣泛使用Markdown來撰寫說明文件或是用於論壇上發表訊息。如GitHub、Reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge、簡書等，甚至還能被用來撰寫電子書。
 
------
+---
+
+
+
 

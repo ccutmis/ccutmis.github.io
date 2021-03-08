@@ -46,13 +46,11 @@ body.loading .modal {
     display: block;
 }
 </style>
-  </head>
-  <body>
-
+</head>
+<body>
 <div class="modal"><!-- Place at bottom of page --></div>
 <script>
 $body = $("body");
-
 $(document).on({
     ajaxStart: function() { $body.addClass("loading");},
      ajaxStop: function() { $body.removeClass("loading");}
@@ -63,7 +61,8 @@ $.get("./ezmarkdown.md",{rand: new Date()}, function(data) {
 });
 
 let md2htm = (mdtxt) =>{
-    const htmtxt=(marked(mdtxt));
+    let htmtxt=(marked(mdtxt));
+	htmtxt=htmtxt.replace(/<h3 /gi,"<div class=\"jumbotron\"><h3 ").replace(/<hr>/gi,"</div>");
     $("body").prepend(htmtxt);
     render();
 };
@@ -77,7 +76,7 @@ let render = () =>{
     $("#mainmenu+ul li").addClass("nav-item");
     $("#mainmenu+ul li a").addClass("nav-link");
     let tmp_htm=$("#mainmenu+ul").html();
-    tmp_htm=tmp_htm.replace(/\([^\)]+\)/gi,"");
+	tmp_htm=tmp_htm.replace(/\([^\)]+\)/gi,"");
     // remove original mainmenu ul li
     $("h1+p img,h1,#mainmenu+ul,#mainmenu").remove();
 let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -93,8 +92,8 @@ let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
     </div>
     </nav>
 `;
-    $("body").prepend(htm_tmplate);
-    //console.log(tmp_htm);
+	$("body").prepend(htm_tmplate);
+	//console.log(tmp_htm);
 };
 </script>
 </body>
