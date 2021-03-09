@@ -97,9 +97,8 @@ let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
 	//console.log(tmp_htm);
 	$('a').each(function () {
 		if ($(this).text() == 'anchor') {
-			$(this).css('color', 'red');
-			$(this).attr('name',$(this).attr('href'));
-			$(this).attr('href','');
+			//$(this).css('color', 'red');
+			$(this).attr('name',$(this).attr('href')).attr('href','').text('');
 		}
 	});
 };
