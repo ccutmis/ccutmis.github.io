@@ -8,3 +8,4 @@ Scripts/*
 *.spec
 *.pyc
 .DS_Store
+*.command
