@@ -7,6 +7,8 @@
     <title>Loading...Please Wait a while...</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="./ezmarkdown.css">
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script
   src="https://code.jquery.com/jquery-3.6.0.js"
@@ -46,10 +48,6 @@ body.loading .modal {
 body.loading .modal {
     display: block;
 }
-/*
-.nav-item{background:red !important;}
-.nav-item:hover{background:green !important;}
-*/
 </style>
 </head>
 <body>
@@ -88,7 +86,7 @@ let render = () =>{
     tmp_htm=tmp_htm.replace(/\([^\)]+\)/gi,"");
     // remove original mainmenu ul li
     $("h1+p img,h1,#"+menuID+"+ol,#"+menuID).remove();
-    let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    let htm_tmplate=`<nav class="w-100 navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">
     <img src="${siteLogo}" width="${siteLogoWH[0]}" height="${siteLogoWH[1]}" class="d-inline-block align-top" alt="">
     <span class="d-inline-block pt-3">${page_title}</span>
@@ -101,7 +99,7 @@ let render = () =>{
     </div>
     </nav>
 `;
-	$("body").prepend(htm_tmplate);
+	$('.container-fluid').prepend(htm_tmplate);
 	//console.log(tmp_htm);
 	$('a').each(function () {
 		if ($(this).text() == 'anchor') {
