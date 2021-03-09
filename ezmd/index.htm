@@ -49,8 +49,10 @@ body.loading .modal {
 </style>
 </head>
 <body>
+<div class="container-fluid"></div>
 <div class="modal"><!-- Place at bottom of page --></div>
 <script>
+const menuID='目錄';
 $body = $("body");
 $(document).on({
     ajaxStart: function() { $body.addClass("loading");},
@@ -64,7 +66,8 @@ $.get("./ezmarkdown.md",{rand: new Date()}, function(data) {
 let md2htm = (mdtxt) =>{
     let htmtxt=(marked(mdtxt));
 	htmtxt=htmtxt.replace(/<h3 /gi,"<div class=\"jumbotron\"><h3 ").replace(/<hr>/gi,"</div>").replace(/<p><\/p>/gi,"");
-    $("body").prepend(htmtxt);
+    console.log(htmtxt);
+    $(".container-fluid").prepend(htmtxt);
     render();
 };
 
@@ -74,12 +77,12 @@ let render = () =>{
     //console.log(logo)
     $("title").text(page_title);
     //console.log(page_title);
-    $("#mainmenu+ul li").addClass("nav-item");
-    $("#mainmenu+ul li a").addClass("nav-link");
-    let tmp_htm=$("#mainmenu+ul").html();
+    $("#"+menuID+"+ol li").addClass("nav-item");
+    $("#"+menuID+"+ol li a").addClass("nav-link");
+    let tmp_htm=$("#"+menuID+"+ol").html();
 	tmp_htm=tmp_htm.replace(/\([^\)]+\)/gi,"");
     // remove original mainmenu ul li
-    $("h1+p img,h1,#mainmenu+ul,#mainmenu").remove();
+    $("h1+p img,h1,#"+menuID+"+ol,#"+menuID).remove();
 let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
     <img src="${logo}" width="60" height="30" class="d-inline-block align-top" alt="">
