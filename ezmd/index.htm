@@ -88,7 +88,7 @@ let render = () =>{
     tmp_htm=tmp_htm.replace(/\([^\)]+\)/gi,"");
     // remove original mainmenu ul li
     $("h1+p img,h1,#"+menuID+"+ol,#"+menuID).remove();
-    let htm_tmplate=`<nav class="w-100 navbar navbar-expand-lg navbar-light">
+    let htm_tmplate=`<nav class="w-100 navbar navbar-expand-lg navbar-light position-fixed ">
     <a class="navbar-brand" href="#">
     <img src="${siteLogo}" width="${siteLogoWH[0]}" height="${siteLogoWH[1]}" class="d-inline-block align-top" alt="">
     <span class="d-inline-block pt-3">${page_title}</span>
