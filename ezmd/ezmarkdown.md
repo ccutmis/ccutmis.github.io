@@ -29,9 +29,9 @@
     1. **安裝 Notepad++** : 在 Google 網站搜尋 'Notepad++'，進入 Notepad++官方網站下載安裝程式，依軟體指示安裝即可完成。
     2. **安裝 Markdown Panel 外掛模組** : Notepad++ 安裝完成後，直接開啟 Notepad++，點選主選單的"外掛->外掛模組管理"<br> ![](https://i.imgur.com/1es2HWv.png)
     3. 在外掛模組管理視窗搜尋 'markdown' 找到並勾選 Markdown Panel 然後按[安裝] <br> ![](https://i.imgur.com/DX4yPlP.png)
-    4. bala <br> ![](https://i.imgur.com/csjVnaR.png)
-    5. bala <br> ![](https://i.imgur.com/3RXEz6r.png)
-    6. bala <br> ![](https://i.imgur.com/edUCeZ5.png)
+    4. 彈出視窗說明需要關閉 Notepad++ 再重啟，按[是] <br> ![](https://i.imgur.com/csjVnaR.png)
+    5. 重啟 Notepad++ 在最上方可以找到 Markdown Panel 的小圖示，有需要預覽 markdown 文件轉 html 效果時按一下這個小圖示即可 <br> ![](https://i.imgur.com/3RXEz6r.png)
+    6. 這是本頁的 markdown 文件以及用 Markdown Panel預覽的效果 <br> ![](https://i.imgur.com/edUCeZ5.png)
 
 -----
 
