@@ -53,7 +53,7 @@ body.loading .modal {
 <div class="modal"><!-- Place at bottom of page --></div>
 <script>
 const menuID='目錄';
-const logoWH=[120,60];
+const siteLogoWH=[60,60];
 $body = $("body");
 $(document).on({
     ajaxStart: function() { $body.addClass("loading");},
@@ -67,14 +67,14 @@ $.get("./ezmarkdown.md",{rand: new Date()}, function(data) {
 let md2htm = (mdtxt) =>{
     let htmtxt=(marked(mdtxt));
     htmtxt=htmtxt.replace(/<h3 /gi,"<div class=\"jumbotron\"><h3 ").replace(/<hr>/gi,"</div>").replace(/<p><\/p>/gi,"").replace(/<table>/gi,"<table class='table table-striped table-sm' >").replace(/alt="banner"/gi,"class='img w-100'");
-    console.log(htmtxt);
+    //console.log(htmtxt);
     $(".container-fluid").prepend(htmtxt);
     render();
 };
 
 let render = () =>{
     const page_title=$("h1").text();
-    const logo=$("h1+p img").attr("src");
+    const siteLogo=$("h1+p img").attr("src");
     //console.log(logo)
     $("title").text(page_title);
     //console.log(page_title);
@@ -86,7 +86,7 @@ let render = () =>{
     $("h1+p img,h1,#"+menuID+"+ol,#"+menuID).remove();
     let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
-    <img src="${logo}" width="${logoWH[0]}" height="${logoWH[1]}" class="d-inline-block align-top" alt="">
+    <img src="${siteLogo}" width="${siteLogoWH[0]}" height="${siteLogoWH[1]}" class="d-inline-block align-top" alt="">
     <span class="d-none d-lg-inline-block pt-3">${page_title}</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

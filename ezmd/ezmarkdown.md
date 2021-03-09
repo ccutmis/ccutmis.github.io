@@ -1,5 +1,5 @@
 # EZMarkDown
-![logo](ezmd-logo.svg)
+![site-logo](images/site-logo.png)
 
 ## 目錄
 1. [為何要學Markdown?(Why Markdown?)](#why-markdown)
