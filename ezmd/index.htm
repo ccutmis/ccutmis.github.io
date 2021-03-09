@@ -63,7 +63,7 @@ $.get("./ezmarkdown.md",{rand: new Date()}, function(data) {
 
 let md2htm = (mdtxt) =>{
     let htmtxt=(marked(mdtxt));
-	htmtxt=htmtxt.replace(/<h3 /gi,"<div class=\"jumbotron\"><h3 ").replace(/<hr>/gi,"</div>").replace(/<p><\/p>/,"");
+	htmtxt=htmtxt.replace(/<h3 /gi,"<div class=\"jumbotron\"><h3 ").replace(/<hr>/gi,"</div>").replace(/<p><\/p>/gi,"");
     $("body").prepend(htmtxt);
     render();
 };
