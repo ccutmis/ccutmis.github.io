@@ -46,6 +46,10 @@ body.loading .modal {
 body.loading .modal {
     display: block;
 }
+/*
+.nav-item{background:red !important;}
+.nav-item:hover{background:green !important;}
+*/
 </style>
 </head>
 <body>
@@ -87,7 +91,7 @@ let render = () =>{
     let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
     <img src="${siteLogo}" width="${siteLogoWH[0]}" height="${siteLogoWH[1]}" class="d-inline-block align-top" alt="">
-    <span class="d-none d-lg-inline-block pt-3">${page_title}</span>
+    <span class="d-inline-block pt-3">${page_title}</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
