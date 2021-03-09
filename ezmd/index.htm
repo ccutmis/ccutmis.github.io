@@ -80,13 +80,13 @@ let render = () =>{
     $("#"+menuID+"+ol li").addClass("nav-item");
     $("#"+menuID+"+ol li a").addClass("nav-link");
     let tmp_htm=$("#"+menuID+"+ol").html();
-	tmp_htm=tmp_htm.replace(/\([^\)]+\)/gi,"");
+    tmp_htm=tmp_htm.replace(/\([^\)]+\)/gi,"");
     // remove original mainmenu ul li
     $("h1+p img,h1,#"+menuID+"+ol,#"+menuID).remove();
-let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    let htm_tmplate=`<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
-    <img src="${logo}" width="60" height="30" class="d-inline-block align-top" alt="">
-    ${page_title}
+    <img src="${logo}" width="120" height="60" class="d-inline-block align-top" alt="">
+    <span class="d-none d-lg-inline-block pt-3">${page_title}</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
