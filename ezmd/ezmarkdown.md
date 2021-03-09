@@ -6,7 +6,8 @@
 2. [準備學習環境(Study Env. Prepare)](#study-environment-prepare)
 3. [常用Markdown語法介紹(Useful Tags in Markdown)](#useful-tags-in-markdown)
 
-![](https://image.freepik.com/free-vector/colorful-abstract-banner-design-templates_53876-60595.jpg)
+![banner](https://image.freepik.com/free-vector/colorful-abstract-banner-design-templates_53876-60595.jpg)
+
 [anchor](why-markdown)
 
 ### 為何要學Markdown?(Why Markdown?)
@@ -14,7 +15,8 @@
 * 由於Markdown的輕量化、易讀易寫特性，並且對於圖片，圖表、數學式都有支援，目前許多網站都廣泛使用Markdown來撰寫說明文件或是用於論壇上發表訊息。如GitHub、Reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge、簡書等，甚至還能被用來撰寫電子書。
 -----
 
-![](https://image.freepik.com/free-vector/vector-abstract-banner-modern-web-template_53295-38.jpg)
+![banner](https://image.freepik.com/free-vector/vector-abstract-banner-modern-web-template_53295-38.jpg)
+
 [anchor](study-environment-prepare)
 
 ### 準備學習環境(Study Env. Prepare)
@@ -22,7 +24,8 @@
 * 由於Markdown的輕量化、易讀易寫特性，並且對於圖片，圖表、數學式都有支援，目前許多網站都廣泛使用Markdown來撰寫說明文件或是用於論壇上發表訊息。如GitHub、Reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge、簡書等，甚至還能被用來撰寫電子書。
 -----
 
-![](https://image.freepik.com/free-vector/colorful-abstract-banner-design-templates_53876-60598.jpg)
+![banner](https://image.freepik.com/free-vector/colorful-abstract-banner-design-templates_53876-60598.jpg)
+
 [anchor](useful-tags-in-markdown)
 
 ### 常用Markdown語法介紹(Useful Tags in Markdown)
