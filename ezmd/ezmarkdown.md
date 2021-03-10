@@ -40,14 +40,14 @@
 [anchor](useful-tags-in-markdown)
 
 ### 常用Markdown語法介紹(Useful Tags in Markdown)
-標籤 | 說明 | 範例 | 轉換html結果
-:-- | :-- | :-- | :--
-#| 大標題 | # 測試大標題 | &lt;h1&gt;測試大標題&lt;/h1&gt;
-##| 中標題 | ## 測試中標題 | &lt;h2&gt;測試主題&lt;/h2&gt;
-&gt;| 引言 | &gt; 引言測試 | &lt;quote&gt;測試主題&lt;/quote&gt;
-\*|無序清單項目|\* 項目一| &lt;ul&gt;&lt;li&gt;項目一&lt;/li&gt;&lt;/ul&gt;
-1.|有序清單項目|1. 項目一| &lt;ol&gt;&lt;li&gt;項目一&lt;/li&gt;&lt;/ol&gt;
-\[文字\]\(網址\)|超連結| \[Google\]\(https://www.google.com)|&lt;a href="https://www.google.com" &gt;Google&lt;/a&gt;
-!\[圖片文字\]\(圖片網址\)|圖片| !\[My Image\]\(myImage.png)|&lt;img src="myImage.png" alt="My Image" &gt;
+標籤 | 說明 | 範例
+:-- | :-- | :-- 
+#| 大標題 | # 測試大標題
+##| 中標題 | ## 測試中標題 
+&gt;| 引言 | &gt; 引言測試 
+\*|無序清單項目|\* 項目一
+1.|有序清單項目|1. 項目一
+\[文字\]\(網址\)|超連結| \[Google\]\(https://www.google.com)
+!\[圖片文字\]\(圖片網址\)|圖片| !\[My Image\]\(myImage.png)
 
 更多 Markdown 語法說明請參考 [Markdown文件](https://markdown.tw/)
