@@ -6,9 +6,9 @@
 2. [準備學習環境(Study Env. Prepare)](#study-environment-prepare)
 3. [常用Markdown語法介紹(Useful Tags in Markdown)](#useful-tags-in-markdown)
 
-![banner](images/1.jpg)
-
 [anchor](why-markdown)
+
+![banner](images/1.jpg)
 
 ### 為何要學Markdown?(Why Markdown?)
 * Markdown是一種輕量級標記式語言。它允許人們使用易讀易寫的純文字格式編寫文件，然後轉換成有效的XHTML（或者HTML）文件。這種語言吸收了很多在電子郵件中已有的純文字標記的特性。
@@ -17,9 +17,9 @@
 * Markdown 文件是一個文字檔(副檔名為.md)，利用它的特性可以跨平台編輯文件，編寫完成的文件本身放到適當的平台就能直接當作說明書(例如:github網站)，也能透過js將Markdown文件轉成網頁瀏覽(例如本頁內容就是用一個Markdown文件直接轉換為網頁)。
 -----
 
-![banner](images/2.jpg)
-
 [anchor](study-environment-prepare)
+
+![banner](images/2.jpg)
 
 ### 準備學習環境(Study Env. Prepare)
 
@@ -35,9 +35,9 @@
 
 -----
 
-![banner](images/3.jpg)
-
 [anchor](useful-tags-in-markdown)
+
+![banner](images/3.jpg)
 
 ### 常用Markdown語法介紹(Useful Tags in Markdown)
 標籤 | 說明 | 範例
