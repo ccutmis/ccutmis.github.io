@@ -6,7 +6,7 @@
 2. [準備學習環境(Study Env. Prepare)](#study-environment-prepare)
 3. [常用Markdown語法介紹(Useful Tags in Markdown)](#useful-tags-in-markdown)
 
-![banner](https://pixelcog.github.io/parallax.js/./img/stellar-spire-eagle-nebula-1400x900.jpg)
+![banner](images/1.jpg)
 
 [anchor](why-markdown)
 
@@ -14,10 +14,10 @@
 * Markdown是一種輕量級標記式語言。它允許人們使用易讀易寫的純文字格式編寫文件，然後轉換成有效的XHTML（或者HTML）文件。這種語言吸收了很多在電子郵件中已有的純文字標記的特性。
 * 由於Markdown的輕量化、易讀易寫特性，並且對於圖片，圖表、數學式都有支援，目前許多網站都廣泛使用Markdown來撰寫說明文件或是用於論壇上發表訊息。如GitHub、Reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge、簡書等，甚至還能被用來撰寫電子書。
 * 以上資訊來源: [維基百科:Markdown](https://zh.wikipedia.org/zh-tw/Markdown)
-* Markdown 本身是一個文字檔，利用它的特性可以跨平台編輯文件，編寫完成的文件本身放到適當的平台就能直接當作說明書(例如:github網站)，也能透過js將Markdown文件轉成網頁瀏覽(例如本頁內容就是用一個Markdown文件直接轉換為網頁)。
+* Markdown 文件是一個文字檔(副檔名為.md)，利用它的特性可以跨平台編輯文件，編寫完成的文件本身放到適當的平台就能直接當作說明書(例如:github網站)，也能透過js將Markdown文件轉成網頁瀏覽(例如本頁內容就是用一個Markdown文件直接轉換為網頁)。
 -----
 
-![banner](https://pixelcog.github.io/parallax.js/./img/stellar-spire-eagle-nebula-1400x900.jpg)
+![banner](images/2.jpg)
 
 [anchor](study-environment-prepare)
 
@@ -35,7 +35,7 @@
 
 -----
 
-![banner](https://pixelcog.github.io/parallax.js/./img/stellar-spire-eagle-nebula-1400x900.jpg)
+![banner](images/3.jpg)
 
 [anchor](useful-tags-in-markdown)
 
@@ -44,3 +44,6 @@
 :-- | :-- | :-- | :--
 #| 大標題 | # 測試大標題 | &lt;h1&gt;測試大標題&lt;/h1&gt;
 ##| 中標題 | ## 測試中標題 | &lt;h2&gt;測試主題&lt;/h2&gt;
+&gt;| 引言 | &gt; 引言測試 | &lt;quote&gt;測試主題&lt;/quote&gt;
+
+更多 Markdown 語法說明請參考 [Markdown文件](https://markdown.tw/)
