@@ -107,6 +107,11 @@ let render = () =>{
 			$(this).attr('name',$(this).attr('href')).attr('href','').text('');
 		}
 	});
+	$('p').each(function () {
+		if ($(this).html() == '') {
+			$(this).remove();
+		}
+	});
 };
 </script>
 </body>
