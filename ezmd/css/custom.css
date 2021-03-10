@@ -17,4 +17,9 @@ div.section{background:#fff;}
     background: transparent;
 }
 
+.hr {
+    display:block;
+    margin:1em 0em;
+    border-bottom:solid 1px rgba(17, 16, 16,0.5);
+  }
 .bg-secondary{background: #FF9 !important;}
