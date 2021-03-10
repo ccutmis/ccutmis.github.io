@@ -49,6 +49,9 @@ body.loading .modal {
 body.loading .modal {
     display: block;
 }
+.banner{min-height:40vh;}
+.titleInBanner{position:absolute;bottom:0.5em;left:0.5em;font-size:2.5em;color:#FFF;}
+body{font-size:1.2em;}
 </style>
 </head>
 <body>
@@ -68,7 +71,7 @@ $.get("./ezmarkdown.md",{rand: new Date()}, function(data) {
 
 let md2htm = (mdtxt) =>{
     let htmtxt=(marked(mdtxt));
-    htmtxt=htmtxt.replace(/<h3 /gi,"<div class=\" \"><h3 ").replace(/<hr>/gi,"</div>").replace(/<p><\/p>/gi,"").replace(/<table>/gi,"<table class='table table-striped table-sm' >").replace(/(<p>).*?src="([^"]+)" alt="banner".*?(<\/p>)/gi,'<div class="parallax-window" data-parallax="scroll" data-image-src="$2"><img src="$2" alt="banner" class="img-fluid"></div>').replace(/alt="illustration"/gi,'alt="illustration" class="img-fluid img-thumbnail my-3"');
+    htmtxt=htmtxt.replace(/<h3 /gi,"<div class=\" \"><h3 ").replace(/<hr>/gi,"</div>").replace(/<p><\/p>/gi,"").replace(/<table>/gi,"<table class='table table-striped table-sm' >").replace(/(<p>).*?src="([^"]+)" alt="banner".*?(<\/p>)/gi,'<div class="banner position-relative" style="background:url($2);"></div>').replace(/alt="illustration"/gi,'alt="illustration" class="img-fluid img-thumbnail my-3"');
     //console.log(htmtxt);
     $("body").prepend(htmtxt);
     render();
@@ -100,7 +103,6 @@ let render = () =>{
     </nav></div>
 `;
 	$('body').prepend(htm_tmplate);
-	//console.log(tmp_htm);
 	$('a').each(function () {
 		if ($(this).text() == 'anchor') {
 			//$(this).css('color', 'red');
@@ -112,6 +114,12 @@ let render = () =>{
 			$(this).remove();
 		}
 	});
+    $('.banner').each(function () {
+       let tmpTitleStr=$(this).next().next().children("h3").text();
+       tmpTitleStr=tmpTitleStr.replace(/^[^\(]+\(([^\)]*)\)$/,"$1");
+       $(this).append(`<div class="titleInBanner">${tmpTitleStr}</div>`);
+       console.log(tmpTitleStr);
+    });
 };
 </script>
 </body>
