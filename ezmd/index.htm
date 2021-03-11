@@ -99,7 +99,7 @@ let md2htm = (mdtxt) =>{
         console.log(tmpMC[0]);
         for(let i=0;i<tmpMC.length;i++){
             let tmpMC_item=tmpMC[i].replace(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g,"$1{||||}$2").split("{||||}");
-            modal_content_dict[tmpMC_item[0]]=tmpMC_item[1];
+            modal_content_dict[tmpMC_item[0]+""]=tmpMC_item[1];
         }
         console.log(modal_content_dict);
     }
