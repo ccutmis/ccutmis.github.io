@@ -7,10 +7,8 @@
 3. [常用語法介紹(Useful Tags)](#useful-tags)
 
 [anchor](why-markdown)
-
 ![banner](images/1.jpg)
-
-### <span class="text-danger">為何要學Markdown?(Why Markdown?)</span>
+### 為何要學Markdown?(Why Markdown?)
 * Markdown是一種輕量級標記式語言。它允許人們使用易讀易寫的純文字格式編寫文件，然後轉換成有效的XHTML（或者HTML）文件。這種語言吸收了很多在電子郵件中已有的純文字標記的特性。
 * 由於Markdown的輕量化、易讀易寫特性，並且對於圖片，圖表、數學式都有支援，目前許多網站都廣泛使用Markdown來撰寫說明文件或是用於論壇上發表訊息。如GitHub、Reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge、簡書等，甚至還能被用來撰寫電子書。<span class="hr"></span>
 * 以上資訊來源: [維基百科:Markdown](https://zh.wikipedia.org/zh-tw/Markdown)
@@ -18,9 +16,7 @@
 -----
 
 [anchor](study-environment)
-
 ![banner](images/2.jpg)
-
 ### 學習環境(Study Environment)
 
 * **一台電腦**或**一部手機**或**平板**。(只**要有類似記事本編輯的軟體或APP**都可以作為Markdown學習的設備)
@@ -36,9 +32,7 @@
 -----
 
 [anchor](useful-tags)
-
 ![banner](images/3.jpg)
-
 ### 常用語法介紹(Useful Tags)
 標籤 | 說明 | 範例
 :-- | :-- | :-- 
@@ -51,3 +45,9 @@
 !\[圖片文字\]\(圖片網址\)|圖片| !\[My Image\]\(myImage.png)
 
 更多 Markdown 語法說明請參考 [Markdown文件](https://markdown.tw/)
+
+-----
+
+#### Footer
+Copyrights | EZMarkDown Studio &copy; 2021
+-----
