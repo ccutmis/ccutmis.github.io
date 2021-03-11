@@ -85,7 +85,7 @@ let gent_section_htm = (banner_bg_img,a_name,h3_id,h3_content) => {
     let titleInBanner=h3_id; 
     return `
     <div class="banner position-relative" style="background:url(${banner_bg_img});background-size:cover;">
-        <div class="titleInBanner">${titleInBanner}</div>
+        <div class="titleInBanner">${a_name}</div>
         <div><a name="${a_name}"></a></div>
     </div>
     <div class="section p-3"><h3 id="${h3_id}">${h3_content}</h3>

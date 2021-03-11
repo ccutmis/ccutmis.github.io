@@ -7,11 +7,12 @@ body{background: #333;margin:0px !important;}
     color:#FFF !important;
     /*-webkit-text-stroke:1px #333;*/
 }
-/*
+
 .titleInBanner:hover{
     filter: drop-shadow(0px 0px 10px rgba(255,255,0,0.7));
+    color:transparent;
 }
-*/
+
 body{font-size:1.2em;}
 div.section{background:#fff;}
 .navbar{background:url(../images/1.jpg) 100% 20%;}
