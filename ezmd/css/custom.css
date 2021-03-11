@@ -15,7 +15,7 @@ body{background: #333;margin:0px !important;}
 
 body{font-size:1.2em;}
 div.section{background:#fff;}
-.navbar{background:url(../images/1.jpg) 100% 20%;}
+.navbar{}
 .parallax-window {
     min-height: 400px;
     background: transparent;
