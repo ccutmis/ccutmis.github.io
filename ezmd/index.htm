@@ -1,4 +1,3 @@
-<!-- https://pixelcog.github.io/parallax.js/ -->
 <!doctype html>
 <html lang="zh-tw">
   <head>
@@ -24,7 +23,7 @@ html{scroll-behavior:smooth;}
    with position:fixed. Width, height, top and left speak
    for themselves. Background we set to 80% white with
    our animation centered, and no-repeating */
-.modal {
+.modal-loading {
     display:    none;
     position:   fixed;
     z-index:    1000;
@@ -40,23 +39,24 @@ html{scroll-behavior:smooth;}
 
 /* When the body has the loading class, we turn
    the scrollbar off with overflow:hidden */
-body.loading .modal {
+body.loading .modal-loading {
     overflow: hidden;   
 }
 
 /* Anytime the body has the loading class, our
    modal element will be visible */
-body.loading .modal {
+body.loading .modal-loading {
     display: block;
 }
 
 </style>
 </head>
 <body>
-<div class="modal"><!-- Place at bottom of page --></div>
+<div class="modal-loading"><!-- Place at bottom of page --></div>
 <script>
 let site_title_and_logo='';
 let menuID='';
+let modal_content_dict={};
 let siteLogoWH=[60,60];
 $body = $("body");
 $(document).on({
@@ -70,7 +70,6 @@ $.get("./ezmarkdown.md",{rand: new Date()}, function(data) {
 
 
 let md2htm = (mdtxt) =>{
-    let modal_content_dict={};
     let htmtxt=(marked(mdtxt));
     htmtxt=htmtxt.replace(/\n/g,' '); //將換行符\n轉成一個空白字元
     //console.log(htmtxt)
@@ -92,18 +91,21 @@ let md2htm = (mdtxt) =>{
     htmtxt=htmtxt.replace(/<h4 id="footer">[^<]+<\/h4>(.*?)<hr>/g,gent_footer_htm("$1")); /* process footer section */
     //console.log(htmtxt);
     htmtxt=htmtxt.replace(/<p><\/p>/g,"").replace(/<hr>/,'');
-    $("body").prepend('<div class="container-fluid">'+htmtxt+'</div>');
     // process modal_content
     let tmpMC=htmtxt.match(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g);
     if(tmpMC!=null){
-        console.log(tmpMC[0]);
+        //console.log(tmpMC[0]);
         for(let i=0;i<tmpMC.length;i++){
             let tmpMC_item=tmpMC[i].replace(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g,"$1{||||}$2").split("{||||}");
             modal_content_dict[tmpMC_item[0]+""]=tmpMC_item[1];
         }
-        console.log(modal_content_dict);
+        htmtxt=htmtxt.replace(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g,"");
+        //console.log(modal_content_dict);
     }
     // create MODAL_CALL::BTNS
+    htmtxt=htmtxt.replace(/<a href="([^"]+)">MODAL_CALL::([^<]+)<\/a>/g,"<button type=\"button\" class=\"btn btn-primary\" onclick=\"open_modal(\'$1\');return false;\">$2</button>");
+    $("body").prepend('<div class="container-fluid">'+htmtxt+'</div>');
+
     render();
 };
 
@@ -161,9 +163,24 @@ let gent_footer_htm = (footer_txt) => {
 
 let render = () =>{
     $("title").text(site_title_and_logo[0]);
-    $(".modal_content").remove();
+    //$(".modal_content").remove();
+};
+
+let open_modal = (modal_dict_key) => {
+  $('.modal .modal-body p').html(modal_content_dict[modal_dict_key]);
+  $('.modal').modal('show');
+  //console.log(modal_content_dict[modal_dict_key]);
 };
 
 </script>
+<div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
