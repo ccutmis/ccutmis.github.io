@@ -55,6 +55,7 @@ body.loading .modal {
 <body>
 <div class="modal"><!-- Place at bottom of page --></div>
 <script>
+let site_title_and_logo='';
 let menuID='';
 let siteLogoWH=[60,60];
 $body = $("body");
@@ -73,12 +74,15 @@ let md2htm = (mdtxt) =>{
     let htmtxt=(marked(mdtxt));
     htmtxt=htmtxt.replace(/\n/g,' '); //將換行符\n轉成一個空白字元
     //console.log(htmtxt)
+    site_title_and_logo=htmtxt.match(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"/)[0].replace(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"/,"$1{||||}$2").split("{||||}");
+    console.log(site_title_and_logo);
     menuID=htmtxt.match(/<h2 id="[^"]+"/g)[0].replace('<h2 id="','').replace('"','');
     //console.log(menuID);
     // create menu list
     let tmpOL=htmtxt.match(/<h2 [^>]+>[^<]+<\/h2> <ol>(.*?)<\/ol>/g)[0].replace(/<h2 [^>]+>[^<]+<\/h2> <ol>/,"").replace("</ol>","").replace(/<li>/g,"<li class='nav-item'>").replace(/<a /g,"<a class='nav-link' ").replace(/\([^\)]+\)/g,'');
-    console.log(tmpOL);
-    htmtxt=htmtxt.replace(/<h2 [^>]+>[^<]+<\/h2> <ol>(.*?)<\/ol>/g,gent_nav_htm(tmpOL));
+    //console.log(tmpOL);
+    htmtxt=htmtxt.replace(/<h2 [^>]+>[^<]+<\/h2> <ol>(.*?)<\/ol>/g,gent_nav_htm(site_title_and_logo[0],site_title_and_logo[1],tmpOL));
+    htmtxt+=gent_bottom_nav_htm(site_title_and_logo[0],site_title_and_logo[1],tmpOL);
     //console.log(htmtxt);
     //htmtxt=htmtxt.replace(/<hr>/g,"</div>");
     htmtxt=htmtxt.replace(/<p><a href="([^"]+)">anchor<\/a> <img src="([^"]*)" alt="banner"><\/p> <h3 id="([^"]+)">(.*?)<\/h3>(.*?)<hr>/g,gent_section_htm("$2","$1","$3","$4","$5"));
@@ -92,17 +96,37 @@ let md2htm = (mdtxt) =>{
     render();
 };
 
-let gent_nav_htm = ( nav_data ) => {
+let gent_nav_htm = ( site_title,site_logo,nav_data ) => {
     return `<div><nav class="w-100 navbar navbar-expand-lg navbar-dark bg-dark rounded">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
+    <a class="navbar-brand" href="#">
+      <img src="${site_logo}" alt="" width="32" height="32" class="d-inline-block align-top">
+    ${site_title}
+    </a>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">${nav_data}</ul>
     </div>
     </nav>
     </div>`;
 };
+
+let gent_bottom_nav_htm = ( site_title,site_logo,nav_data) => {
+    return `<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">${site_title}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav">${nav_data}</ul>
+    </div>
+  </div>
+</nav>
+    `;
+};
+
 
 let gent_section_htm = (banner_bg_img,a_name,h3_id,h3_content,section_content) => {
     let titleInBanner=h3_id; 
