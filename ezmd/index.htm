@@ -70,12 +70,13 @@ $.get("./ezmarkdown.md",{rand: new Date()}, function(data) {
 
 
 let md2htm = (mdtxt) =>{
-    //let htmtxt=(marked(mdtxt.replace(/-----/g,"</div>")));
+    let modal_content_dict={};
     let htmtxt=(marked(mdtxt));
     htmtxt=htmtxt.replace(/\n/g,' '); //將換行符\n轉成一個空白字元
     //console.log(htmtxt)
     site_title_and_logo=htmtxt.match(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"/)[0].replace(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"/,"$1{||||}$2").split("{||||}");
-    console.log(site_title_and_logo);
+    htmtxt=htmtxt.replace(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"[^<]+<\/p>/,"");
+    //console.log(site_title_and_logo);
     menuID=htmtxt.match(/<h2 id="[^"]+"/g)[0].replace('<h2 id="','').replace('"','');
     //console.log(menuID);
     // create menu list
@@ -83,16 +84,26 @@ let md2htm = (mdtxt) =>{
     //console.log(tmpOL);
     htmtxt=htmtxt.replace(/<h2 [^>]+>[^<]+<\/h2> <ol>(.*?)<\/ol>/g,gent_nav_htm(site_title_and_logo[0],site_title_and_logo[1],tmpOL));
     htmtxt+=gent_bottom_nav_htm(site_title_and_logo[0],site_title_and_logo[1],tmpOL);
-    //console.log(htmtxt);
-    //htmtxt=htmtxt.replace(/<hr>/g,"</div>");
+
     htmtxt=htmtxt.replace(/<p><a href="([^"]+)">anchor<\/a> <img src="([^"]*)" alt="banner"><\/p> <h3 id="([^"]+)">(.*?)<\/h3>(.*?)<hr>/g,gent_section_htm("$2","$1","$3","$4","$5"));
     //console.log(htmtxt);
     htmtxt=htmtxt.replace(/<table>/gi,"<table class='table table-striped table-sm' >");
     htmtxt=htmtxt.replace(/alt="illustration"/gi,'alt="illustration" class="img-fluid img-thumbnail my-3"');
     htmtxt=htmtxt.replace(/<h4 id="footer">[^<]+<\/h4>(.*?)<hr>/g,gent_footer_htm("$1")); /* process footer section */
     //console.log(htmtxt);
-    htmtxt=htmtxt.replace(/<p><\/p>/g,"");
+    htmtxt=htmtxt.replace(/<p><\/p>/g,"").replace(/<hr>/,'');
     $("body").prepend('<div class="container-fluid">'+htmtxt+'</div>');
+    // process modal_content
+    let tmpMC=htmtxt.match(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g);
+    if(tmpMC!=null){
+        console.log(tmpMC[0]);
+        for(let i=0;i<tmpMC.length;i++){
+            let tmpMC_item=tmpMC[i].replace(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g,"$1{||||}$2").split("{||||}");
+            modal_content_dict[tmpMC_item[0]]=tmpMC_item[1];
+        }
+        console.log(modal_content_dict);
+    }
+    // create MODAL_CALL::BTNS
     render();
 };
 
@@ -149,41 +160,8 @@ let gent_footer_htm = (footer_txt) => {
 }
 
 let render = () =>{
-    const page_title=$("h1").text();
-    const siteLogo=$("h1+p img").attr("src");
-    //console.log(logo)
-    $("title").text(page_title);
-    //console.log(page_title);
-    //$("#"+menuID+"+ol li").addClass("nav-item");
-    //$("#"+menuID+"+ol li a").addClass("nav-link");
-    //let tmp_htm=$("#"+menuID+"+ol").html();
-    //tmp_htm=tmp_htm.replace(/\([^\)]+\)/gi,"");
-    // remove original mainmenu ul li
-    $("h1+p img,h1,#"+menuID+"+ol,#"+menuID).remove();
-
-	//$('.container-fluid').prepend(htm_tmplate);
-	/*
-    $('a').each(function () {
-		if ($(this).text() == 'anchor') {
-			//$(this).css('color', 'red');
-			$(this).attr('name',$(this).attr('href')).attr('href','').text('');
-		}
-	});*/
-    /*
-    $('.banner').each(function () {
-       let tmpTitleStr=$(this).next().children("h3").text();
-       tmpTitleStr=tmpTitleStr.replace(/^[^\(]+\(([^\)]*)\)$/,"$1");
-       $(this).append(`<div class="titleInBanner">${tmpTitleStr}</div>`);
-       console.log(tmpTitleStr);
-    });
-    */
-    /*
-	$('p').each(function () {
-		if ($(this).html() == '') {
-			$(this).remove();
-		}
-	});
-    */
+    $("title").text(site_title_and_logo[0]);
+    $(".modal_content").remove();
 };
 
 </script>

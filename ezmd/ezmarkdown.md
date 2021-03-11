@@ -22,15 +22,23 @@
 ![banner](images/2.jpg)
 ### 學習環境(Study Environment)
 
-* **一台電腦**或**一部手機**或**平板**。(只**要有類似記事本編輯的軟體或APP**都可以作為Markdown學習的設備)
-* 為了方便編輯並即時預覽編輯結果，在這邊建議**windows作業系統**的使用者**安裝 Notepad++** 及 **Notepad++的Markdown Panel外掛模組**。
-* 以下簡單介紹 **Notepad++ 安裝與 Markdown Panel 外掛模組 設定**:
-    1. **安裝 Notepad++** : 在 Google 網站搜尋 'Notepad++'，進入 Notepad++官方網站下載安裝程式，依軟體指示安裝即可完成。
-    2. **安裝 Markdown Panel 外掛模組** : Notepad++ 安裝完成後，直接開啟 Notepad++，點選主選單的"外掛->外掛模組管理"<br> ![illustration](https://i.imgur.com/1es2HWv.png)
-    3. 在外掛模組管理視窗搜尋 'markdown' 找到並勾選 Markdown Panel 然後按[安裝] <br> ![illustration](https://i.imgur.com/DX4yPlP.png)
-    4. 彈出視窗說明需要關閉 Notepad++ 再重啟，按[是] <br> ![illustration](https://i.imgur.com/csjVnaR.png)
-    5. 重啟 Notepad++ 在最上方可以找到 Markdown Panel 的小圖示，有需要預覽 markdown 文件轉 html 效果時按一下這個小圖示即可 <br> ![illustration](https://i.imgur.com/3RXEz6r.png)
-    6. 這是本頁的 markdown 文件以及用 Markdown Panel預覽的效果 <br> ![illustration](https://i.imgur.com/edUCeZ5.png)
+**一台電腦**或**一部手機**或**平板**。(只**要有類似記事本編輯的軟體或APP**都可以作為Markdown學習的設備)
+
+為了方便編輯並即時預覽編輯結果，在這邊建議**windows作業系統**的使用者**安裝 Notepad++** 及 **Notepad++的Markdown Panel外掛模組**。
+
+[MODAL_CALL::Notepad++ 安裝與 Markdown Panel 外掛模組 設定](modal_content_1)
+
+<span class="modal_content" id="modal_content_1">
+
+#### Notepad++ 安裝與 Markdown Panel 外掛模組 設定:
+1. **安裝 Notepad++** : 在 Google 網站搜尋 'Notepad++'，進入 Notepad++官方網站下載安裝程式，依軟體指示安裝即可完成。
+2. **安裝 Markdown Panel 外掛模組** : Notepad++ 安裝完成後，直接開啟 Notepad++，點選主選單的"外掛->外掛模組管理"<br> ![illustration](https://i.imgur.com/1es2HWv.png)
+3. 在外掛模組管理視窗搜尋 'markdown' 找到並勾選 Markdown Panel 然後按[安裝] <br> ![illustration](https://i.imgur.com/DX4yPlP.png)
+4. 彈出視窗說明需要關閉 Notepad++ 再重啟，按[是] <br> ![illustration](https://i.imgur.com/csjVnaR.png)
+5. 重啟 Notepad++ 在最上方可以找到 Markdown Panel 的小圖示，有需要預覽 markdown 文件轉 html 效果時按一下這個小圖示即可 <br> ![illustration](https://i.imgur.com/3RXEz6r.png)
+6. 這是本頁的 markdown 文件以及用 Markdown Panel預覽的效果 <br> ![illustration](https://i.imgur.com/edUCeZ5.png)
+
+</span>
 
 -----
 
