@@ -2,30 +2,16 @@
 ![site-logo](images/site-logo.png)
 
 ## 目錄
-1. [為何學Markdown?(Why Markdown?)](#Why&#32;Markdown?)
-2. [學習環境(Study Envionment)](#Study-Environment)
-3. [常用語法介紹(Useful Tags)](#Useful-Tags)
-4. [LOAD_MD::載入ezmarkdown2.md](ezmarkdown2.md)
------
-
-[anchor](Why&#32;Markdown?)
-![banner](images/1.jpg)
-### 為何要學Markdown?(Why Markdown?)
-
-Markdown是一種輕量級標記式語言。它允許人們使用易讀易寫的純文字格式編寫文件，然後轉換成有效的XHTML（或者HTML）文件。這種語言吸收了很多在電子郵件中已有的純文字標記的特性。
-
-由於Markdown的輕量化、易讀易寫特性，並且對於圖片，圖表、數學式都有支援，目前許多網站都廣泛使用Markdown來撰寫說明文件或是用於論壇上發表訊息。如GitHub、Reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge、簡書等，甚至還能被用來撰寫電子書。
-
-以上資訊來源: [LINK_NEW::維基百科:Markdown](https://zh.wikipedia.org/zh-tw/Markdown)
-
-<span class="hr"></span>
-
-Markdown 文件是一個文字檔(副檔名為.md)，利用它的特性可以跨平台編輯文件，編寫完成的文件本身放到適當的平台就能直接當作說明書(例如:github網站)，也能透過js將Markdown文件轉成網頁瀏覽(例如:<span class="text-danger">本網頁內容就是用一個Markdown文件直接轉換生成</span>)。
+1. [LOAD_MD::載入ezmarkdown.md](ezmarkdown.md)
+2. [2為何學Markdown?(Why Markdown?)](#Why&#32;Markdown?)
+3. [3學習環境(Study Envionment)](#Study-Environment)
+4. [4常用語法介紹(Useful Tags)](#Useful-Tags)
 
 -----
+
 
 [anchor](Study-Environment)
-![banner](images/2.jpg)
+![banner](images/1.jpg)
 ### 學習環境(Study Environment)
 
 **一台電腦**或**一部手機**或**平板**。(只**要有類似記事本編輯的軟體或APP**都可以作為Markdown學習的設備)
@@ -48,8 +34,25 @@ Markdown 文件是一個文字檔(副檔名為.md)，利用它的特性可以跨
 
 -----
 
-[anchor](Useful-Tags)
+
+[anchor](Why&#32;Markdown?)
 ![banner](images/3.jpg)
+### 為何要學Markdown?(Why Markdown?)
+
+Markdown是一種輕量級標記式語言。它允許人們使用易讀易寫的純文字格式編寫文件，然後轉換成有效的XHTML（或者HTML）文件。這種語言吸收了很多在電子郵件中已有的純文字標記的特性。
+
+由於Markdown的輕量化、易讀易寫特性，並且對於圖片，圖表、數學式都有支援，目前許多網站都廣泛使用Markdown來撰寫說明文件或是用於論壇上發表訊息。如GitHub、Reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge、簡書等，甚至還能被用來撰寫電子書。
+
+以上資訊來源: [LINK_NEW::維基百科:Markdown](https://zh.wikipedia.org/zh-tw/Markdown)
+
+<span class="hr"></span>
+
+Markdown 文件是一個文字檔(副檔名為.md)，利用它的特性可以跨平台編輯文件，編寫完成的文件本身放到適當的平台就能直接當作說明書(例如:github網站)，也能透過js將Markdown文件轉成網頁瀏覽(例如:<span class="text-danger">本網頁內容就是用一個Markdown文件直接轉換生成</span>)。
+
+-----
+
+[anchor](Useful-Tags)
+![banner](images/2.jpg)
 ### 常用語法介紹(Useful Tags)
 標籤 | 說明 | 範例
 :-- | :-- | :-- 

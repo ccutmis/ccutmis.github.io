@@ -23,18 +23,24 @@
 let site_title_and_logo='';
 let menuID='';
 let modal_content_dict={};
-let siteLogoWH=[60,60];
+//let siteLogoWH=[60,60];
 $body = $("body");
 $(document).on({
   ajaxStart: function() { $body.addClass("loading");},
    ajaxStop: function() { $body.removeClass("loading");}
 });
 
-$.get("./ezmarkdown.md",{rand: new Date()}, function(data) {
-  md2htm(data);
-});
+let load_markdown = ( md_url ) =>{
+  $.get(md_url,{rand: new Date()}, function(data) {
+    md2htm(data);
+  });
+}
 
 let md2htm = (mdtxt) =>{
+  site_title_and_logo='';
+  menuID='';
+  modal_content_dict={};
+  $("body").html("");
   let htmtxt=(marked(mdtxt));
   htmtxt=htmtxt.replace(/\n/g,' '); //將換行符\n轉成一個空白字元
   //console.log(htmtxt)
@@ -72,9 +78,12 @@ let md2htm = (mdtxt) =>{
 
   /* translate LINK_NEW:: to 'target="_blank"' */
   htmtxt=htmtxt.replace(/<a href="([^"]+)">LINK_NEW::([^<]+)<\/a>/g,"<a href=\"$1\" target=\"_blank\">$2</a>");
+  console.log(htmtxt);
+  /* translate LOAD_MD:: to 'onclick="load_markdown(md_url)"' */
+  htmtxt=htmtxt.replace(/<a class='nav-link' href="([^"]+)">LOAD_MD::([^<]+)<\/a>/g,"<a class='nav-link' onclick=\"load_markdown('$1');\">$2</a>");
 
   /* prepend htmtxt to document body */
-  $("body").prepend('<div class="container-fluid">'+htmtxt+'</div>');
+  $("body").prepend('<div class="container-fluid">'+htmtxt+'</div><div class="modal-loading"><!-- Place at bottom of page --></div>');
 
   process_after_render();
 };
@@ -163,6 +172,7 @@ let process_after_render = () =>{
   $("title").text(site_title_and_logo[0]); /* 動態換頁面title文字由jquery處理 */
 };
 
+load_markdown("./ezmarkdown.md");
 </script>
 </body>
 </html>
