@@ -103,7 +103,12 @@ let md2htm = (mdtxt) =>{
         //console.log(modal_content_dict);
     }
     // create MODAL_CALL::BTNS
-    htmtxt=htmtxt.replace(/<a href="([^"]+)">MODAL_CALL::([^<]+)<\/a>/g,"<button type=\"button\" class=\"btn btn-primary\" onclick=\"open_modal(\'$1\');return false;\">$2</button>");
+    htmtxt=htmtxt.replace(/<a href="([^"]+)">MODAL_CALL::([^<]+)<\/a>/g,"<button type=\"button\" class=\"btn btn-secondary\" onclick=\"open_modal(\'$1\');return false;\">$2</button>");
+
+    /* translate LINK_NEW:: to 'target="_blank"' */
+    htmtxt=htmtxt.replace(/<a href="([^"]+)">LINK_NEW::([^<]+)<\/a>/g,"<a href=\"$1\" target=\"_blank\">$2</a>");
+
+    /* prepend htmtxt to document body */
     $("body").prepend('<div class="container-fluid">'+htmtxt+'</div>');
 
     render();
@@ -174,18 +179,16 @@ let open_modal = (modal_dict_key) => {
 
 </script>
 <div class="modal" tabindex="-1">
-  <div class="modal-dialog">
+  <div class="modal-xl modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title"></h5>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="$('.modal').modal('hide');">Close</button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body w-100">
         <p>Modal body text goes here.</p>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="$('.modal').modal('hide');">Close</button>
-      </div>
+      <div class="modal-footer"></div>
     </div>
   </div>
 </div>

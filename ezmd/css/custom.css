@@ -1,3 +1,24 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;height:10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #666; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #999; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa; 
+}
+
+
 body{background: #333;margin:0px !important;}
 .banner{min-height:40vh;}
 .titleInBanner{
@@ -41,3 +62,15 @@ div.section{background:#fff;}
           font-size: 3.5rem;
         }
       }
+
+.btn-yellow{
+    background: linear-gradient(to bottom, rgb(255,197,51), rgb(255,255,51));
+    color:#000;
+    /*border-color: #abc; /*set the color you want here*/
+}
+
+.btn-yellow:hover, .btn-yellow:focus, .btn-yellow:active, .btn-yellow.active, .open>.dropdown-toggle.btn-yellow {
+    color: #fff !important;
+    background: #dc3545;
+    border-color: #fff; /*set the color you want here*/
+}
