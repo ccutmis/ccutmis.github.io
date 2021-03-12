@@ -1,23 +1,31 @@
-/* width */
-::-webkit-scrollbar {
-  width: 10px;height:10px;
+/* smooth scrollTo trick but not for all browsers */
+html{scroll-behavior:smooth;}
+
+/* start of jquery ajax modal-loading anim*/
+/* Start by setting display:none to make this hidden. Then we position it in relation to the viewport window with position:fixed. Width, height, top and left speak for themselves. Background we set to 80% white with our animation centered, and no-repeating */
+.modal-loading {
+    display:none; position:fixed; z-index:1000; top:0; left: 0; height: 100%; width: 100%;
+    background: rgba( 255, 255, 255, .8 ) url('http://i.stack.imgur.com/FhHRx.gif') 50% 50% no-repeat;
 }
+/* When the body has the loading class, we turn the scrollbar off with overflow:hidden */
+body.loading .modal-loading { overflow: hidden; }
+/* Anytime the body has the loading class, our modal element will be visible */
+body.loading .modal-loading { display: block; }
+/* endo of jquery ajax modal-loading anim*/
+
+/* start of scroll-bar style setting */
+/* width */
+::-webkit-scrollbar {width: 10px;height:10px;}
 
 /* Track */
-::-webkit-scrollbar-track {
-  background: #666; 
-}
+::-webkit-scrollbar-track { background: #666; }
  
 /* Handle */
-::-webkit-scrollbar-thumb {
-  background: #999; 
-}
+::-webkit-scrollbar-thumb { background: #999; }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #aaa; 
-}
-
+::-webkit-scrollbar-thumb:hover { background: #aaa; }
+/* end of scroll-bar style setting */
 
 body{background: #333;margin:0px !important;}
 .banner{min-height:40vh;}

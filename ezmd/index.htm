@@ -1,55 +1,21 @@
 <!doctype html>
 <html lang="zh-tw">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Loading...Please Wait a while...</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <!-- custom CSS -->
-    <link rel="stylesheet" href="./css/custom.css">
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Loading...Please Wait a while...</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <!-- custom CSS -->
+  <link rel="stylesheet" href="./css/custom.css">
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script
   src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<style>
-html{scroll-behavior:smooth;}
-/* Start by setting display:none to make this hidden.
-   Then we position it in relation to the viewport window
-   with position:fixed. Width, height, top and left speak
-   for themselves. Background we set to 80% white with
-   our animation centered, and no-repeating */
-.modal-loading {
-    display:    none;
-    position:   fixed;
-    z-index:    1000;
-    top:        0;
-    left:       0;
-    height:     100%;
-    width:      100%;
-    background: rgba( 255, 255, 255, .8 ) 
-                url('http://i.stack.imgur.com/FhHRx.gif') 
-                50% 50% 
-                no-repeat;
-}
-
-/* When the body has the loading class, we turn
-   the scrollbar off with overflow:hidden */
-body.loading .modal-loading {
-    overflow: hidden;   
-}
-
-/* Anytime the body has the loading class, our
-   modal element will be visible */
-body.loading .modal-loading {
-    display: block;
-}
-
-</style>
 </head>
 <body>
 <div class="modal-loading"><!-- Place at bottom of page --></div>
@@ -60,137 +26,143 @@ let modal_content_dict={};
 let siteLogoWH=[60,60];
 $body = $("body");
 $(document).on({
-    ajaxStart: function() { $body.addClass("loading");},
-     ajaxStop: function() { $body.removeClass("loading");}
+  ajaxStart: function() { $body.addClass("loading");},
+   ajaxStop: function() { $body.removeClass("loading");}
 });
 
 $.get("./ezmarkdown.md",{rand: new Date()}, function(data) {
   md2htm(data);
 });
 
-
 let md2htm = (mdtxt) =>{
-    let htmtxt=(marked(mdtxt));
-    htmtxt=htmtxt.replace(/\n/g,' '); //將換行符\n轉成一個空白字元
-    //console.log(htmtxt)
-    site_title_and_logo=htmtxt.match(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"/)[0].replace(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"/,"$1{||||}$2").split("{||||}");
-    htmtxt=htmtxt.replace(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"[^<]+<\/p>/,"");
-    //console.log(site_title_and_logo);
-    menuID=htmtxt.match(/<h2 id="[^"]+"/g)[0].replace('<h2 id="','').replace('"','');
-    //console.log(menuID);
-    // create menu list
-    let tmpOL=htmtxt.match(/<h2 [^>]+>[^<]+<\/h2> <ol>(.*?)<\/ol>/g)[0].replace(/<h2 [^>]+>[^<]+<\/h2> <ol>/,"").replace("</ol>","").replace(/<li>/g,"<li class='nav-item'>").replace(/<a /g,"<a class='nav-link' ").replace(/\([^\)]+\)/g,'');
-    //console.log(tmpOL);
-    htmtxt=htmtxt.replace(/<h2 [^>]+>[^<]+<\/h2> <ol>(.*?)<\/ol>/g,gent_nav_htm(site_title_and_logo[0],site_title_and_logo[1],tmpOL));
-    htmtxt+=gent_bottom_nav_htm(site_title_and_logo[0],site_title_and_logo[1],tmpOL);
+  let htmtxt=(marked(mdtxt));
+  htmtxt=htmtxt.replace(/\n/g,' '); //將換行符\n轉成一個空白字元
+  //console.log(htmtxt)
+  site_title_and_logo=htmtxt.match(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"/)[0].replace(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"/,"$1{||||}$2").split("{||||}");
+  htmtxt=htmtxt.replace(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"[^<]+<\/p>/,"");
+  //console.log(site_title_and_logo);
+  menuID=htmtxt.match(/<h2 id="[^"]+"/g)[0].replace('<h2 id="','').replace('"','');
+  //console.log(menuID);
+  // create menu list
+  let tmpOL=htmtxt.match(/<h2 [^>]+>[^<]+<\/h2> <ol>(.*?)<\/ol>/g)[0].replace(/<h2 [^>]+>[^<]+<\/h2> <ol>/,"").replace("</ol>","").replace(/<li>/g,"<li class='nav-item'>").replace(/<a /g,"<a class='nav-link' ").replace(/\([^\)]+\)/g,'');
+  //console.log(tmpOL);
+  htmtxt=htmtxt.replace(/<h2 [^>]+>[^<]+<\/h2> <ol>(.*?)<\/ol>/g,gent_nav_htm(site_title_and_logo[0],site_title_and_logo[1],tmpOL));
+  htmtxt+=gent_bottom_nav_htm(site_title_and_logo[0],site_title_and_logo[1],tmpOL);
 
-    htmtxt=htmtxt.replace(/<p><a href="([^"]+)">anchor<\/a> <img src="([^"]*)" alt="banner"><\/p> <h3 id="([^"]+)">(.*?)<\/h3>(.*?)<hr>/g,gent_section_htm("$2","$1","$3","$4","$5"));
-    //console.log(htmtxt);
-    htmtxt=htmtxt.replace(/<table>/gi,"<table class='table table-striped table-sm' >");
-    htmtxt=htmtxt.replace(/alt="illustration"/gi,'alt="illustration" class="img-fluid img-thumbnail my-3"');
-    htmtxt=htmtxt.replace(/<h4 id="footer">[^<]+<\/h4>(.*?)<hr>/g,gent_footer_htm("$1")); /* process footer section */
-    //console.log(htmtxt);
-    htmtxt=htmtxt.replace(/<p><\/p>/g,"").replace(/<hr>/,'');
-    // process modal_content
-    let tmpMC=htmtxt.match(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g);
-    if(tmpMC!=null){
-        //console.log(tmpMC[0]);
-        for(let i=0;i<tmpMC.length;i++){
-            let tmpMC_item=tmpMC[i].replace(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g,"$1{||||}$2").split("{||||}");
-            modal_content_dict[tmpMC_item[0]+""]=tmpMC_item[1];
-        }
-        htmtxt=htmtxt.replace(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g,"");
-        //console.log(modal_content_dict);
+  htmtxt=htmtxt.replace(/<p><a href="([^"]+)">anchor<\/a> <img src="([^"]*)" alt="banner"><\/p> <h3 id="([^"]+)">(.*?)<\/h3>(.*?)<hr>/g,gent_section_htm("$2","$1","$3","$4","$5"));
+  //console.log(htmtxt);
+  htmtxt=htmtxt.replace(/<table>/gi,"<table class='table table-striped table-sm' >");
+  htmtxt=htmtxt.replace(/alt="illustration"/gi,'alt="illustration" class="img-fluid img-thumbnail my-3"');
+  htmtxt=htmtxt.replace(/<h4 id="footer">[^<]+<\/h4>(.*?)<hr>/g,gent_footer_htm("$1")); /* process footer section */
+  //console.log(htmtxt);
+  htmtxt=htmtxt.replace(/<p><\/p>/g,"").replace(/<hr>/,'');
+  // process modal_content
+  let tmpMC=htmtxt.match(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g);
+  if(tmpMC!=null){
+    //console.log(tmpMC[0]);
+    for(let i=0;i<tmpMC.length;i++){
+      let tmpMC_item=tmpMC[i].replace(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g,"$1{||||}$2").split("{||||}");
+      modal_content_dict[tmpMC_item[0]+""]=tmpMC_item[1];
     }
-    // create MODAL_CALL::BTNS
-    htmtxt=htmtxt.replace(/<a href="([^"]+)">MODAL_CALL::([^<]+)<\/a>/g,"<button type=\"button\" class=\"btn btn-secondary\" onclick=\"open_modal(\'$1\');return false;\">$2</button>");
+    htmtxt=htmtxt.replace(/<span class="modal_content" id="([^"]+)">(.*?)<\/span>/g,"");
+    //console.log(modal_content_dict);
+  }
+  // create MODAL_CALL::BTNS
+  htmtxt=htmtxt.replace(/<a href="([^"]+)">MODAL_CALL::([^<]+)<\/a>/g,"<button type=\"button\" class=\"btn btn-secondary\" onclick=\"open_modal(\'$1\');return false;\">$2</button>");
 
-    /* translate LINK_NEW:: to 'target="_blank"' */
-    htmtxt=htmtxt.replace(/<a href="([^"]+)">LINK_NEW::([^<]+)<\/a>/g,"<a href=\"$1\" target=\"_blank\">$2</a>");
+  /* translate LINK_NEW:: to 'target="_blank"' */
+  htmtxt=htmtxt.replace(/<a href="([^"]+)">LINK_NEW::([^<]+)<\/a>/g,"<a href=\"$1\" target=\"_blank\">$2</a>");
 
-    /* prepend htmtxt to document body */
-    $("body").prepend('<div class="container-fluid">'+htmtxt+'</div>');
+  /* prepend htmtxt to document body */
+  $("body").prepend('<div class="container-fluid">'+htmtxt+'</div>');
 
-    render();
+  process_after_render();
 };
 
 let gent_nav_htm = ( site_title,site_logo,nav_data ) => {
-    return `<div><nav class="w-100 navbar navbar-expand-lg navbar-dark bg-dark rounded">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">
-      <img src="${site_logo}" alt="" width="32" height="32" class="d-inline-block align-top">
-    ${site_title}
-    </a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">${nav_data}</ul>
-    </div>
-    </nav>
-    </div>`;
+  return `<div><nav class="w-100 navbar navbar-expand-lg navbar-dark bg-dark rounded">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">
+    <img src="${site_logo}" alt="" width="32" height="32" class="d-inline-block align-top">
+  ${site_title}
+  </a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">${nav_data}</ul>
+  </div>
+  </nav>
+  </div>`;
 };
 
 let gent_bottom_nav_htm = ( site_title,site_logo,nav_data) => {
-    return `<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+  return `<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">${site_title}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav">${nav_data}</ul>
-    </div>
+  <a class="navbar-brand" href="#">${site_title}</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav">${nav_data}</ul>
+  </div>
   </div>
 </nav>
-    `;
+  `;
 };
 
 
 let gent_section_htm = (banner_bg_img,a_name,h3_id,h3_content,section_content) => {
-    let titleInBanner=h3_id; 
-    return `<div class="banner position-relative" style="background:url(${banner_bg_img});background-size:cover;">
-        <div class="titleInBanner">${a_name}</div>
-        <div><a name="${a_name}"></a></div>
-    </div>
-    <div class="section p-3"><h3 id="${h3_id}">${h3_content}</h3>
-    ${section_content}
-    </div>`;
+  let titleInBanner=h3_id; 
+  return `<div class="banner position-relative" style="background:url(${banner_bg_img});background-size:cover;">
+    <div class="titleInBanner">${a_name}</div>
+    <div><a name="${a_name}"></a></div>
+  </div>
+  <div class="section p-3"><h3 id="${h3_id}">${h3_content}</h3>
+  ${section_content}
+  </div>`;
 }
 
 let gent_footer_htm = (footer_txt) => {
  return `<footer class="footer mt-auto py-3 bg-light">
   <div class="container">
-    <span class="text-muted">${footer_txt}
-    </span>
+  <span class="text-muted text-center">${footer_txt}
+  </span>
   </div>
 </footer>`;
 }
 
-let render = () =>{
-    $("title").text(site_title_and_logo[0]);
-    //$(".modal_content").remove();
+let open_modal = (modal_dict_key) => {
+  $('.modal').remove();
+  //console.log(modal_content_dict[modal_dict_key]);
+  let modal_content_htm=modal_content_dict[modal_dict_key];
+  let modal_htm = `<div class="modal" tabindex="-1">
+  <div class="modal-xl modal-dialog modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title"></h5>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="close_modal();">Close</button>
+    </div>
+    <div class="modal-body w-100">
+    ${modal_content_htm}
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+  </div>
+</div>`;
+  $("body").append(modal_htm);
+  //$('.modal .modal-body p').html(modal_content_dict[modal_dict_key]);
+  $('.modal').modal('show');
 };
 
-let open_modal = (modal_dict_key) => {
-  $('.modal .modal-body p').html(modal_content_dict[modal_dict_key]);
-  $('.modal').modal('show');
-  //console.log(modal_content_dict[modal_dict_key]);
+let close_modal = () => {
+  $('.modal').modal('hide');
+  $('.modal').remove();
+};
+
+let process_after_render = () =>{
+  $("title").text(site_title_and_logo[0]); /* 動態換頁面title文字由jquery處理 */
 };
 
 </script>
-<div class="modal" tabindex="-1">
-  <div class="modal-xl modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"></h5>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="$('.modal').modal('hide');">Close</button>
-      </div>
-      <div class="modal-body w-100">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer"></div>
-    </div>
-  </div>
-</div>
 </body>
 </html>
