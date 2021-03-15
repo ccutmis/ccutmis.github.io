@@ -40,3 +40,8 @@
 3. [LINK_NEW::金絲猴防水材料](http://www.plimates.com.tw/tw/location)
 4. [LINK_NEW::得利防水漆](https://www.dulux.com.tw/zh/products/exterior)
 -----
+
+#### Footer
+Copyrights | EZMarkDown Studio &copy; 2021
+
+-----
