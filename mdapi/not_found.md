@@ -4,7 +4,12 @@
 ## 目錄
 1. [選單項目一](#menu-item1)
 2. [選單項目二](#menu-item2)
-3. [LOAD_MD::載入ezmarkdown2.md](ezmarkdown2.md)
+3. [NAV_DROPDOWN::下拉選單測試](#)
+    * [下拉項目一](#menu-item2)
+    * [下拉項目二](#)
+    * [下拉項目三](#)
+4. [LOAD_MD::測試讀外部.md檔](https://raw.githubusercontent.com/ccutmis/ccutmis.github.io/master/ezmd/ezmarkdown.md)
+
 -----
 
 [anchor](menu-item1)
