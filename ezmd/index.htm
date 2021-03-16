@@ -194,7 +194,22 @@ let process_after_render = () =>{
   $('html, body').animate({scrollTop: 0}, 0); /* 滾動頁面回到頂部 */
 };
 
-load_markdown("./ezmarkdown.md");
+let get_md_loc_from_url = () =>{
+    const sPageURL = window.location.search.substring(1);
+    console.log(sPageURL);
+    let tmp_loc='';
+    let flag=sPageURL.indexOf('doc=');
+    console.log(flag);
+    if(flag!=-1) tmp_loc=sPageURL.substring(flag+4,sPageURL.length);
+    if(tmp_loc.indexOf('.md')>-1){
+        return tmp_loc;
+    }else{
+        return 'ezmarkdown.md';
+    }
+};
+const init_md_url=get_md_loc_from_url();
+console.log('init_md_url: '+init_md_url);
+load_markdown(init_md_url);
 </script>
 </body>
 </html>
