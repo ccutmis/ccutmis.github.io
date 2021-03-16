@@ -22,7 +22,7 @@ Markdown是一種輕量級標記式語言。它允許人們使用易讀易寫的
 
 Markdown 文件是一個文字檔(副檔名為.md)，利用它的特性可以跨平台編輯文件，編寫完成的文件本身放到適當的平台就能直接當作說明書(例如:github網站)，也能透過js將Markdown文件轉成網頁瀏覽(例如:<span class="text-danger">本網頁內容就是用一個Markdown文件直接轉換生成</span>)。
 
-[YOUTUBE::測試內崁YT影片](https://www.youtube-nocookie.com/embed/Lr6SiuQuYxk)
+[YOUTUBE::測試內崁YT影片](https://www.youtube.com/watch?v=Lr6SiuQuYxk)
 
 -----
 
