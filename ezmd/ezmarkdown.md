@@ -39,6 +39,7 @@ Markdown 文件是一個文字檔(副檔名為.md)，利用它的特性可以跨
 <span class="modal_content" id="modal_content_1">
 
 #### Notepad++ 安裝與 Markdown Panel 外掛模組 設定:
+
 1. **安裝 Notepad++** : 在 Google 網站搜尋 'Notepad++'，進入 Notepad++官方網站下載安裝程式，依軟體指示安裝即可完成。
 2. **安裝 Markdown Panel 外掛模組** : Notepad++ 安裝完成後，直接開啟 Notepad++，點選主選單的"外掛->外掛模組管理"<br> ![illustration](https://i.imgur.com/1es2HWv.png)
 3. 在外掛模組管理視窗搜尋 'markdown' 找到並勾選 Markdown Panel 然後按[安裝] <br> ![illustration](https://i.imgur.com/DX4yPlP.png)
@@ -47,6 +48,7 @@ Markdown 文件是一個文字檔(副檔名為.md)，利用它的特性可以跨
 6. 這是本頁的 markdown 文件以及用 Markdown Panel預覽的效果 <br> ![illustration](https://i.imgur.com/edUCeZ5.png)
 
 </span>
+
 
 -----
 
