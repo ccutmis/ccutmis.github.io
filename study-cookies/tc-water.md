@@ -16,6 +16,8 @@
 
 參考Youtube的DIY頂樓防法影片教學施工。
 
+[YOUTUBE::超低預算自己做！5000元搞定屋頂防水，防水漆DIY施工教學【油漆小哥】](https://www.youtube.com/watch?v=ndf3KpWVZ4o)
+
 -----
 
 [anchor](Act-Plan)
@@ -43,13 +45,17 @@
 [anchor](Reference)
 ![banner](https://raw.githubusercontent.com/ccutmis/ccutmis.github.io/master/ezmd/images/1.jpg)
 ### 參考資源(Reference)
-1. [LINK_NEW::超低預算自己做！5000元搞定屋頂防水，防水漆DIY施工教學【油漆小哥】](https://www.youtube.com/watch?v=ndf3KpWVZ4o)
+1. [YOUTUBE::超低預算自己做！5000元搞定屋頂防水，防水漆DIY施工教學【油漆小哥】](https://www.youtube.com/watch?v=ndf3KpWVZ4o)
 2. [LINK_NEW::01論壇相關討論](https://www.mobile01.com/topicdetail.php?f=335&t=4670769&p=2)
 3. [LINK_NEW::金絲猴防水材料](http://www.plimates.com.tw/tw/location)
 4. [LINK_NEW::得利防水漆](https://www.dulux.com.tw/zh/products/exterior)
+5. [LINK_NEW::油漆廢棄物處理參考](https://www.dep.gov.taipei/News_Content.aspx?n=ACEFA960B5A4ACD7&sms=87415A8B9CE81B16&s=D592DA69D718FD3F)
 -----
 
 #### Footer
 Copyrights | EZMarkDown Studio &copy; 2021
 
 -----
+
+<span class="m-5"></span>
+
