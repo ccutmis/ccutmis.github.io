@@ -74,8 +74,9 @@ let md2htm = (mdtxt) =>{
     //console.log(modal_content_dict);
   }
   // create MODAL_CALL::BTNS
-  htmtxt=htmtxt.replace(/<a href="([^"]+)">MODAL_CALL::([^<]+)<\/a>/g,"<button type=\"button\" class=\"btn btn-secondary\" onclick=\"open_modal(\'$1\');return false;\">$2</button>");
-
+  htmtxt=htmtxt.replace(/<a href="([^"]+)">MODAL_CALL::([^<]+)<\/a>/g,"<button type=\"button\" class=\"btn btn-secondary\" onclick=\"open_modal(\'$1\',\'$1\');return false;\">$2</button>");
+  //create YOUTUBE::BTN
+  htmtxt=htmtxt.replace(/<a href="([^"]+)">YOUTUBE::([^<]+)<\/a>/g,"<button type=\"button\" class=\"btn btn-secondary\" onclick=\"open_yt_modal(\'$1\',\'$2\');return false;\">$2</button>");
   /* translate LINK_NEW:: to 'target="_blank"' */
   htmtxt=htmtxt.replace(/<a href="([^"]+)">LINK_NEW::([^<]+)<\/a>/g,"<a href=\"$1\" target=\"_blank\">$2</a>");
   console.log(htmtxt);
@@ -140,7 +141,7 @@ let gent_footer_htm = (footer_txt) => {
 </footer>`;
 }
 
-let open_modal = (modal_dict_key) => {
+let open_modal = (modal_dict_key,modal_title) => {
   $('.modal').remove();
   //console.log(modal_content_dict[modal_dict_key]);
   let modal_content_htm=modal_content_dict[modal_dict_key];
@@ -148,7 +149,7 @@ let open_modal = (modal_dict_key) => {
   <div class="modal-xl modal-dialog modal-dialog-scrollable">
   <div class="modal-content">
     <div class="modal-header">
-    <h5 class="modal-title"></h5>
+    <h5 class="modal-title">${modal_title}</h5>
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="close_modal();">Close</button>
     </div>
     <div class="modal-body w-100">
@@ -162,6 +163,29 @@ let open_modal = (modal_dict_key) => {
   //$('.modal .modal-body p').html(modal_content_dict[modal_dict_key]);
   $('.modal').modal('show');
 };
+
+let open_yt_modal = (yt_url,modal_title) => {
+  $('.modal').remove();
+  //console.log(modal_content_dict[modal_dict_key]);
+  let modal_htm = `<div class="modal" tabindex="-1">
+  <div class="modal-xl modal-dialog modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title">${modal_title}</h5>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="close_modal();">Close</button>
+    </div>
+    <div class="modal-body w-100">
+    <iframe width="100%" height="550" src="${yt_url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="modal-footer"></div>
+  </div>
+  </div>
+</div>`;
+  $("body").append(modal_htm);
+  //$('.modal .modal-body p').html(modal_content_dict[modal_dict_key]);
+  $('.modal').modal('show');
+};
+
 
 let close_modal = () => {
   $('.modal').modal('hide');
