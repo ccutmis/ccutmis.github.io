@@ -31,13 +31,10 @@ $(document).on({
 });
 
 let load_markdown = ( md_url ) =>{
-  /*$.get(md_url,{rand: new Date()}, function(data) {
-    md2htm(data);
-  });
-  */
   $.ajax({
     url: md_url,
     type: 'GET',
+    data: { rand: new Date()} ,
     success: function(data){ 
         md2htm(data);
     },
