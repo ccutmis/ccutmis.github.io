@@ -22,8 +22,8 @@
 
 -----
 
-[anchor](Act-Plan)
-![banner](https://raw.githubusercontent.com/ccutmis/ccutmis.github.io/master/ezmd/images/1.jpg)
+[anchor](Shopping-List)
+![banner](https://raw.githubusercontent.com/ccutmis/ccutmis.github.io/master/ezmd/images/3.jpg)
 ### 所需工具與耗材(Shopping-List)
 1. 刮刀 (清除舊的PU破損及起水泡處) x1
 2. 手套 (拿刮刀用跟刷漆用的要分開買)
