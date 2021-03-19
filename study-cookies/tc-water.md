@@ -4,8 +4,8 @@
 ## 目錄
 1. [現況分析](#Current-Situation)
 2. [NAV_DROPDOWN::施工規畫](#)
-    * [aaa](#Act-Plan)
-    * [bbb](#)
+    * [所需工具與耗材](#Shopping-List)
+    * [施工規畫說明](#Act-Plan)
 3. [參考資源](#Reference)
 
 [anchor](Current-Situation)
@@ -19,6 +19,21 @@
 參考Youtube的DIY頂樓防法影片教學施工。
 
 [YOUTUBE::超低預算自己做！5000元搞定屋頂防水，防水漆DIY施工教學【油漆小哥】](https://www.youtube.com/watch?v=ndf3KpWVZ4o)
+
+-----
+
+[anchor](Act-Plan)
+![banner](https://raw.githubusercontent.com/ccutmis/ccutmis.github.io/master/ezmd/images/1.jpg)
+### 所需工具與耗材(Shopping-List)
+1. 刮刀 (清除舊的PU破損及起水泡處) x1
+2. 手套 (拿刮刀用跟刷漆用的要分開買)
+3. 油漆刷 (尺寸:? 數量:?)
+4. 舊報紙一疊
+5. 七~八吋的長毛滾筒含把手1支
+6. 正方型油漆盤(給滾筒用的)
+7. 水桶x1 (調漆用)
+8. 得利A930(防水底漆)5加崙(桶)x1 (目前上網研究是說一加崙理論可塗10坪，故買5加崙的量)
+9. 得利A959(防水漆)5加崙(桶)x4 (目前上網研究是20坪用2桶，故先買4桶看能不能塗2道工序)
 
 -----
 
