@@ -12,3 +12,5 @@
     /usr/bin/rootfs-expand[enter]
     nmtui[enter] # 設定ip address
     ```
+
+未完待續...
