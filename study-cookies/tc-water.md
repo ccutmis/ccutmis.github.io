@@ -69,6 +69,9 @@
 4. [LINK_NEW::得利防水漆](https://www.dulux.com.tw/zh/products/exterior)
 5. [LINK_NEW::油漆廢棄物處理參考](https://www.dep.gov.taipei/News_Content.aspx?n=ACEFA960B5A4ACD7&sms=87415A8B9CE81B16&s=D592DA69D718FD3F)
 6. [LINK_NEW::21吋透明環保自動傘](https://www.kinyo.tw/products/kinyo-umbrella-ku-8015?gclid=CjwKCAjw6fCCBhBNEiwAem5SO5x6QPcM_02q0QV40fudi2cvKspui2O94X32unU_teDuHTEKgbIfnBoCR9UQAvD_BwE)
+7. [LINK_NEW::得利強力防水底膠技術資料](https://085717.tw/frontend/pdf/[%E7%94%A2%E5%93%81%E6%8A%80%E8%A1%93%E8%B3%87%E6%96%99%E8%A1%A8]PDS-A930-58160%E5%BE%97%E5%88%A9%E5%BC%B7%E5%8A%9B%E9%98%B2%E6%B0%B4%E5%BA%95%E8%86%A02016.pdf)
+8. [LINK_NEW::虹牌477單液防水彈泥](https://www.rainbow-house.com.tw/products/3LK/detail)
+9. [LINK_NEW::]()
 
 -----
 
