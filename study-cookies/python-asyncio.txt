@@ -1,0 +1,44 @@
+# python asyncio 學習筆記
+
+### python的asyncio模組(一)：異步執行的好處
+網址: [python的asyncio模組(一)：異步執行的好處 ](https://ithelp.ithome.com.tw/articles/10199385)
+
+程式範例:
+
+```
+import requests
+import time
+import asyncio
+
+url = 'https://www.google.com.tw/'
+loop = asyncio.get_event_loop()
+
+start_time = time.time()
+
+async def send_req(url):
+    t = time.time()
+    print("Send a request at",t-start_time,"seconds.")
+
+    res = await loop.run_in_executor(None,requests.get,url)
+
+    t = time.time()
+    print("Receive a response at",t-start_time,"seconds.")
+
+tasks = []
+
+for i in range(10):
+    task = loop.create_task(send_req(url))
+    tasks.append(task)
+
+loop.run_until_complete(asyncio.wait(tasks))
+```
+
+### python的asyncio模組(二)：異步程式設計基本概念
+
+網址: [python的asyncio模組(二)：異步程式設計基本概念](https://ithelp.ithome.com.tw/articles/10199403)
+
+異步程式設計的幾項基本概念：
+1. 事件迴圈(event loop)
+2. 事件(event)
+3. 回調函數(callback)
+
