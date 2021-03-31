@@ -75,3 +75,5 @@ Copyrights | EZMarkDown Studio &copy; 2021
 -----
 
 <span class="d-block mt-5"></span>
+
+<div style="background:#f00;" class="p-5" onclick="alert('aloha!')">TEST</div>
