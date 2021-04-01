@@ -11,6 +11,7 @@
 [anchor](Shopping-List)
 ![banner](https://raw.githubusercontent.com/ccutmis/ccutmis.github.io/master/ezmd/images/3.jpg)
 ### 所需工具與耗材(Shopping-List)
+
 sn | 品名 | 單位 | 數量 | 小計 | 備註
 --- | --- | --- | --- | ---
 1 | 刮刀 | ? | 1 | $100 | 清除舊的PU破損及起水泡處
