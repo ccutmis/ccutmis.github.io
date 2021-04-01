@@ -2,29 +2,35 @@
 ![site-logo](https://icons.iconarchive.com/icons/mag1cwind0w/o-sunny-day/256/osd-sun-icon.png)
 
 ## 目錄
-1. [現況分析](#Current-Situation)
-2. [NAV_DROPDOWN::施工規畫](#)
+1. [NAV_DROPDOWN::施工規畫](#)
     * [所需工具與耗材](#Shopping-List)
     * [施工規畫說明](#Act-Plan)
+2. [現況分析](#Current-Situation)
 3. [參考資源](#Reference)
-
-[anchor](Current-Situation)
-![banner](https://raw.githubusercontent.com/ccutmis/ccutmis.github.io/master/ezmd/images/1.jpg)
-### 現況分析(Current-Situation)
-
-頂樓坪數約為40坪(加上外牆)，
-
-目前頂樓的PU防水層年久失修已出現大範圍破損及氣泡問題，女兒牆也有滲漏問題，找人來施作頂樓防水預算不夠，因此決定自行將PU破損部份及氣泡部份用刮刀刨除，
-
-參考Youtube的DIY頂樓防法影片教學施工。
-
-[YOUTUBE::超低預算自己做！5000元搞定屋頂防水，防水漆DIY施工教學【油漆小哥】](https://www.youtube.com/watch?v=ndf3KpWVZ4o)
-
------
 
 [anchor](Shopping-List)
 ![banner](https://raw.githubusercontent.com/ccutmis/ccutmis.github.io/master/ezmd/images/3.jpg)
 ### 所需工具與耗材(Shopping-List)
+sn | 品名 | 單位 | 數量 | 小計 | 備註
+--- | --- | --- | --- | ---
+1 | 刮刀 | ? | 1 | $100 | 清除舊的PU破損及起水泡處
+2 | 手套 | ? | 1+1 | $150 | 拿刮刀用跟刷漆用的要分開買
+3 | 油漆刷 | 4吋 | 2 | $100 | 
+4 | 舊報紙 | 疊 | 1 | ? |
+5 | 七吋長毛滾筒含桿 | 支 | 2 | $900 | 
+6 | 水桶 | 6L | 1 | ? | 調漆洗手用
+7 | 空油漆桶 | 5加侖 | 1 | $100 
+7 | 得利A930 | 5加侖 | 1 | $2000 |防水底漆一道
+8 | 虹牌477彈性水泥 | 5加侖 | 1 | $1000 | 中塗一道
+9 | 得利A959N | 5加侖 | 4 | $14000 | 防水漆面漆二道(A959跟A959N有差嗎?顏色可選嗎?)
+10 | 材料費用概估 | | | $18,250 |
+
+**采購前先詢問:**
+1. 問頂樓施作面積約40坪(含女兒牆)依照上面的列表施作(底漆一道中塗一道面漆二道)夠用嗎?
+2. 在特力屋或油漆行購買可以幫忙送貨到家樓下嗎?(暫訂04/17星期六早上送貨)
+3. 施工完沒用完的漆怎麼回收?或怎麼丟垃圾車?
+
+<!--
 1. 刮刀 (清除舊的PU破損及起水泡處) x1 尺寸:?
 2. 手套 (拿刮刀用跟刷漆用的要分開買)
 3. 油漆刷 (尺寸:4吋 數量:2)
@@ -35,11 +41,7 @@
 8. 得利A930(防水底漆)5加崙(桶)x1 (目前上網研究是說一加崙理論可塗10坪，故買5加崙的量) $1600~2000@
 9. 得利A959(防水漆，加N的版是新的嗎)5加崙(桶)x4 (目前上網研究是20坪用2桶，故先買4桶看能不能塗2道工序) $3300@
 10. 虹牌477彈性水泥 5加侖(桶)x1 $1000@
-
-采購前先詢問:
-1. 問頂樓40坪面積這樣夠用嗎?
-2. 在特力屋或油漆行購買可以幫忙送貨到家樓下嗎?(星期六早上送貨)
-3. 施工完沒用完的漆怎麼回收?
+-->
 
 -----
 
@@ -64,6 +66,22 @@
 <span class="text-danger">**另外在買材料時要問問店家如果施工完成沒用到的塗料怎麼回收!**(這個很重要!畢竟在都市不能亂丟亂倒。)</span>
 
 -----
+
+
+[anchor](Current-Situation)
+![banner](https://raw.githubusercontent.com/ccutmis/ccutmis.github.io/master/ezmd/images/1.jpg)
+### 現況分析(Current-Situation)
+
+頂樓坪數約為40坪(加上外牆)，
+
+目前頂樓的PU防水層年久失修已出現大範圍破損及氣泡問題，女兒牆也有滲漏問題，找人來施作頂樓防水預算不夠，因此決定自行將PU破損部份及氣泡部份用刮刀刨除，
+
+參考Youtube的DIY頂樓防法影片教學施工。
+
+[YOUTUBE::超低預算自己做！5000元搞定屋頂防水，防水漆DIY施工教學【油漆小哥】](https://www.youtube.com/watch?v=ndf3KpWVZ4o)
+
+-----
+
 
 [anchor](Reference)
 ![banner](https://raw.githubusercontent.com/ccutmis/ccutmis.github.io/master/ezmd/images/1.jpg)
