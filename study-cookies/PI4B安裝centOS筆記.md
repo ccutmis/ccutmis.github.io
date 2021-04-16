@@ -111,4 +111,4 @@ set wrap
 #### 參考網址:
 * [centos 7 安裝最新的php7.3+httpd2.4.37+mariadb10.3](http://lab.aoetek.com/index.php/2018/11/06/107110501/)
 * [](https://www.digit-seed.com/lamp-install-teaching-01/)
-* []()
+* [install nodejs on pi.centos7](https://iter01.com/544013.html)
