@@ -7,7 +7,7 @@
 
 ### 指令範例:
 * `ifconfig | grep inet`
-* `for ip in $(seq 10 254);do telnet 192.168.42.$ip;done`
+* `for ip in $(seq 10 254);do ssh pi@192.168.42.$ip;done`
 
 ### 參考網址:
 [https://devconnected.com/how-to-ping-specific-port-number/](https://devconnected.com/how-to-ping-specific-port-number/)
