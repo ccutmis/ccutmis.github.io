@@ -1,6 +1,6 @@
 # 在RaspberryPI使用Terminal的筆記
 
-## 帳號執行sudo 出現 ` is not in the sudoers file. ` 的解決方式
+### 帳號執行sudo 出現 ` is not in the sudoers file. ` 的解決方式
 
 參考網址: https://www.raspberrypi.org/forums/viewtopic.php?t=7774  
 
@@ -8,5 +8,9 @@
 `sudo usermod aloha3307 -g sudo`  
 
 在這之後 aloha3307 帳號就能使用 `sudo ...` 了!  
+
+### How to resursively download a folder via FTP on Linux?
+* wget -r ftp://username:passwd@server.com
+* wget -r --user="loginuser" --password="passwd" ftp://server.com
 
 
