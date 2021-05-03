@@ -38,6 +38,15 @@
 4. 第四道 面漆(得利A959)
     1. 滾輪刷塗走向要與第三道的走向成90度
 
+![step3-1](https://i.imgur.com/95UJlq4.jpg)
+
+![step3-2](https://i.imgur.com/JQ817l9.jpg)
+
+![step4-1](https://i.imgur.com/P2cOG5b.jpg)
+
+![step4-2](https://i.imgur.com/JdaT5gH.jpg)
+
+
 #### 刷塗動線:
 ```
 ┌─────────────┐
