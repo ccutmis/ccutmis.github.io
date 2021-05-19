@@ -28,7 +28,39 @@
 ![banner](https://raw.githubusercontent.com/ccutmis/ccutmis.github.io/master/ezmd/images/3.jpg)
 ### 實作範例 (Demos)
 
-未完待續...
+#### Step1: 用USB連接線把手機接上電腦
+![illustration](https://ccutmis.github.io/images/phone-to-webcam/step1.jpg)
+
+#### Step2: 開啟手機的"設定"APP
+![illustration](https://ccutmis.github.io/images/phone-to-webcam/step2.jpg)
+
+#### Step3: 點進"連接與共享"
+![illustration](https://ccutmis.github.io/images/phone-to-webcam/step3.jpg)
+
+#### Step4: 開啟"USB網路共用"
+![illustration](https://ccutmis.github.io/images/phone-to-webcam/step4.jpg)
+
+#### Step5: 在電腦端若出現這訊息按"否"即可。
+![illustration](https://ccutmis.github.io/images/phone-to-webcam/step5.jpg)
+
+#### Step6: 接著執行手機上的APP: DroidCam (設定正確的話會看到DeviceIP，這串數值會在電腦端用到)
+![illustration](https://ccutmis.github.io/images/phone-to-webcam/step6.jpg)
+
+#### Step7: 手機APP: DroidCam 的右上角有個攝影機小圖示，按了之後可以選擇要用前鏡頭或後鏡頭。
+![illustration](https://ccutmis.github.io/images/phone-to-webcam/step7.jpg)
+
+#### Step8: 目前手機端已經準備好了，接著看電腦桌面...
+![illustration](https://ccutmis.github.io/images/phone-to-webcam/step8.jpg)
+
+#### Step9: 執行桌面上的 DroidCamApp 程式
+![illustration](https://ccutmis.github.io/images/phone-to-webcam/step9.jpg)
+
+#### Step10: 在Device IP欄位輸入手機端的那組數字，然後按[Start]
+![illustration](https://ccutmis.github.io/images/phone-to-webcam/step10.jpg)
+
+#### Step11: 這時可以看到電腦已經可以把手機攝像頭當作WebCam使用了，如果要停止WebCam程式就按一下[Stop]鍵。
+![illustration](https://ccutmis.github.io/images/phone-to-webcam/step11.jpg)
+
 
 -----
 
