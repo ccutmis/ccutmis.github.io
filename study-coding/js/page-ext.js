@@ -2,7 +2,7 @@ $.ajax({
     url : MD_URL,
     dataType: "text",
     success : function (data) {
-        let md_content=marked(data);
+        let md_content=marked.parse(data);
         md_content=md_content.replaceAll('src', 'data-original');
         $("#md_content").append(md_content);
         if(LAST_URL!=''){$("#md_content").append("<div class='pb-5 text-center'><button type='button' class='btn btn-secondary' onclick='window.scrollTo(0,0);'>回到上方</button> <button type='button' class='btn btn-primary' onclick='window.location.href=\""+LAST_URL+"\";'>回上一層</button></div>");}

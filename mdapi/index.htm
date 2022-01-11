@@ -52,7 +52,7 @@ let md2htm = (mdtxt) =>{
   menuID='';
   modal_content_dict={};
   $("body").html("");
-  let htmtxt=(marked(mdtxt));
+  let htmtxt=(marked.parse(mdtxt));
   htmtxt=htmtxt.replace(/\n/g,' '); //將換行符\n轉成一個空白字元
   site_title_and_logo=htmtxt.match(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"/)[0].replace(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"/,"$1{||||}$2").split("{||||}");
   htmtxt=htmtxt.replace(/<h1 id="[^"]+">([^<]+)<\/h1> <p><img src="([^"]+)"[^<]+<\/p>/,"");
