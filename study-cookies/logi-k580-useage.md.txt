@@ -1,0 +1,10 @@
+# LOGI K580 useage
+
+## pair:
+1. hold [1] or [2] 3 seconds
+2. hold [fn]+[p] or hold [fn]+[o] 3 seconds
+
+## reset all:
+1. power off to on
+2. press esc o esc o esc b
+3. hold [fn]+[p] or hold [fn]+[o] 3 seconds
