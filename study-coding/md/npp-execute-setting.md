@@ -11,7 +11,7 @@
 ![](images/nppExec/nppExec-02.png)
 3. 按 [是]
 ![](images/nppExec/nppExec-03.png)
-4. 重啟Notepad++ 按 [F6] 開啟 Execute... 視窗 在裡面輸入 python "$(FULL_CURRENT_PATH)" 然後按 [Save...]
+4. 重啟Notepad++ 按 [F6] 開啟 Execute... 視窗 在裡面輸入 python "$(FULL_CURRENT_PATH)" 或 cmd.exe /K "cd /D "$(CURRENT_DIRECTORY)" & python "$(FULL_CURRENT_PATH)"" 然後按 [Save...]
 ![](images/nppExec/nppExec-04.png)
 5. 在Script name:裡輸入 Python 然後按 [Save]
 ![](images/nppExec/nppExec-05.png)
