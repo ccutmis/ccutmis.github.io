@@ -14,7 +14,8 @@ $.ajax({
         $("#md_content a").addClass("text-reset btn btn-secondary");
         $("#md_content table").addClass("w-75 mx-auto text-white-50");
         $("#md_content table tr td").addClass("p-2 border text-info");
-        $("#md_content p,#md_content ol li,#md_content ol li").addClass("text-info p-3");
+        $("#md_content p,#md_content ol li,#md_content ol li ,#md_content ul li,#md_content ul li").addClass("text-white p-3");
+		$("#md_content code").addClass("text-warning");
         $("blockquote p").removeClass("text-info").addClass("bg-dark text-white-50 mx-3 rounded");
         $("pre").addClass("bg-dark p-2 rounded");
         $("pre code").addClass("bg-dark text-white-50");
