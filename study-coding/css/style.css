@@ -1,4 +1,4 @@
-*,html,body{background:#333;font-size:1.2em;}
-hr {margin: 1rem;border: 0;border-top: 1px solid rgba(255, 255, 255, 0.5);}
+*,html,body{background:#333;font-size:1.1em;line-height:1.5em;}
+hr {margin: 1em;border: 0;border-top: 1px solid rgba(255, 255, 255, 0.5);font-size:1.5em;line-height:1.8em;}
 h1{color:#fff !important;}
-img{border:solid 5px #fff !important;outline:solid 5px #999;margin:1em !important;display:inline-block !important;}
+img{border:solid 5px #fff !important;outline:solid 5px #999;margin:1.2em !important;display:inline-block !important;}
