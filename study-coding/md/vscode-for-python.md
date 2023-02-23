@@ -108,5 +108,8 @@ MOVE & COPY | Alt + Shift + Arrow_UP or Arrow_DOWN
 HIGHTLIGHT LINE | Ctrl + L and L(for more lines...)
 TOGGLE COMMENTS | Ctrl + / (after HIGHTLINE LINES)
 
+參考影片教學:
+
+https://www.youtube.com/watch?v=ifTF3ags0XI
 
 -----
