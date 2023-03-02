@@ -88,25 +88,52 @@ print("Hello World!")
 在看vs_code 常用快捷鍵之前先熟悉一下整個介面，可以通過右上角的自訂版面圖示，將介面玩轉一下有個概念，再記快捷鍵才不會一頭霧水。
 (註 : 每個人使用軟體的習慣不同，當你用一段時間後你也會有你的常用快捷鍵清單，這裡只是列出筆者覺得對新手而言會常用到的)
 
-說明 | 快捷鍵 
-:-----|:-----
-下方面板 顯示或隱藏 | Ctrl + J 
-主要提要欄位 | Ctrl + B 
-全螢幕顯示切換 | F11 
-開啟資料夾 | Ctrl(按住)然後按 K 再按 O 然後放開 Ctrl ( Ctrl + K  and O )
-關閉資料夾 | Ctrl(按住)然後按 K 然後放開 Ctrl 再按 F  ( Ctrl + K then  F ) 
-開啟最近使用檔案 | Ctrl + R (記憶詞: Recently 最近的 )
-欄選取模式(像excel一樣可以垂直選連續欄位) | Shift + Alt +滑鼠左鍵拖曳
-RUN CMD | Ctrl + P 
-Portal 2 Func. | @ (in RUN CMD) 
-Find... | # (in RUN CMD) 
-GOTO LINE | Ctrl + G 
-GROUP EDIT | Ctrl + D 
-SET MULTI CURSORS | Alt + Click 
-MOVE LINE | Alt + Arrow_UP or Arrow_DOWN 
-MOVE & COPY | Alt + Shift + Arrow_UP or Arrow_DOWN 
-HIGHTLIGHT LINE | Ctrl + L and L(for more lines...)
-TOGGLE COMMENTS | Ctrl + / (after HIGHTLINE LINES)
+說明 | 快捷鍵 | 分類
+:-----|:-----|:-----
+命令 | Ctrl+P | 通用
+快捷鍵 | Ctrl+K Ctrl+S | 通用
+上或下移動行 | Alt+↑或↓ | 基本編輯
+上或下複制行 | Alt+Shift+↑或↓ | 基本編輯
+刪除行 | Ctrl+Shift+K | 基本編輯
+跳至匹配的括號 | Ctrl+Shift+\ | 基本編輯
+縮進行 | Ctrl+/或[ | 基本編輯
+折疊區域 | Ctrl+Shift+[ | 基本編輯
+取消折疊區域 | Ctrl+Shift+] | 基本編輯
+切換行註解 | Ctrl+/ | 基本編輯
+切換自動換行 | Alt+Z | 基本編輯
+尋找 | Ctrl+F | 尋找與取代
+取代 | Ctrl+H | 尋找與取代
+下一個/上一個 | F3/Shift+F3 | 尋找與取代
+選擇所有匹配項 | Alt+Enter | 尋找與取代
+將選擇添加到下一個匹配項 | Ctrl+D | 尋找與取代
+將選擇移到下一個匹配項 | Ctrl+K Ctrl+D | 尋找與取代
+切換 區分大小寫/整個單字/RegEX | Alt+C/W/R | 尋找與取代
+插入游標 | Alt+滑鼠左鍵 | 多游標與選擇區
+向上或下插入游標 | Ctrl+Alt+↑或↓ | 多游標與選擇區
+復原上一個游標操作 | Ctrl+U | 多游標與選擇區
+選取行 | Ctrl+L | 多游標與選擇區
+選取所有與當前選取匹配的字串 | Ctrl+Shift+L | 多游標與選擇區
+選取所有與當前選取匹配的單字 | Ctrl+F2 | 多游標與選擇區
+欄選取 | Shift+Alt+按住滑鼠左鍵拖曳 | 多游標與選擇區
+全螢幕顯示切換 | F11 | 顯示
+縮放 | Ctrl+(+/-) | 顯示
+下方面板 顯示或隱藏 | Ctrl + J | 顯示
+側邊欄 | Ctrl + B | 顯示
+開啟資料夾 | Ctrl(按住)然後按 K 再按 O 然後放開 Ctrl | 顯示
+關閉資料夾 | Ctrl(按住)然後按 K 然後放開 Ctrl 再按 F | 顯示
+開啟最近使用檔案 | Ctrl + R | 顯示
+在文件中替換 | Ctrl+Shift+H | 顯示
+搜索詳細信息 | Ctrl+Shift+J | 顯示
+打開Markdown預覽模式 | Ctrl+Shift+V | 顯示
+ZEN模式 | Ctrl+K放開再按Z (按ESC二次退出) | 顯示
+切換斷點 | F9 | 除錯
+開始/繼續 | F5 | 除錯
+停止 | Shift+F5 | 除錯
+步入/步出 | F11/Shift+F11 | 除錯
+Step結束 | F10 | 除錯
+Show Hover | Ctrl+K Ctrl+I | 除錯
+
+-----
 
 * 參考影片教學:
 	* https://www.youtube.com/watch?v=ifTF3ags0XI
