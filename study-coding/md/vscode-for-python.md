@@ -3,11 +3,11 @@
 -----
 
 ## 目錄
-1. [ 安裝 Python ](#ch1)
-2. [ 安裝 Visual Studio Code(之後簡稱vs_code) ](#ch2)
-3. [ 執行 Python 程式(.py 檔案) ](#ch3)
-4. [ 執行 Jupyter notebook 程式(.ipynb 檔案) ](#ch4)
-5. [ vs_code常用快捷鍵  ](#ch5)
+1. [安裝 Python](https://ccutmis.github.io/study-coding/vscode-for-python.htm#ch1)
+2. [安裝 Visual Studio Code(之後簡稱vs_code)](https://ccutmis.github.io/study-coding/vscode-for-python.htm#ch2)
+3. [執行 Python 程式(.py 檔案)](https://ccutmis.github.io/study-coding/vscode-for-python.htm#ch3)
+4. [執行 Jupyter notebook 程式(.ipynb 檔案) ](https://ccutmis.github.io/study-coding/vscode-for-python.htm#ch4)
+5. [vs_code常用快捷鍵](https://ccutmis.github.io/study-coding/vscode-for-python.htm#ch5)
 
 -----
 <a name="ch1"></a>
@@ -149,6 +149,7 @@ Step結束 | F10 | 除錯
 Show Hover | Ctrl+K Ctrl+I | 除錯
 
 -----
+
 <a name="ref_url"></a>
 * 參考影片教學:
 	* https://www.youtube.com/watch?v=ifTF3ags0XI
