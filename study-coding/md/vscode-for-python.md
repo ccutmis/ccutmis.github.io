@@ -3,14 +3,14 @@
 -----
 
 ## 目錄
-1. 安裝 Python
-2. 安裝 Visual Studio Code(之後簡稱vs_code)
-3. 執行 Python 程式(.py 檔案)
-4. 執行 Jupyter notebook 程式(.ipynb 檔案)
-5. vs_code常用快捷鍵
+1. [ 安裝 Python ](#ch1)
+2. [ 安裝 Visual Studio Code(之後簡稱vs_code) ](#ch2)
+3. [ 執行 Python 程式(.py 檔案) ](#ch3)
+4. [ 執行 Jupyter notebook 程式(.ipynb 檔案) ](#ch4)
+5. [ vs_code常用快捷鍵  ](#ch5)
 
 -----
-
+<a name="ch1"></a>
 ### 1. 安裝 Python
 1. 到 Python 官網 https://www.python.org/ 下載 Python 安裝檔，安裝最新版本即可。
 2. 下載完成開始安裝，勾選 Add python.exe to PATH，讓 Python 自動加入 Windows 環境變數。然後點擊 Customize installion (自訂安裝)
@@ -26,7 +26,7 @@
 	![img](images/vscode-for-python/005.png)
 
 -----
-
+<a name="ch2"></a>
 ### 2. 安裝 Visual Studio Code(之後簡稱vs_code)
 1. 到 Vscode 官網 https://code.visualstudio.com/ 下載 visual studio code 的安裝檔。
 2. 下載完成開啟安裝檔，將路徑設為 C:\Microsoft_VS_Code  (注意路徑中不要有空白或-_以外的特殊符號)
@@ -47,7 +47,7 @@
 
 
 -----
-
+<a name="ch3"></a>
 ### 3. 執行 Python 程式(.py 檔案)
 
 1. 開啟檔案總管，在根目錄 C 底下新增一個資料夾 "test123"
@@ -62,7 +62,7 @@
 	![img](images/vscode-for-python/015.png)
 
 -----
-
+<a name="ch4"></a>
 ### 4. 執行 Jupyter notebook 程式(.ipynb 檔案)
 
 1. 在左側的檔案總管裡新增一個文件，命名為"hello.ipynb" (助記: IPYNB 愛py牛逼)
@@ -82,7 +82,7 @@ print("Hello World!")
 寫程式遇到bug不用緊張，那是程式人生的一...一大部份，請依上人的建議: 接受、面對、處理、放下…如果沒辦法自行處理的很正常，上網搜尋、上ithelp發文詢問、或是問chatGPT...Q-Q找答案的過程也是一種樂趣。
 
 -----
-
+<a name="ch5"></a>
 ### 5. vs_code常用快捷鍵
 
 在看vs_code 常用快捷鍵之前先熟悉一下整個介面，可以通過右上角的自訂版面圖示，將介面玩轉一下有個概念，再記快捷鍵才不會一頭霧水。
@@ -92,15 +92,21 @@ print("Hello World!")
 :-----|:-----|:-----
 命令 | Ctrl+P | 通用
 快捷鍵 | Ctrl+K Ctrl+S | 通用
+
+說明 | 快捷鍵 | 分類
+:-----|:-----|:-----
 上或下移動行 | Alt+↑或↓ | 基本編輯
 上或下複制行 | Alt+Shift+↑或↓ | 基本編輯
 刪除行 | Ctrl+Shift+K | 基本編輯
 跳至匹配的括號 | Ctrl+Shift+\ | 基本編輯
-縮進行 | Ctrl+/或[ | 基本編輯
+縮進行 | Ctrl+]或[ | 基本編輯
 折疊區域 | Ctrl+Shift+[ | 基本編輯
 取消折疊區域 | Ctrl+Shift+] | 基本編輯
 切換行註解 | Ctrl+/ | 基本編輯
 切換自動換行 | Alt+Z | 基本編輯
+
+說明 | 快捷鍵 | 分類
+:-----|:-----|:-----
 尋找 | Ctrl+F | 尋找與取代
 取代 | Ctrl+H | 尋找與取代
 下一個/上一個 | F3/Shift+F3 | 尋找與取代
@@ -108,6 +114,9 @@ print("Hello World!")
 將選擇添加到下一個匹配項 | Ctrl+D | 尋找與取代
 將選擇移到下一個匹配項 | Ctrl+K Ctrl+D | 尋找與取代
 切換 區分大小寫/整個單字/RegEX | Alt+C/W/R | 尋找與取代
+
+說明 | 快捷鍵 | 分類
+:-----|:-----|:-----
 插入游標 | Alt+滑鼠左鍵 | 多游標與選擇區
 向上或下插入游標 | Ctrl+Alt+↑或↓ | 多游標與選擇區
 復原上一個游標操作 | Ctrl+U | 多游標與選擇區
@@ -115,6 +124,9 @@ print("Hello World!")
 選取所有與當前選取匹配的字串 | Ctrl+Shift+L | 多游標與選擇區
 選取所有與當前選取匹配的單字 | Ctrl+F2 | 多游標與選擇區
 欄選取 | Shift+Alt+按住滑鼠左鍵拖曳 | 多游標與選擇區
+
+說明 | 快捷鍵 | 分類
+:-----|:-----|:-----
 全螢幕顯示切換 | F11 | 顯示
 縮放 | Ctrl+(+/-) | 顯示
 下方面板 顯示或隱藏 | Ctrl + J | 顯示
@@ -126,6 +138,9 @@ print("Hello World!")
 搜索詳細信息 | Ctrl+Shift+J | 顯示
 打開Markdown預覽模式 | Ctrl+Shift+V | 顯示
 ZEN模式 | Ctrl+K放開再按Z (按ESC二次退出) | 顯示
+
+說明 | 快捷鍵 | 分類
+:-----|:-----|:-----
 切換斷點 | F9 | 除錯
 開始/繼續 | F5 | 除錯
 停止 | Shift+F5 | 除錯
@@ -134,7 +149,7 @@ Step結束 | F10 | 除錯
 Show Hover | Ctrl+K Ctrl+I | 除錯
 
 -----
-
+<a name="ref_url"></a>
 * 參考影片教學:
 	* https://www.youtube.com/watch?v=ifTF3ags0XI
 
