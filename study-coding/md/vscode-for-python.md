@@ -21,7 +21,7 @@
 
 ![img](images/vscode-for-python/002.png)
 
-4. 勾選全部項目，然後將安裝位置設定到根目錄，例如 C:\Python310 ，路徑中不要有空白或-_以外的特殊符號，確定無誤後按 Install 開始安裝。
+4. 勾選全部項目，然後將安裝位置設定到根目錄，例如 C:\Python\Python310 ，路徑中不要有空白或-_以外的特殊符號，確定無誤後按 Install 開始安裝。
 
 ![img](images/vscode-for-python/003.png)
 
